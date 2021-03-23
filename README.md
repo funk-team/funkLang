@@ -129,38 +129,32 @@ As we have developed funk we have become more convinced visual development is th
 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-**The best way to get started is to book an onboarding call with a core funkLang contributor {LINK}**
+**The best way to get started is to book an onboarding call with a core funkLang contributor [Jan](https://koalendar.com/events/meet-with-jan-wirth) or David {LINK}**
 
 1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
+2. Create your Feature Branch (`git checkout -b gh-123-my-feature` or `git checkout -b no-issue-refactor-something`)
+3. Commit your Changes (`git commit -m 'GH-123: Add my feature'` or `git commit -m 'no-issue: Refactor something'`)
+4. Push to the Branch (`git push origin no-issue-refactor-something`)
 5. Open a Pull Request
 
 
-### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+### Installation and Starting the project
 
-### Installation
+This project runs on node. We develop funk using node version 15.
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```JS
-   const API_KEY = 'ENTER YOUR API';
-   ```
+```sh
+git clone git@github.com:funk-team/funkLang.git
+cd funkLang
+npm install
+
+# run development environment
+npm start
+
+# run unit tests
+npm run tdd-elm
+
+```
 
 ## 5. License
 
@@ -181,7 +175,7 @@ LinkedIn
 * [David Beesley](https://www.linkedin.com/in/davidjbeesley/)
 * [Jan Wirth](https://www.linkedin.com/in/janwirth/)
 
-If you ever want to chat about life, love or funk, [book a video call](https://calendly.com/david-beesley-funk/beta-program/) with David anytime you want.
+If you ever want to chat about life, love or funk, book a video call with [David](https://calendly.com/david-beesley-funk/beta-program/) or [Jan](https://koalendar.com/events/meet-with-jan-wirth) anytime you want.
 
 
 
