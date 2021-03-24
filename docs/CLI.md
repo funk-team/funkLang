@@ -13,7 +13,120 @@ In addition to just syncing the funk specification you will also be able to writ
 
 Needless to say this kind of browser to text editor binding is difficult to build as we need to replicate a filesystem in the browser which also works with our backend and your text editor. We have a built a POC for the CLI and plan to release a beta of it as soon as possible. If you would like to help build or test it please get in touch on Slack or Twitter.
 
-## 5. CLI status
+## Example funk spec
+
+This is a work in progress outline of what we want the funk spec should look like. We are open to suggestions about how it should be formatted and look/feel.
+
+`state.yaml`
+
+```yaml
+dataSources:
+      counter:
+    type: State Int
+    init: 0
+    action:
+      Increment: @builtin/arithmetics/add(1)
+      Decrement: @builtin/arithmetics/subtract(1)
+  login:
+    type: Auth
+    endpoints:
+      user:
+        type: Nullable
+        output:
+          name: string
+          id: UserId
+  imdb:
+    types:
+      MovieId: String
+    type: HttpAPI
+    baseUrl: @config/env/imdbBaseApi
+    endpoints:
+      movies:
+        realTime: false
+        input:
+          name: String
+        output:
+          list(movie in response.data.whatever.path.to.the.payload):
+            name: movie.name : String
+            rating: movie.rating : Int 1-5
+            id: movie.id : MovieId
+      movie:
+        input:
+          id: MovieId
+        output:
+          name: .name
+          rating: .rating
+```
+
+`view.yaml`
+
+```yaml
+views:
+  titleBar:
+    els:
+      logo:
+        type: @builtin/image
+        content:
+          image: staticAssets/logo
+      userPanel:
+        fallbackForNull: @views/loginButton
+        type: @builtin/text
+        content:
+          text: @dataSources/login/user.name
+  movieDetails:
+    requiredContext:
+      @dataSources.imdb.MovieId
+    els:
+      coverArt:
+        content:
+          image: @dataSources/imdb/movie.coverArt
+      rating:
+        els:
+          improveRatingButton:
+            content:
+              text: Rating +1
+            action:
+              @dataSources.counter.increment
+  movieOverview:
+    els:
+      results:
+        repeatOn: for movie in dataSources.imdb.movies(query: 'david')
+        repeatWith:
+          els:
+            movieTitle:
+              description: The title of a single movie in the search results list
+              type: @builtin/text
+              layout: ...
+              styles: ...
+              content:
+                text: @movie.name
+            linkToMovie:
+              description: A link the user can click to go to the movie
+              type: @builtin/button
+              content:
+                text: 'details'
+              action:
+                navigateTo: @views/movieDetails/movie.id
+```
+
+`features.yaml`
+
+```yaml
+auth:
+    providers:
+        google: true
+        facebook: false
+        email/password: true
+    two-factor: true
+    whitelines: david@funk.app
+    only-password: 12345
+full-text-search:
+    indexes:
+        movies: @dataSources/imdb
+```
+
+
+## 2. CLI status
 
 Issues related to the funk CLI are tagged with CLI, view them here [here](https://github.com/funk-team/funkLang/labels/CLI)
 
