@@ -1,0 +1,10 @@
+{
+    "name": "hybrids-children-factory",
+    "version": "0.0.0",
+    "private": true,
+    "dependencies": {
+        "@webcomponents/webcomponentsjs": "^2.2.10",
+        "hybrids": "^4.0.2",
+        "parcel-bundler": "^1.12.4"
+    }
+}

@@ -1,0 +1,45 @@
+/* Additional styles for funk UI framework */
+
+.funk-table tr {
+    border-radius: 10px;
+}
+.funk-table tr:hover td {
+    background-color: var(--slighter-accent);
+}
+.funk-table tr:hover .funk-table-line {
+    opacity: 0;
+}
+.funk-table tr:hover .funk-table-button {
+    opacity: 1;
+}
+.funk-table tr .funk-table-button-no-hover {
+    opacity: 1;
+}
+.funk-table table {
+    border-spacing: 0px;
+}
+.funk-table td {
+    padding: 0;
+}
+.funk-table td .funk-dropdown-button {
+    padding: 4px 5px;
+}
+.funk-table td .funk-dropdown-button svg {
+    opacity: 0;
+}
+.funk-table td .funk-dropdown-button:hover svg {
+    opacity: 1;
+}
+.funk-table td svg {
+    height: 15px;
+}
+
+.funk-table td:first-child {
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+}
+
+.funk-table td:last-child {
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+}

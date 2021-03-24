@@ -1,0 +1,214 @@
+{
+    "input": {
+        "parentDimensions": {
+            "A1": 906713689,
+            "A2": {
+                "x1": 0,
+                "x2": 320.0000305175781,
+                "y1": 0,
+                "y2": 567.9971313476562
+            }
+        },
+        "siblingsDimensions": [
+            {
+                "A1": 2142956927,
+                "A2": {
+                    "x1": 15.500030517578125,
+                    "x2": 304.4914855957031,
+                    "y1": 21.998565673828125,
+                    "y2": 545.9900207519531
+                }
+            }
+        ],
+        "element": {
+            "shared": {
+                "id": 906713689,
+                "padding": {
+                    "Constructor": "EqualPadding",
+                    "A1": null
+                },
+                "spacing": null,
+                "flow": "Column",
+                "children": {
+                    "Constructor": "AbsoluteChildren",
+                    "A1": [
+                        {
+                            "shared": {
+                                "id": 2142956927,
+                                "padding": {
+                                    "Constructor": "EqualPadding",
+                                    "A1": null
+                                },
+                                "spacing": null,
+                                "flow": "Column",
+                                "children": {
+                                    "Constructor": "AbsoluteChildren",
+                                    "A1": []
+                                },
+                                "label": "",
+                                "kind": {
+                                    "Constructor": "Box"
+                                }
+                            },
+                            "outerGeometry": {
+                                "width": {
+                                    "last": 289,
+                                    "current": {
+                                        "Constructor": "UserInput",
+                                        "A1": "289"
+                                    }
+                                },
+                                "height": {
+                                    "last": 524,
+                                    "current": {
+                                        "Constructor": "UserInput",
+                                        "A1": "524"
+                                    }
+                                },
+                                "x": {
+                                    "last": 15.500015258789062,
+                                    "current": {
+                                        "Constructor": "UserInput",
+                                        "A1": "16"
+                                    }
+                                },
+                                "y": {
+                                    "last": 21.998565673828125,
+                                    "current": {
+                                        "Constructor": "UserInput",
+                                        "A1": "22"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "label": "",
+                "kind": {
+                    "Constructor": "Box"
+                }
+            },
+            "outerGeometry": {
+                "Constructor": "ScreenGeometry",
+                "A1": {
+                    "Constructor": "Preset",
+                    "A1": {
+                        "name": "iPhone SE",
+                        "width": 320,
+                        "height": 568,
+                        "kind": "Phone"
+                    },
+                    "A2": {
+                        "x": 363,
+                        "y": 123
+                    }
+                }
+            }
+        }
+    },
+    "prediction": {
+        "shared": {
+            "id": 906713689,
+            "padding": {
+                "Constructor": "EqualPadding",
+                "A1": null
+            },
+            "spacing": null,
+            "flow": "Row",
+            "children": {
+                "Constructor": "FlowChildren",
+                "A1": [
+                    {
+                        "shared": {
+                            "id": 2142956927,
+                            "padding": {
+                                "Constructor": "EqualPadding",
+                                "A1": null
+                            },
+                            "spacing": null,
+                            "flow": "Column",
+                            "children": {
+                                "Constructor": "AbsoluteChildren",
+                                "A1": []
+                            },
+                            "label": "",
+                            "kind": {
+                                "Constructor": "Box"
+                            }
+                        },
+                        "outerGeometry": {
+                            "size": {
+                                "width": {
+                                    "behavior": {
+                                        "Constructor": "Shrink"
+                                    },
+                                    "minMax": {
+                                        "min": {
+                                            "last": 289,
+                                            "current": {
+                                                "Constructor": "UserInput",
+                                                "A1": "289"
+                                            }
+                                        },
+                                        "max": {
+                                            "last": null,
+                                            "current": {
+                                                "Constructor": "UserInput",
+                                                "A1": ""
+                                            }
+                                        }
+                                    }
+                                },
+                                "height": {
+                                    "behavior": {
+                                        "Constructor": "Shrink"
+                                    },
+                                    "minMax": {
+                                        "min": {
+                                            "last": 524,
+                                            "current": {
+                                                "Constructor": "UserInput",
+                                                "A1": "524"
+                                            }
+                                        },
+                                        "max": {
+                                            "last": null,
+                                            "current": {
+                                                "Constructor": "UserInput",
+                                                "A1": ""
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "alignment": {
+                                "x": "CenterX",
+                                "y": "CenterY"
+                            }
+                        }
+                    }
+                ]
+            },
+            "label": "",
+            "kind": {
+                "Constructor": "Box"
+            }
+        },
+        "outerGeometry": {
+            "Constructor": "ScreenGeometry",
+            "A1": {
+                "Constructor": "Preset",
+                "A1": {
+                    "name": "iPhone SE",
+                    "width": 320,
+                    "height": 568,
+                    "kind": "Phone"
+                },
+                "A2": {
+                    "x": 363,
+                    "y": 123
+                }
+            }
+        }
+    }
+}

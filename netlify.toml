@@ -1,0 +1,5 @@
+[build]
+    functions = "functions"
+    command = "cd ./functions/reverse-proxy/ && CI= npm install && cd ../generated-writer/ && npm install && cd ../../ && CI= npm run build"
+[dev]
+    publish = "build"
