@@ -1,2 +1,39 @@
+# Distribution
+build/
+public/_runtime.html
+
+# elm-package generated files
+elm-stuff
+
+# elm-repl generated files
+repl-temp-*
+
+# Dependency directories
+node_modules
+
 # Desktop Services Store on macOS
 .DS_Store
+
+# elm-verify-examples temp files
+tests/VerifyExamples
+
+# Python cache
+__pycache__
+
+# Python Venv
+funk_python
+
+assets/batman_temp.txt
+
+# Any credentials required for the backend backend/credentials
+credentials
+
+# Auto-generated terraform files
+.terraform
+
+# backend logs & block storage
+/backend/compose_data
+/backend/api/artifact
+
+# e2e test screenshot
+/tests/e2e/failure.png

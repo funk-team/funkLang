@@ -1,0 +1,27 @@
+/* contenteditable placeholder */
+[contenteditable] + span {
+    display: none;
+}
+[contenteditable="true"] {
+    pointer-events: all; /* make sure the span is clickable */
+}
+[contenteditable="true"]:empty + span {
+    pointer-events: all; /* make sure the span is clickable */
+}
+[contenteditable]:empty + span {
+    display: inline-block; /* Display the span when the editable itself has zero size */
+}
+/* focus styles */
+[contenteditable]:empty:focus + span {
+    outline: 1px dashed var(--highlight-solid);
+}
+[contenteditable]:focus {
+    outline: 1px dashed var(--highlight-solid);
+}
+/* click-through for proper mouse event handling for selecting and moving mechanics
+*/
+.pointer-events.none.none.none.none > funk-contenteditable,
+.pointer-events.none.none.none.none > funk-contenteditable *,
+funk-contenteditable:not([contenteditable]) {
+    pointer-events: none;
+}

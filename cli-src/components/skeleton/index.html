@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <script src="index.js"></script>
+        <title>Funk Skeleton</title>
+    </head>
+    <body>
+        <h1>&lt;tab-group&gt; & &lt;tab-item&gt;</h1>
+        <p>
+            This example shows how to use <strong>children</strong> factory to
+            create a pair of custom components working together.
+        </p>
+
+        <section>
+            <h2>Static (in html)</h2>
+            <pre>
+    &lt;tab-group&gt;
+      &lt;tab-item name="" active&gt;...&lt;/tab-item&gt;
+      ...
+    &lt;/tab-group&gt;
+      </pre
+            >
+
+            <section>
+                <!-- code example -->
+                <tab-group>
+                    <tab-item name="One" active>
+                        <p>
+                            This is a paragraph in "One" section
+                        </p>
+                    </tab-item>
+                    <tab-item name="Two">
+                        <p>
+                            This is a paragraph in "Two" section
+                        </p>
+                    </tab-item>
+                    <tab-item name="Three">
+                        <p>
+                            This is a paragraph in "Three" section
+                        </p>
+                    </tab-item>
+                </tab-group>
+                <!-- code example -->
+            </section>
+
+            <p>
+                Click buttons to switch sections. Use developer tools to drag &
+                drop or remove one of the &lt;tab-item&gt; in the
+                &lt;tab-group&gt;.
+            </p>
+        </section>
+
+        <section>
+            <h2>Dynamic (in other custom component)</h2>
+            <pre>&lt;tab-dynamic&gt;...&lt;/tab-dynamic&gt;</pre>
+
+            <section>
+                <!-- code example -->
+                <tab-dynamic></tab-dynamic>
+                <!-- code example -->
+            </section>
+
+            <p>
+                Click "Add item" button to create dynamic sections. Change
+                active section and see changelog below the tab group (by the
+                change custom event listener).
+            </p>
+            <p>
+                Use developer tools to drag & drop or remove one of the
+                &lt;tab-item&gt; in the &lt;tab-group&gt;.
+            </p>
+        </section>
+    </body>
+</html>

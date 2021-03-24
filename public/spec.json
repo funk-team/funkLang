@@ -1,0 +1,999 @@
+{
+    "itemsOnCanvas": [
+        {
+            "shared": {
+                "id": 177524524,
+                "padding": {
+                    "Constructor": "EqualPadding",
+                    "A1": 19
+                },
+                "spacing": 76,
+                "flow": "Column",
+                "children": [
+                    {
+                        "shared": {
+                            "id": 1947396818,
+                            "padding": {
+                                "Constructor": "EqualPadding",
+                                "A1": null
+                            },
+                            "spacing": null,
+                            "flow": "Column",
+                            "children": [],
+                            "absoluteChildren": [],
+                            "label": ""
+                        },
+                        "outerGeometry": {
+                            "size": {
+                                "width": {
+                                    "behavior": {
+                                        "Constructor": "Fill"
+                                    },
+                                    "minMax": {
+                                        "min": null,
+                                        "max": 177
+                                    }
+                                },
+                                "height": {
+                                    "behavior": {
+                                        "Constructor": "Shrink"
+                                    },
+                                    "minMax": {
+                                        "min": 69,
+                                        "max": null
+                                    }
+                                }
+                            },
+                            "alignment": {
+                                "x": "Left",
+                                "y": null
+                            }
+                        }
+                    },
+                    {
+                        "shared": {
+                            "id": 1096778694,
+                            "padding": {
+                                "Constructor": "EqualPadding",
+                                "A1": null
+                            },
+                            "spacing": null,
+                            "flow": "Column",
+                            "children": [],
+                            "absoluteChildren": [
+                                {
+                                    "shared": {
+                                        "id": 1292392533,
+                                        "padding": {
+                                            "Constructor": "EqualPadding",
+                                            "A1": null
+                                        },
+                                        "spacing": null,
+                                        "flow": "Column",
+                                        "children": [],
+                                        "absoluteChildren": [],
+                                        "label": ""
+                                    },
+                                    "outerGeometry": {
+                                        "x1": 57.02461060368076,
+                                        "x2": 1362.741195716236,
+                                        "y1": 70.79611066297417,
+                                        "y2": 397.53626234186817
+                                    }
+                                }
+                            ],
+                            "label": ""
+                        },
+                        "outerGeometry": {
+                            "size": {
+                                "width": {
+                                    "behavior": {
+                                        "Constructor": "Fill"
+                                    },
+                                    "minMax": {
+                                        "min": null,
+                                        "max": null
+                                    }
+                                },
+                                "height": {
+                                    "behavior": {
+                                        "Constructor": "Shrink"
+                                    },
+                                    "minMax": {
+                                        "min": 470,
+                                        "max": null
+                                    }
+                                }
+                            },
+                            "alignment": {
+                                "x": null,
+                                "y": null
+                            }
+                        }
+                    }
+                ],
+                "absoluteChildren": [],
+                "label": "home"
+            },
+            "outerGeometry": {
+                "Constructor": "Preset",
+                "A1": {
+                    "name": "Standard 4k",
+                    "width": 3840,
+                    "height": 2160,
+                    "kind": "BigDesktop"
+                },
+                "A2": {
+                    "x": -76.02463221034043,
+                    "y": 143.27130016236305
+                }
+            }
+        },
+        {
+            "shared": {
+                "id": 291058823,
+                "padding": {
+                    "Constructor": "EqualPadding",
+                    "A1": null
+                },
+                "spacing": null,
+                "flow": "Column",
+                "children": [],
+                "absoluteChildren": [
+                    {
+                        "shared": {
+                            "id": 853681836,
+                            "padding": {
+                                "Constructor": "EqualPadding",
+                                "A1": null
+                            },
+                            "spacing": null,
+                            "flow": "Column",
+                            "children": [],
+                            "absoluteChildren": [],
+                            "label": ""
+                        },
+                        "outerGeometry": {
+                            "x1": 134,
+                            "x2": 782,
+                            "y1": 88.0001447640291,
+                            "y2": 474
+                        }
+                    },
+                    {
+                        "shared": {
+                            "id": 2071500375,
+                            "padding": {
+                                "Constructor": "EqualPadding",
+                                "A1": null
+                            },
+                            "spacing": null,
+                            "flow": "Column",
+                            "children": [],
+                            "absoluteChildren": [
+                                {
+                                    "shared": {
+                                        "id": 1294428534,
+                                        "padding": {
+                                            "Constructor": "EqualPadding",
+                                            "A1": null
+                                        },
+                                        "spacing": null,
+                                        "flow": "Column",
+                                        "children": [],
+                                        "absoluteChildren": [],
+                                        "label": ""
+                                    },
+                                    "outerGeometry": {
+                                        "x1": 179.4999338847574,
+                                        "x2": 908.4999338847574,
+                                        "y1": 119.49993415408545,
+                                        "y2": 284.49993415408545
+                                    }
+                                }
+                            ],
+                            "label": ""
+                        },
+                        "outerGeometry": {
+                            "x1": 134.00016411156867,
+                            "x2": 1222,
+                            "y1": 656,
+                            "y2": 1060
+                        }
+                    }
+                ],
+                "label": "detail"
+            },
+            "outerGeometry": {
+                "Constructor": "Custom",
+                "A1": {
+                    "x1": 3938.0607549020096,
+                    "x2": 7156.127755558442,
+                    "y1": 143.2712219661766,
+                    "y2": 2980.271049113291
+                }
+            }
+        },
+        {
+            "shared": {
+                "id": 651488285,
+                "padding": {
+                    "Constructor": "EqualPadding",
+                    "A1": null
+                },
+                "spacing": null,
+                "flow": "Column",
+                "children": [],
+                "absoluteChildren": [],
+                "label": ""
+            },
+            "outerGeometry": {
+                "Constructor": "Preset",
+                "A1": {
+                    "name": "MacBook Pro",
+                    "width": 1440,
+                    "height": 900,
+                    "kind": "Desktop"
+                },
+                "A2": {
+                    "x": 3938.0607072022285,
+                    "y": -1235.1126856904393
+                }
+            }
+        }
+    ],
+    "contentSources": {
+        "sources": [
+            {
+                "A1": 0,
+                "A2": {
+                    "name": "Unnamed source 1",
+                    "detail": {
+                        "Constructor": "ApiSource",
+                        "A1": {
+                            "treeViewState": null,
+                            "url": "https://api.themoviedb.org/3/movie/330457?api_key=867a2787ab0b26c8f9fc2ae887244a7e",
+                            "request": {
+                                "adult": false,
+                                "backdrop_path": "/xJWPZIYOEFIjZpBL7SVBGnzRYXp.jpg",
+                                "belongs_to_collection": {
+                                    "id": 386382,
+                                    "name": "Frozen Collection",
+                                    "poster_path": "/rpoXnE9UzCbjmINhxIi8bZF557B.jpg",
+                                    "backdrop_path": "/6QonAoIN0jhWZZWZGJswSxHzUnU.jpg"
+                                },
+                                "budget": 150000000,
+                                "genres": [
+                                    {
+                                        "id": 16,
+                                        "name": "Animation"
+                                    },
+                                    {
+                                        "id": 10751,
+                                        "name": "Family"
+                                    },
+                                    {
+                                        "id": 12,
+                                        "name": "Adventure"
+                                    },
+                                    {
+                                        "id": 35,
+                                        "name": "Comedy"
+                                    },
+                                    {
+                                        "id": 14,
+                                        "name": "Fantasy"
+                                    }
+                                ],
+                                "homepage": "https://movies.disney.com/frozen-2",
+                                "id": 330457,
+                                "imdb_id": "tt4520988",
+                                "original_language": "en",
+                                "original_title": "Frozen II",
+                                "overview": "Elsa, Anna, Kristoff and Olaf head far into the forest to learn the truth about an ancient mystery of their kingdom.",
+                                "popularity": 261.841,
+                                "poster_path": "/pjeMs3yqRmFL3giJy4PMXWZTTPa.jpg",
+                                "production_companies": [
+                                    {
+                                        "id": 6125,
+                                        "logo_path": "/tVPmo07IHhBs4HuilrcV0yujsZ9.png",
+                                        "name": "Walt Disney Animation Studios",
+                                        "origin_country": "US"
+                                    },
+                                    {
+                                        "id": 2,
+                                        "logo_path": "/wdrCwmRnLFJhEoH8GSfymY85KHT.png",
+                                        "name": "Walt Disney Pictures",
+                                        "origin_country": "US"
+                                    }
+                                ],
+                                "production_countries": [
+                                    {
+                                        "iso_3166_1": "US",
+                                        "name": "United States of America"
+                                    }
+                                ],
+                                "release_date": "2019-11-20",
+                                "revenue": 1450026933,
+                                "runtime": 104,
+                                "spoken_languages": [
+                                    {
+                                        "iso_639_1": "en",
+                                        "name": "English"
+                                    }
+                                ],
+                                "status": "Released",
+                                "tagline": "The past is not what it seems.",
+                                "title": "Frozen II",
+                                "video": false,
+                                "vote_average": 7.3,
+                                "vote_count": 6274
+                            },
+                            "selection": [
+                                {
+                                    "A1": [
+                                        {
+                                            "Constructor": "ObjectAccessor",
+                                            "A1": "genres"
+                                        }
+                                    ],
+                                    "A2": {
+                                        "name": ".genres",
+                                        "kind": {
+                                            "Constructor": "List",
+                                            "A1": [
+                                                {
+                                                    "A1": [
+                                                        {
+                                                            "Constructor": "ObjectAccessor",
+                                                            "A1": "name"
+                                                        }
+                                                    ],
+                                                    "A2": {
+                                                        "name": ".genres[0].name",
+                                                        "kind": {
+                                                            "Constructor": "Single",
+                                                            "A1": "Text"
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        ],
+        "selectedSource": 0,
+        "menu": null
+    },
+    "dataConnections": [
+        {
+            "A1": 17119110,
+            "A2": {
+                "Constructor": "Media",
+                "A1": {
+                    "Constructor": "ImageSourceAndTitle",
+                    "A1": {
+                        "src": "root>assets/photo5224295135800569554.060e4e9e30bcb9ae675a80328a87a687.jpg",
+                        "title": "photo5224295135800569554.jpg"
+                    }
+                }
+            }
+        },
+        {
+            "A1": 853681836,
+            "A2": {
+                "Constructor": "Static",
+                "A1": {
+                    "Constructor": "ParagraphText",
+                    "A1": "back to home"
+                }
+            }
+        },
+        {
+            "A1": 1096778694,
+            "A2": {
+                "Constructor": "FromApi",
+                "A1": {
+                    "sourceId": 0,
+                    "selectionKind": {
+                        "Constructor": "ApiDataFromApiResponseRoot",
+                        "A1": {
+                            "jsonPath": [
+                                {
+                                    "Constructor": "ObjectAccessor",
+                                    "A1": "genres"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "A1": 1294428534,
+            "A2": {
+                "Constructor": "Static",
+                "A1": {
+                    "Constructor": "ParagraphText",
+                    "A1": "Really back to home"
+                }
+            }
+        },
+        {
+            "A1": 1916148297,
+            "A2": {
+                "Constructor": "Media",
+                "A1": {
+                    "Constructor": "ImageSourceAndTitle",
+                    "A1": {
+                        "src": "root>assets/photo5224295135800569554.060e4e9e30bcb9ae675a80328a87a687.jpg",
+                        "title": "photo5224295135800569554.jpg"
+                    }
+                }
+            }
+        }
+    ],
+    "elementStyles": [
+        {
+            "A1": 313584059,
+            "A2": {
+                "typography": {
+                    "Constructor": "None"
+                },
+                "imageCrop": "Cover",
+                "overrides": {
+                    "background": null,
+                    "shadow": null,
+                    "roundedBorders": null,
+                    "borderSettings": null
+                }
+            }
+        },
+        {
+            "A1": 836411811,
+            "A2": {
+                "typography": {
+                    "Constructor": "None"
+                },
+                "imageCrop": "Cover",
+                "overrides": {
+                    "background": null,
+                    "shadow": null,
+                    "roundedBorders": null,
+                    "borderSettings": null
+                }
+            }
+        },
+        {
+            "A1": 1011233010,
+            "A2": {
+                "typography": {
+                    "Constructor": "None"
+                },
+                "imageCrop": "Cover",
+                "overrides": {
+                    "background": null,
+                    "shadow": null,
+                    "roundedBorders": null,
+                    "borderSettings": null
+                }
+            }
+        },
+        {
+            "A1": 1096778694,
+            "A2": {
+                "typography": {
+                    "Constructor": "None"
+                },
+                "imageCrop": "Cover",
+                "overrides": {
+                    "background": {
+                        "Constructor": "SolidBackground",
+                        "A1": {
+                            "Constructor": "FromSystem",
+                            "A1": {
+                                "Constructor": "Other",
+                                "A1": 0
+                            }
+                        }
+                    },
+                    "shadow": null,
+                    "roundedBorders": null,
+                    "borderSettings": null
+                }
+            }
+        },
+        {
+            "A1": 1294428534,
+            "A2": {
+                "typography": {
+                    "Constructor": "Custom",
+                    "A1": {
+                        "name": "base",
+                        "font": {
+                            "family": "Roboto",
+                            "variants": {
+                                "before": [
+                                    "300italic",
+                                    "300",
+                                    "100italic",
+                                    "100"
+                                ],
+                                "current": "regular",
+                                "after": [
+                                    "italic",
+                                    "500",
+                                    "500italic",
+                                    "700",
+                                    "700italic",
+                                    "900",
+                                    "900italic"
+                                ]
+                            },
+                            "subsets": [
+                                "cyrillic",
+                                "cyrillic-ext",
+                                "greek",
+                                "greek-ext",
+                                "latin",
+                                "latin-ext",
+                                "vietnamese"
+                            ],
+                            "category": "sans-serif"
+                        },
+                        "size": 16,
+                        "lineHeight": null,
+                        "letterSpacing": null,
+                        "alignment": "AlignLeft",
+                        "styles": null,
+                        "color": {
+                            "Constructor": "Standalone",
+                            "A1": {
+                                "hue": 0,
+                                "saturation": 0,
+                                "lightness": 0,
+                                "alpha": 0.6
+                            }
+                        },
+                        "shadow": null,
+                        "weight": "Regular"
+                    }
+                },
+                "imageCrop": "Cover",
+                "overrides": null
+            }
+        },
+        {
+            "A1": 2071500375,
+            "A2": {
+                "typography": {
+                    "Constructor": "None"
+                },
+                "imageCrop": "Cover",
+                "overrides": {
+                    "background": {
+                        "Constructor": "SolidBackground",
+                        "A1": {
+                            "Constructor": "Standalone",
+                            "A1": {
+                                "hue": 0,
+                                "saturation": 0.9750000000000001,
+                                "lightness": 0.45999999999999996,
+                                "alpha": 0.6
+                            }
+                        }
+                    },
+                    "shadow": null,
+                    "roundedBorders": null,
+                    "borderSettings": null
+                }
+            }
+        }
+    ],
+    "actions": [
+        {
+            "A1": 853681836,
+            "A2": {
+                "onClick": {
+                    "Constructor": "GoTo",
+                    "A1": {
+                        "linkLocation": {
+                            "Constructor": "Internal",
+                            "A1": 177524524
+                        },
+                        "openIn": "SameTab"
+                    }
+                }
+            }
+        },
+        {
+            "A1": 1096778694,
+            "A2": {
+                "onClick": {
+                    "Constructor": "GoTo",
+                    "A1": {
+                        "linkLocation": {
+                            "Constructor": "Internal",
+                            "A1": 291058823
+                        },
+                        "openIn": "SameTab"
+                    }
+                }
+            }
+        },
+        {
+            "A1": 2071500375,
+            "A2": {
+                "onClick": {
+                    "Constructor": "GoTo",
+                    "A1": {
+                        "linkLocation": {
+                            "Constructor": "Internal",
+                            "A1": 651488285
+                        },
+                        "openIn": "SameTab"
+                    }
+                }
+            }
+        }
+    ],
+    "designSystem": {
+        "typo": {
+            "h1": {
+                "name": "h1",
+                "font": {
+                    "family": "Roboto",
+                    "variants": {
+                        "before": ["300italic", "300", "100italic", "100"],
+                        "current": "regular",
+                        "after": [
+                            "italic",
+                            "500",
+                            "500italic",
+                            "700",
+                            "700italic",
+                            "900",
+                            "900italic"
+                        ]
+                    },
+                    "subsets": [
+                        "cyrillic",
+                        "cyrillic-ext",
+                        "greek",
+                        "greek-ext",
+                        "latin",
+                        "latin-ext",
+                        "vietnamese"
+                    ],
+                    "category": "sans-serif"
+                },
+                "size": 60,
+                "lineHeight": null,
+                "letterSpacing": null,
+                "alignment": "AlignLeft",
+                "styles": null,
+                "color": {
+                    "Constructor": "Standalone",
+                    "A1": {
+                        "hue": 0,
+                        "saturation": 0,
+                        "lightness": 0,
+                        "alpha": 0.6
+                    }
+                },
+                "shadow": null,
+                "weight": "Regular"
+            },
+            "h2": {
+                "name": "h2",
+                "font": {
+                    "family": "Roboto",
+                    "variants": {
+                        "before": ["300italic", "300", "100italic", "100"],
+                        "current": "regular",
+                        "after": [
+                            "italic",
+                            "500",
+                            "500italic",
+                            "700",
+                            "700italic",
+                            "900",
+                            "900italic"
+                        ]
+                    },
+                    "subsets": [
+                        "cyrillic",
+                        "cyrillic-ext",
+                        "greek",
+                        "greek-ext",
+                        "latin",
+                        "latin-ext",
+                        "vietnamese"
+                    ],
+                    "category": "sans-serif"
+                },
+                "size": 40,
+                "lineHeight": null,
+                "letterSpacing": null,
+                "alignment": "AlignLeft",
+                "styles": null,
+                "color": {
+                    "Constructor": "Standalone",
+                    "A1": {
+                        "hue": 0,
+                        "saturation": 0,
+                        "lightness": 0,
+                        "alpha": 0.6
+                    }
+                },
+                "shadow": null,
+                "weight": "Regular"
+            },
+            "h3": {
+                "name": "h3",
+                "font": {
+                    "family": "Roboto",
+                    "variants": {
+                        "before": ["300italic", "300", "100italic", "100"],
+                        "current": "regular",
+                        "after": [
+                            "italic",
+                            "500",
+                            "500italic",
+                            "700",
+                            "700italic",
+                            "900",
+                            "900italic"
+                        ]
+                    },
+                    "subsets": [
+                        "cyrillic",
+                        "cyrillic-ext",
+                        "greek",
+                        "greek-ext",
+                        "latin",
+                        "latin-ext",
+                        "vietnamese"
+                    ],
+                    "category": "sans-serif"
+                },
+                "size": 20,
+                "lineHeight": null,
+                "letterSpacing": null,
+                "alignment": "AlignLeft",
+                "styles": null,
+                "color": {
+                    "Constructor": "Standalone",
+                    "A1": {
+                        "hue": 0,
+                        "saturation": 0,
+                        "lightness": 0,
+                        "alpha": 0.6
+                    }
+                },
+                "shadow": null,
+                "weight": "Regular"
+            },
+            "bodyCopy": {
+                "name": "Body copy",
+                "font": {
+                    "family": "Roboto",
+                    "variants": {
+                        "before": ["300italic", "300", "100italic", "100"],
+                        "current": "regular",
+                        "after": [
+                            "italic",
+                            "500",
+                            "500italic",
+                            "700",
+                            "700italic",
+                            "900",
+                            "900italic"
+                        ]
+                    },
+                    "subsets": [
+                        "cyrillic",
+                        "cyrillic-ext",
+                        "greek",
+                        "greek-ext",
+                        "latin",
+                        "latin-ext",
+                        "vietnamese"
+                    ],
+                    "category": "sans-serif"
+                },
+                "size": 16,
+                "lineHeight": null,
+                "letterSpacing": null,
+                "alignment": "AlignLeft",
+                "styles": null,
+                "color": {
+                    "Constructor": "Standalone",
+                    "A1": {
+                        "hue": 0,
+                        "saturation": 0,
+                        "lightness": 0,
+                        "alpha": 0.6
+                    }
+                },
+                "shadow": null,
+                "weight": "Regular"
+            },
+            "others": [],
+            "selection": {
+                "Constructor": "H1Selected"
+            },
+            "hoveredElements": [],
+            "fonts": null,
+            "addTypoInput": null
+        },
+        "colorEditor": {
+            "others": [
+                {
+                    "A1": 0,
+                    "A2": {
+                        "label": "Color 0",
+                        "value": {
+                            "hue": 0.63,
+                            "saturation": 0.9682539682539684,
+                            "lightness": 0.6294117647058823,
+                            "alpha": 1
+                        },
+                        "pickerState": null
+                    }
+                }
+            ],
+            "background": {
+                "label": "Background",
+                "value": {
+                    "hue": 0,
+                    "saturation": 0,
+                    "lightness": 1,
+                    "alpha": 1
+                },
+                "pickerState": null
+            },
+            "text": {
+                "label": "Text",
+                "value": {
+                    "hue": 0,
+                    "saturation": 0,
+                    "lightness": 0.2,
+                    "alpha": 1
+                },
+                "pickerState": null
+            },
+            "selection": {
+                "Constructor": "BackgroundSwatchSelected"
+            },
+            "hoveredElements": [],
+            "addSwatchInput": null
+        },
+        "iconBrowser": {
+            "selectedRemoteSet": 0,
+            "remoteSets": [
+                {
+                    "A1": 0,
+                    "A2": {
+                        "repo": "michaelampr/jam",
+                        "sha": "4c148783c30645d0987496f614bb8374f52bd3cf",
+                        "tag": "2.0.0",
+                        "icons": null
+                    }
+                },
+                {
+                    "A1": 1,
+                    "A2": {
+                        "repo": "ionic-team/ionicons",
+                        "sha": "1069d8b4ab2b134fa6952373a78862fcb8f8d28e",
+                        "tag": "5.0.0",
+                        "icons": null
+                    }
+                },
+                {
+                    "A1": 2,
+                    "A2": {
+                        "repo": "feathericons/feather",
+                        "sha": "8263ca93c4b338dcfafed62321c27a88368ba7cc",
+                        "tag": "v4.28.0",
+                        "icons": null
+                    }
+                }
+            ],
+            "projectSets": [
+                {
+                    "A1": 0,
+                    "A2": {
+                        "name": "My first set",
+                        "color": {
+                            "hue": 0.0809968847352025,
+                            "saturation": 0.5376884422110548,
+                            "lightness": 0.6098039215686275,
+                            "alpha": 1
+                        },
+                        "icons": []
+                    }
+                }
+            ],
+            "selectedProjectSet": 0,
+            "searchInput": "",
+            "addProjectSetInput": null,
+            "addRemoteSetInput": null,
+            "newRemoteSet": null,
+            "hoveredElements": null,
+            "colorPalette": {
+                "before": [],
+                "current": {
+                    "hue": 0.2635135135135135,
+                    "saturation": 0.381443298969072,
+                    "lightness": 0.6196078431372549,
+                    "alpha": 1
+                },
+                "after": [
+                    {
+                        "hue": 0.9870689655172414,
+                        "saturation": 0.6516853932584276,
+                        "lightness": 0.6509803921568628,
+                        "alpha": 1
+                    },
+                    {
+                        "hue": 0.5751173708920188,
+                        "saturation": 0.8160919540229892,
+                        "lightness": 0.6588235294117647,
+                        "alpha": 1
+                    },
+                    {
+                        "hue": 0.5185185185185185,
+                        "saturation": 0.469565217391304,
+                        "lightness": 0.5490196078431373,
+                        "alpha": 1
+                    },
+                    {
+                        "hue": 0.10849056603773584,
+                        "saturation": 0.6708860759493671,
+                        "lightness": 0.6901960784313725,
+                        "alpha": 1
+                    },
+                    {
+                        "hue": 0.013888888888888876,
+                        "saturation": 0.4800000000000001,
+                        "lightness": 0.5098039215686274,
+                        "alpha": 1
+                    },
+                    {
+                        "hue": 0.795379537953795,
+                        "saturation": 0.5976331360946743,
+                        "lightness": 0.6686274509803922,
+                        "alpha": 1
+                    },
+                    {
+                        "hue": 0.0809968847352025,
+                        "saturation": 0.5376884422110548,
+                        "lightness": 0.6098039215686275,
+                        "alpha": 1
+                    }
+                ]
+            }
+        },
+        "menu": null
+    },
+    "deployEditor": {
+        "deploy": {
+            "status": {
+                "Constructor": "Deployed",
+                "A1": "navigation-test"
+            },
+            "siteName": "navigation-test"
+        },
+        "menu": null
+    },
+    "modelEditor": {
+        "selectedField": null,
+        "fields": []
+    }
+}

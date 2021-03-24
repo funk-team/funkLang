@@ -1,0 +1,29 @@
+/* common */
+.funk-dropdown-contents {
+    z-index: 1000;
+}
+
+funk-dropdown.closed .funk-dropdown-contents {
+    pointer-events: none !important;
+    opacity: 0;
+}
+
+funk-dropdown.closed .funk-dropdown-contents * {
+    pointer-events: none;
+}
+
+/* base */
+funk-dropdown {
+    user-select: none;
+    position: relative;
+    z-index: 200;
+}
+funk-dropdown.open .funk-dropdown-contents {
+    opacity: 1;
+    pointer-events: all !important;
+    position: relative;
+    z-index: 1000;
+}
+funk-dropdown.open {
+    z-index: 1000;
+}

@@ -1,0 +1,152 @@
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2")
+            format("woff2"),
+        url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff/JetBrainsMono-Regular.woff")
+            format("woff"),
+        url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/ttf/JetBrainsMono-Regular.ttf")
+            format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+html {
+    user-select: none;
+}
+
+:root {
+    --swift-out-easing: cubic-bezier(0.55, 0, 0.1, 1);
+    --swift-in-easing: cubic-bezier(0.9, 0, 0.45, 1);
+}
+
+/* prevent drag on content while the user is editing*/
+[id^="el-"] img {
+    pointer-events: none;
+}
+
+.highlight-secondary {
+    --highlight-solid: var(--highlight-solid-important);
+}
+
+/* outline on the right elm-ui element. Without the class it would target the inner element. */
+
+.outline {
+    outline: 2px solid var(--highlight-solid);
+}
+
+.outline-light {
+    outline: 1px solid var(--highlight-transparent-important);
+}
+
+/* for combined input / button fields as in the API editor */
+.button-context:hover .button-context-icon {
+    opacity: 0.5;
+}
+.button-context-icon.button-context-icon.button-context-icon:hover {
+    opacity: 1;
+}
+
+.input-button-combo.input-button-combo {
+    border-color: transparent;
+}
+.input-button-combo.input-button-combo:hover {
+    border-color: lightgrey;
+}
+.input-button-combo.input-button-combo:hover .input-button-combo-button {
+    opacity: 0.5 !important;
+}
+
+.input-button-combo.input-button-combo:hover .input-button-combo-button:hover {
+    opacity: 1 !important;
+}
+
+code {
+    font-family: "JetBrains Mono";
+}
+
+.funk-input {
+    background: #eee;
+    border: none;
+    padding: 5px;
+    border-radius: 3px;
+    border: 1px solid transparent;
+}
+.funk-input.linked {
+    border-color: var(--highlight-solid);
+}
+
+/* overriding elm-ui styles */
+.funk-input
+    + *
+    .funk-dropdown-button.funk-dropdown-button.funk-dropdown-button {
+    pointer-events: all;
+}
+.funk-input + * .funk-dropdown-button {
+    opacity: 0;
+}
+
+/* fix the dropdown z-index bug */
+.funk-input.funk-input.funk-input + * {
+    z-index: 1000;
+}
+
+.funk-input.funk-input.funk-input + * {
+    pointer-events: none;
+}
+
+.funk-input.funk-input.funk-input + * * {
+    pointer-events: none;
+}
+
+.funk-input.funk-input.funk-input
+    + *
+    funk-dropdown.open
+    .funk-dropdown-contents
+    * {
+    pointer-events: all;
+}
+
+.funk-input:hover + * funk-dropdown.closed .funk-dropdown-button {
+    opacity: 0.5;
+}
+
+.funk-dropdown-button.funk-dropdown-button.funk-dropdown-button:hover {
+    opacity: 1;
+}
+
+funk-dropdown.open .funk-dropdown-button {
+    opacity: 1;
+    color: var(--highlight-solid);
+}
+
+.funk-input.linked + * .funk-dropdown-button {
+    opacity: 0.5;
+    color: var(--highlight-solid);
+}
+
+.funk-project-card-icon {
+    transition: 0.5s all var(--swift-out-easing);
+    transform: translateX(-30px) scale(3);
+    opacity: 0;
+}
+
+.funk-project-card:hover .funk-project-card-icon {
+    transform: scale(3);
+    opacity: 1;
+}
+
+.text-overflow-ellipsis-on-child > * {
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+/* fix full element handle covering contenteditable */
+.funk-text > .bh {
+    z-index: -1 !important;
+}
+
+/* fix color picker not popping out of clip context on safari */
+.funk-colorpicker-thumbnail.funk-colorpicker-thumbnail.funk-colorpicker-thumbnail
+    > .ol {
+    position: fixed;
+}

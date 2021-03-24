@@ -1,0 +1,756 @@
+{
+    "input": {
+        "parentDimensions": {
+            "A1": 1103976648,
+            "A2": {
+                "x1": 0,
+                "x2": 670,
+                "y1": 0,
+                "y2": 69.99996948242188
+            }
+        },
+        "siblingsDimensions": [
+            {
+                "A1": 437357929,
+                "A2": {
+                    "x1": 10,
+                    "x2": 110,
+                    "y1": 10,
+                    "y2": 59.999969482421875
+                }
+            },
+            {
+                "A1": 742520435,
+                "A2": {
+                    "x1": 245,
+                    "x2": 295,
+                    "y1": 10,
+                    "y2": 59.999969482421875
+                }
+            },
+            {
+                "A1": 1631189701,
+                "A2": {
+                    "x1": 310,
+                    "x2": 360,
+                    "y1": 10,
+                    "y2": 59.999969482421875
+                }
+            },
+            {
+                "A1": 1335389247,
+                "A2": {
+                    "x1": 375,
+                    "x2": 425,
+                    "y1": 10,
+                    "y2": 59.999969482421875
+                }
+            },
+            {
+                "A1": 1559180021,
+                "A2": {
+                    "x1": 560,
+                    "x2": 660,
+                    "y1": 10,
+                    "y2": 59.999969482421875
+                }
+            }
+        ],
+        "element": {
+            "shared": {
+                "id": 1103976648,
+                "padding": {
+                    "Constructor": "EqualPadding",
+                    "A1": 0
+                },
+                "spacing": 15,
+                "flow": "Row",
+                "children": {
+                    "Constructor": "AbsoluteChildren",
+                    "A1": [
+                        {
+                            "shared": {
+                                "id": 437357929,
+                                "padding": {
+                                    "Constructor": "EqualPadding",
+                                    "A1": null
+                                },
+                                "spacing": null,
+                                "flow": "Column",
+                                "children": {
+                                    "Constructor": "AbsoluteChildren",
+                                    "A1": []
+                                },
+                                "label": "",
+                                "kind": {
+                                    "Constructor": "Box"
+                                }
+                            },
+                            "outerGeometry": {
+                                "width": {
+                                    "last": 100,
+                                    "current": {
+                                        "Constructor": "UserInput",
+                                        "A1": "100"
+                                    }
+                                },
+                                "height": {
+                                    "last": 49.999969482421875,
+                                    "current": {
+                                        "Constructor": "UserInput",
+                                        "A1": "50"
+                                    }
+                                },
+                                "x": {
+                                    "last": 10,
+                                    "current": {
+                                        "Constructor": "UserInput",
+                                        "A1": "10"
+                                    }
+                                },
+                                "y": {
+                                    "last": 10,
+                                    "current": {
+                                        "Constructor": "UserInput",
+                                        "A1": "10"
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "shared": {
+                                "id": 742520435,
+                                "padding": {
+                                    "Constructor": "EqualPadding",
+                                    "A1": null
+                                },
+                                "spacing": null,
+                                "flow": "Column",
+                                "children": {
+                                    "Constructor": "AbsoluteChildren",
+                                    "A1": []
+                                },
+                                "label": "",
+                                "kind": {
+                                    "Constructor": "Box"
+                                }
+                            },
+                            "outerGeometry": {
+                                "width": {
+                                    "last": 50,
+                                    "current": {
+                                        "Constructor": "UserInput",
+                                        "A1": "50"
+                                    }
+                                },
+                                "height": {
+                                    "last": 49.999969482421875,
+                                    "current": {
+                                        "Constructor": "UserInput",
+                                        "A1": "50"
+                                    }
+                                },
+                                "x": {
+                                    "last": 245,
+                                    "current": {
+                                        "Constructor": "UserInput",
+                                        "A1": "245"
+                                    }
+                                },
+                                "y": {
+                                    "last": 10,
+                                    "current": {
+                                        "Constructor": "UserInput",
+                                        "A1": "10"
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "shared": {
+                                "id": 1631189701,
+                                "padding": {
+                                    "Constructor": "EqualPadding",
+                                    "A1": null
+                                },
+                                "spacing": null,
+                                "flow": "Column",
+                                "children": {
+                                    "Constructor": "AbsoluteChildren",
+                                    "A1": []
+                                },
+                                "label": "",
+                                "kind": {
+                                    "Constructor": "Box"
+                                }
+                            },
+                            "outerGeometry": {
+                                "width": {
+                                    "last": 50,
+                                    "current": {
+                                        "Constructor": "UserInput",
+                                        "A1": "50"
+                                    }
+                                },
+                                "height": {
+                                    "last": 49.999969482421875,
+                                    "current": {
+                                        "Constructor": "UserInput",
+                                        "A1": "50"
+                                    }
+                                },
+                                "x": {
+                                    "last": 310,
+                                    "current": {
+                                        "Constructor": "UserInput",
+                                        "A1": "310"
+                                    }
+                                },
+                                "y": {
+                                    "last": 10,
+                                    "current": {
+                                        "Constructor": "UserInput",
+                                        "A1": "10"
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "shared": {
+                                "id": 1335389247,
+                                "padding": {
+                                    "Constructor": "EqualPadding",
+                                    "A1": null
+                                },
+                                "spacing": null,
+                                "flow": "Column",
+                                "children": {
+                                    "Constructor": "AbsoluteChildren",
+                                    "A1": []
+                                },
+                                "label": "",
+                                "kind": {
+                                    "Constructor": "Box"
+                                }
+                            },
+                            "outerGeometry": {
+                                "width": {
+                                    "last": 50,
+                                    "current": {
+                                        "Constructor": "UserInput",
+                                        "A1": "50"
+                                    }
+                                },
+                                "height": {
+                                    "last": 49.999969482421875,
+                                    "current": {
+                                        "Constructor": "UserInput",
+                                        "A1": "50"
+                                    }
+                                },
+                                "x": {
+                                    "last": 375,
+                                    "current": {
+                                        "Constructor": "UserInput",
+                                        "A1": "375"
+                                    }
+                                },
+                                "y": {
+                                    "last": 10,
+                                    "current": {
+                                        "Constructor": "UserInput",
+                                        "A1": "10"
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "shared": {
+                                "id": 1559180021,
+                                "padding": {
+                                    "Constructor": "EqualPadding",
+                                    "A1": null
+                                },
+                                "spacing": null,
+                                "flow": "Column",
+                                "children": {
+                                    "Constructor": "AbsoluteChildren",
+                                    "A1": []
+                                },
+                                "label": "",
+                                "kind": {
+                                    "Constructor": "Box"
+                                }
+                            },
+                            "outerGeometry": {
+                                "width": {
+                                    "last": 100,
+                                    "current": {
+                                        "Constructor": "UserInput",
+                                        "A1": "100"
+                                    }
+                                },
+                                "height": {
+                                    "last": 49.999969482421875,
+                                    "current": {
+                                        "Constructor": "UserInput",
+                                        "A1": "50"
+                                    }
+                                },
+                                "x": {
+                                    "last": 560,
+                                    "current": {
+                                        "Constructor": "UserInput",
+                                        "A1": "560"
+                                    }
+                                },
+                                "y": {
+                                    "last": 10,
+                                    "current": {
+                                        "Constructor": "UserInput",
+                                        "A1": "10"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "label": "",
+                "kind": {
+                    "Constructor": "Box"
+                }
+            },
+            "outerGeometry": {
+                "Constructor": "AbsoluteElementGeometry",
+                "A1": {
+                    "width": {
+                        "last": 670,
+                        "current": {
+                            "Constructor": "UserInput",
+                            "A1": "670"
+                        }
+                    },
+                    "height": {
+                        "last": 70,
+                        "current": {
+                            "Constructor": "UserInput",
+                            "A1": "70"
+                        }
+                    },
+                    "x": {
+                        "last": 50,
+                        "current": {
+                            "Constructor": "UserInput",
+                            "A1": "50"
+                        }
+                    },
+                    "y": {
+                        "last": 347,
+                        "current": {
+                            "Constructor": "UserInput",
+                            "A1": "347"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "prediction": {
+        "shared": {
+            "id": 1103976648,
+            "padding": {
+                "Constructor": "EqualPadding",
+                "A1": 10
+            },
+            "spacing": 15,
+            "flow": "Row",
+            "children": {
+                "Constructor": "FlowChildren",
+                "A1": [
+                    {
+                        "shared": {
+                            "id": 437357929,
+                            "padding": {
+                                "Constructor": "EqualPadding",
+                                "A1": null
+                            },
+                            "spacing": null,
+                            "flow": "Column",
+                            "children": {
+                                "Constructor": "AbsoluteChildren",
+                                "A1": []
+                            },
+                            "label": "",
+                            "kind": {
+                                "Constructor": "Box"
+                            }
+                        },
+                        "outerGeometry": {
+                            "size": {
+                                "width": {
+                                    "behavior": {
+                                        "Constructor": "Shrink"
+                                    },
+                                    "minMax": {
+                                        "min": {
+                                            "last": 100,
+                                            "current": {
+                                                "Constructor": "UserInput",
+                                                "A1": "100"
+                                            }
+                                        },
+                                        "max": {
+                                            "last": null,
+                                            "current": {
+                                                "Constructor": "UserInput",
+                                                "A1": ""
+                                            }
+                                        }
+                                    }
+                                },
+                                "height": {
+                                    "behavior": {
+                                        "Constructor": "Fill"
+                                    },
+                                    "minMax": {
+                                        "min": {
+                                            "last": 50,
+                                            "current": {
+                                                "Constructor": "UserInput",
+                                                "A1": "50"
+                                            }
+                                        },
+                                        "max": {
+                                            "last": null,
+                                            "current": {
+                                                "Constructor": "UserInput",
+                                                "A1": ""
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "alignment": {
+                                "x": "Left",
+                                "y": "CenterY"
+                            }
+                        }
+                    },
+                    {
+                        "shared": {
+                            "id": 742520435,
+                            "padding": {
+                                "Constructor": "EqualPadding",
+                                "A1": null
+                            },
+                            "spacing": null,
+                            "flow": "Column",
+                            "children": {
+                                "Constructor": "AbsoluteChildren",
+                                "A1": []
+                            },
+                            "label": "",
+                            "kind": {
+                                "Constructor": "Box"
+                            }
+                        },
+                        "outerGeometry": {
+                            "size": {
+                                "width": {
+                                    "behavior": {
+                                        "Constructor": "Shrink"
+                                    },
+                                    "minMax": {
+                                        "min": {
+                                            "last": 50,
+                                            "current": {
+                                                "Constructor": "UserInput",
+                                                "A1": "50"
+                                            }
+                                        },
+                                        "max": {
+                                            "last": null,
+                                            "current": {
+                                                "Constructor": "UserInput",
+                                                "A1": ""
+                                            }
+                                        }
+                                    }
+                                },
+                                "height": {
+                                    "behavior": {
+                                        "Constructor": "Fill"
+                                    },
+                                    "minMax": {
+                                        "min": {
+                                            "last": 50,
+                                            "current": {
+                                                "Constructor": "UserInput",
+                                                "A1": "50"
+                                            }
+                                        },
+                                        "max": {
+                                            "last": null,
+                                            "current": {
+                                                "Constructor": "UserInput",
+                                                "A1": ""
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "alignment": {
+                                "x": "CenterX",
+                                "y": "CenterY"
+                            }
+                        }
+                    },
+                    {
+                        "shared": {
+                            "id": 1631189701,
+                            "padding": {
+                                "Constructor": "EqualPadding",
+                                "A1": null
+                            },
+                            "spacing": null,
+                            "flow": "Column",
+                            "children": {
+                                "Constructor": "AbsoluteChildren",
+                                "A1": []
+                            },
+                            "label": "",
+                            "kind": {
+                                "Constructor": "Box"
+                            }
+                        },
+                        "outerGeometry": {
+                            "size": {
+                                "width": {
+                                    "behavior": {
+                                        "Constructor": "Shrink"
+                                    },
+                                    "minMax": {
+                                        "min": {
+                                            "last": 50,
+                                            "current": {
+                                                "Constructor": "UserInput",
+                                                "A1": "50"
+                                            }
+                                        },
+                                        "max": {
+                                            "last": null,
+                                            "current": {
+                                                "Constructor": "UserInput",
+                                                "A1": ""
+                                            }
+                                        }
+                                    }
+                                },
+                                "height": {
+                                    "behavior": {
+                                        "Constructor": "Fill"
+                                    },
+                                    "minMax": {
+                                        "min": {
+                                            "last": 50,
+                                            "current": {
+                                                "Constructor": "UserInput",
+                                                "A1": "50"
+                                            }
+                                        },
+                                        "max": {
+                                            "last": null,
+                                            "current": {
+                                                "Constructor": "UserInput",
+                                                "A1": ""
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "alignment": {
+                                "x": "CenterX",
+                                "y": "CenterY"
+                            }
+                        }
+                    },
+                    {
+                        "shared": {
+                            "id": 1335389247,
+                            "padding": {
+                                "Constructor": "EqualPadding",
+                                "A1": null
+                            },
+                            "spacing": null,
+                            "flow": "Column",
+                            "children": {
+                                "Constructor": "AbsoluteChildren",
+                                "A1": []
+                            },
+                            "label": "",
+                            "kind": {
+                                "Constructor": "Box"
+                            }
+                        },
+                        "outerGeometry": {
+                            "size": {
+                                "width": {
+                                    "behavior": {
+                                        "Constructor": "Shrink"
+                                    },
+                                    "minMax": {
+                                        "min": {
+                                            "last": 50,
+                                            "current": {
+                                                "Constructor": "UserInput",
+                                                "A1": "50"
+                                            }
+                                        },
+                                        "max": {
+                                            "last": null,
+                                            "current": {
+                                                "Constructor": "UserInput",
+                                                "A1": ""
+                                            }
+                                        }
+                                    }
+                                },
+                                "height": {
+                                    "behavior": {
+                                        "Constructor": "Fill"
+                                    },
+                                    "minMax": {
+                                        "min": {
+                                            "last": 50,
+                                            "current": {
+                                                "Constructor": "UserInput",
+                                                "A1": "50"
+                                            }
+                                        },
+                                        "max": {
+                                            "last": null,
+                                            "current": {
+                                                "Constructor": "UserInput",
+                                                "A1": ""
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "alignment": {
+                                "x": "CenterX",
+                                "y": "CenterY"
+                            }
+                        }
+                    },
+                    {
+                        "shared": {
+                            "id": 1559180021,
+                            "padding": {
+                                "Constructor": "EqualPadding",
+                                "A1": null
+                            },
+                            "spacing": null,
+                            "flow": "Column",
+                            "children": {
+                                "Constructor": "AbsoluteChildren",
+                                "A1": []
+                            },
+                            "label": "",
+                            "kind": {
+                                "Constructor": "Box"
+                            }
+                        },
+                        "outerGeometry": {
+                            "size": {
+                                "width": {
+                                    "behavior": {
+                                        "Constructor": "Shrink"
+                                    },
+                                    "minMax": {
+                                        "min": {
+                                            "last": 100,
+                                            "current": {
+                                                "Constructor": "UserInput",
+                                                "A1": "100"
+                                            }
+                                        },
+                                        "max": {
+                                            "last": null,
+                                            "current": {
+                                                "Constructor": "UserInput",
+                                                "A1": ""
+                                            }
+                                        }
+                                    }
+                                },
+                                "height": {
+                                    "behavior": {
+                                        "Constructor": "Fill"
+                                    },
+                                    "minMax": {
+                                        "min": {
+                                            "last": 50,
+                                            "current": {
+                                                "Constructor": "UserInput",
+                                                "A1": "50"
+                                            }
+                                        },
+                                        "max": {
+                                            "last": null,
+                                            "current": {
+                                                "Constructor": "UserInput",
+                                                "A1": ""
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "alignment": {
+                                "x": "Right",
+                                "y": "CenterY"
+                            }
+                        }
+                    }
+                ]
+            },
+            "label": "",
+            "kind": {
+                "Constructor": "Box"
+            }
+        },
+        "outerGeometry": {
+            "Constructor": "AbsoluteElementGeometry",
+            "A1": {
+                "width": {
+                    "last": 670,
+                    "current": {
+                        "Constructor": "UserInput",
+                        "A1": "670"
+                    }
+                },
+                "height": {
+                    "last": 70,
+                    "current": {
+                        "Constructor": "UserInput",
+                        "A1": "70"
+                    }
+                },
+                "x": {
+                    "last": 50,
+                    "current": {
+                        "Constructor": "UserInput",
+                        "A1": "50"
+                    }
+                },
+                "y": {
+                    "last": 347,
+                    "current": {
+                        "Constructor": "UserInput",
+                        "A1": "347"
+                    }
+                }
+            }
+        }
+    }
+}
