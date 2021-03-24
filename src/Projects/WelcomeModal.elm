@@ -208,7 +208,7 @@ contactScreen =
 
 
 viewImage imageNumber =
-    Element.image [ Element.width Element.fill ] { src = "http://cdn.funklang.com/onboardingVideos/" ++ imageNumber ++ ".png", description = "" }
+    Element.image [ Element.width Element.fill ] { src = "https://cdn.funklang.com/onboardingVideos/" ++ imageNumber ++ ".png", description = "" }
 
 
 viewVideo videoNumber =
@@ -219,7 +219,7 @@ viewVideo videoNumber =
         player =
             Element.html <|
                 Html.video
-                    [ Html.Attributes.src ("http://cdn.funklang.com/onboardingVideos/" ++ videoNumber ++ ".mp4")
+                    [ Html.Attributes.src ("https://cdn.funklang.com/onboardingVideos/" ++ videoNumber ++ ".mp4")
                     , Html.Attributes.style "width" "90%"
                     , Html.Attributes.style "height" "90%"
                     , Html.Attributes.controls False -- html renders empty string per default which means it won't get accepted by firefox
