@@ -20,15 +20,17 @@
   <a href="https://funklang.com">
     <img src="docs/images/funkLogo.png" alt="funkLogo" width="300"
   </a>
-
   <p align="center">
-    Visual FrontEnd Framework - Design, Develop and Deploy complex web applications
+    <a href="https://editor.funklang.com">
+      👉Use the funkLang visual editor 👈
+    </a>
+  </p>
+  <p align="center">
+    Visual FrontEnd Framework - Design 🖍️, Develop 👨‍💻 and Deploy 🌐 complex web applications
     <br />
     <br />
     <img src="docs/images/canvas/responsive-design-funk.gif" alt="funkLogo" width="400">
-
   </p>
-
 </p>
 
 
@@ -47,8 +49,8 @@ funkLang, or funk for short, is an open-source visual frontend framework where y
 
 With funk visual and code workflows always stay in sync so designers, low-code users and developers can work alongside each other accelerating development. funk has a strong emphasis on **simplicity**, **collaboration**, and **freeform** design.
 
-funk is presently in beta so bear with us, there is a lot to build, but we are committed to making funk succeed. You can help us on this journey by:
-1. Signing up, trying out funk and **giving us feedback**
+funk is currently in beta so bear with us, there is a lot to build, but we are committed to making funk succeed. You can help us on this journey by:
+1. [Signing up, trying out funk and giving us feedback](https://editor.funklang.com) 
 2. [Contributing](#4-contributing) to the funk code base
 3. Telling your friends about funk
 4. Following us on [Twitter](https://twitter.com/FunkLng) and chatting to us on [Slack](https://join-slack.builtwithfunk.com/)
@@ -99,9 +101,9 @@ You can also write code to transform data within the funk visual environment. Fo
 
 When you create an app in funk everything about your application is encoded in the funk spec, which at the moment is JSON. We want this to be readable and editable by developers.
 
-The funk spec can be pushed to git and compiled to highly optimised HTML, Js and CSS at build time and depoyed anywhere.
+The funk spec can be pushed to git, compiled to highly optimised HTML, Js and CSS at build time and deployed anywhere.
 
-We don't output code for different frontend framework as it creates many problems such as low code quality, poor readability, difficult integration and breaking changes between visual and code environments. Some tools try to migrate these problems by creating CSS frameworks and their own state management engines. Build a visual layers on-top of fremaworks which are only designed for code workflows is always going to cause problems (trust us we tried). We want projects built with funk to be stable and performant - we don't believe this is possible by generating code for other frameworks.
+We don't output code for different frontend framework as it creates many problems such as low code quality, poor readability, difficult integration and breaking changes between visual and code environments. Some tools try to migrate these problems by creating CSS frameworks and their own state management engines. Building a visual layers on-top of fremaworks which are only designed for code workflows is always going to cause problems (trust us we tried). We want projects built with funk to be stable and performant - we don't believe this is possible by generating code for other frameworks.
 
 
 ## Built With funk
@@ -120,16 +122,16 @@ Here are some example sites we've built with funk, they were all built without t
 
 ## 3. Why we built funk
 
-[David Beesley](https://twitter.com/david_jb99) and [Jan Wirth](https://twitter.com/yung_wirth), the co-founders of funk, are both developers. We've worked for large enterprise and small startups. We built funk as we could see the benefits of low-code but were disappointed by the closed-source alternatives which are heavily templated, slow, expensive and generally treat developers like second class citizens. We saw very little innovation with existing tools and decided to build something radically different.
+The founders of funk ([David Beesley](https://twitter.com/david_jb99) and [Jan Wirth](https://twitter.com/yung_wirth)) are both developers. We've worked for large enterprise and small startups. We built funk as we could see the benefits of low-code but were disappointed by the closed-source alternatives that are heavily templated, slow, expensive and generally treat developers like second class citizens. We saw very little innovation with existing tools and decided to build something radically different.
 
-As we have developed funk we have become more convinced visual development is the way forward not just for low-code users but developers too. The productivity gains are massive as is the speed of innovation. We see visual development argumenting developers existing workflows allowing them to work faster and smarter in more diversely skilled teams.
+As we developed funk we became more convinced visual development is the way forward not just for low-code users but developers too. The productivity gains are massive as is the speed of innovation. We see visual development argumenting developers existing workflows allowing them to work faster and smarter in more diversely skilled teams.
 
 
 ## 4. Contributing
 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-**The best way to get started is to book an onboarding call with a core funkLang contributor [Jan](https://koalendar.com/events/meet-with-jan-wirth) or David {LINK}**
+**The best way to get started is to book an onboarding call with a core funkLang contributor [Jan](https://koalendar.com/events/meet-with-jan-wirth)**
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b gh-123-my-feature` or `git checkout -b no-issue-refactor-something`)
@@ -158,7 +160,11 @@ npm run tdd-elm
 
 ## 5. License
 
-funkLang is distributed under the GNU v3 License. See `LICENSE` for more information. We choose this licence as it's used by some of the most successful open-source projects in the world. We will provide a hosted version of funkLang to enable us to work full time on this project.
+funkLang is distributed under the GNU v3 License. See `LICENSE` for more information. We choose this licence as it's used by some of the most successful open-source projects in the world, including WordPress.
+
+Software licensed with any GNU license can be used and even modified everywhere, including in a corporate environment, without any restrictions. However be aware that if you (or the company) ever make changes to the funkLang and want to distribute it, it must be distributed with full source code, on the same license terms as the original software [source](https://opensource.stackexchange.com/a/1400).
+
+We choose GNU to ensure funkLang always remains free and open. Code which funkLang outputs and extensions you build for funkLang can be licensed using any licence you wish. If you have any questions about the licence please contact us.
 
 
 <!-- CONTACT -->
@@ -197,7 +203,7 @@ We are grateful for the support of the German government who provided financing 
 [stars-url]: https://github.com/funk-team/funkLang
 
 [license-shield]: https://img.shields.io/github/license/funk-team/funkLang?style=flat
-[license-url]: https://github.com/funk-team/funkLang/blob/master/LICENSE.txt
+[license-url]: https://github.com/funk-team/funkLang/blob/master/LICENSE
 
 [slack-shield]: https://img.shields.io/badge/-Slack-black.svg?style=flat&logo=slack&colorB=555
 [slack-url]: https://join-slack.builtwithfunk.com/
