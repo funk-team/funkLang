@@ -22,14 +22,14 @@
   </a>
   <p align="center">
     <a href="https://editor.funklang.com">
-      👉Use the funkLang visual editor 👈
+      👉 Use the funkLang visual editor  👈
     </a>
   </p>
   <p align="center">
-    Visual FrontEnd Framework - Design 🖍️, Develop 👨‍💻 and Deploy 🌐 complex web applications
+    Visual FrontEnd Framework - Design, Develop‍ and Deploy complex web applications using both code and visual workflows
     <br />
     <br />
-    <img src="docs/images/canvas/responsive-design-funk.gif" alt="funkLogo" width="400">
+    <img src="docs/images/funk-responsive-hero.gif" alt="funkLogo" width="400">
   </p>
 </p>
 
@@ -50,7 +50,7 @@ funkLang, or funk for short, is an open-source visual frontend framework where y
 With funk visual and code workflows always stay in sync so designers, low-code users and developers can work alongside each other accelerating development. funk has a strong emphasis on **simplicity**, **collaboration**, and **freeform** design.
 
 funk is currently in beta so bear with us, there is a lot to build, but we are committed to making funk succeed. You can help us on this journey by:
-1. [Signing up, trying out funk and giving us feedback](https://editor.funklang.com) 
+1. [Signing up, trying out funk and giving us feedback](https://editor.funklang.com)
 2. [Contributing](#4-contributing) to the funk code base
 3. Telling your friends about funk
 4. Following us on [Twitter](https://twitter.com/FunkLng) and chatting to us on [Slack](https://join-slack.builtwithfunk.com/)
