@@ -8,7 +8,7 @@ import Element.Input
 import Html
 import Html.Attributes
 import Projects.Msg
-import SupportSection
+import SupportSection.Components
 import Ui.Component
 import Ui.Style
 
@@ -202,8 +202,8 @@ renderMultipleText text =
 
 contactScreen =
     Element.wrappedRow [ Element.spacing 20, Element.centerX, Element.paddingEach { top = 40, bottom = 40, left = 0, right = 0 } ]
-        [ Element.el [ Element.centerX ] <| SupportSection.slack
-        , Element.el [ Element.centerX ] <| SupportSection.twitter
+        [ Element.el [ Element.centerX ] <| SupportSection.Components.slack
+        , Element.el [ Element.centerX ] <| SupportSection.Components.twitter
         ]
 
 
