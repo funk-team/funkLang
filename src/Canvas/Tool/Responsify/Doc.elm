@@ -1,4 +1,4 @@
-module Canvas.Tool.Responsify.Doc where
+module Canvas.Tool.Responsify.Doc exposing (..)
 
 {-| The responsify engine takes as input a set of drawn rectangles,
 arranged as a containing parent rectangle and an unorder collection of
@@ -21,12 +21,12 @@ flow element representing the responsified layout.
 
 Rules are composed of two parts:
 
- - A *matcher*, which decides whether the rule is applicable to a
-   particular layout of static elements.
+  - A _matcher_, which decides whether the rule is applicable to a
+    particular layout of static elements.
 
- - A *transform*, which is applied if the rule is found to be
-   applicable, and which turns the static layout of rectangles into a
-   dynamic flow layout.
+  - A _transform_, which is applied if the rule is found to be
+    applicable, and which turns the static layout of rectangles into a
+    dynamic flow layout.
 
 
 # Matching with facts
@@ -34,16 +34,16 @@ Rules are composed of two parts:
 The matcher part of a rule works by collecting a set of information
 about the static layout. This information comes in three types:
 
- - *Facts* are boolean-valued information, e.g. are all the child
-   elements horizontally centred in the parent element?, do the
-   elements overlap in either the x- or y-direction?, and so on.
+  - _Facts_ are boolean-valued information, e.g. are all the child
+    elements horizontally centred in the parent element?, do the
+    elements overlap in either the x- or y-direction?, and so on.
 
- - *Parameters* are integer-valued information, e.g. if the child
-   elements are divided into two distinct groups in one direction, how
-   many elements are in the first group and how many in the second?
+  - _Parameters_ are integer-valued information, e.g. if the child
+    elements are divided into two distinct groups in one direction, how
+    many elements are in the first group and how many in the second?
 
- - *Dimensions* are float-valued information, e.g. what is the minimum
-   spacing between elements in the "along-axis" direction?
+  - _Dimensions_ are float-valued information, e.g. what is the minimum
+    spacing between elements in the "along-axis" direction?
 
 As this information is collected, each particular piece of information
 is memoised using a simple state monad, implemented in
@@ -82,20 +82,20 @@ functions that set up alignment, size and so on for each child element
 in a layout. These functions are all specialisations of a generic
 `transform` function, which takes the following arguments:
 
- - A *configuration record*, which defines the flow direction (row or
-   column), spacing, a sort criterion for ordering child elements and
-   a function to modify padding information for specific cases.
+  - A _configuration record_, which defines the flow direction (row or
+    column), spacing, a sort criterion for ordering child elements and
+    a function to modify padding information for specific cases.
 
- - A *flow builder*, which is a function that is passed information
-   about each child in turn and returns the alignment and size
-   information for the child. The flow builder function is also passed
-   the information collected during the rule matching process, since
-   this is useful for some layouts. For some rules, extra information
-   is needed for each child element to make the determination of
-   positioning.
+  - A _flow builder_, which is a function that is passed information
+    about each child in turn and returns the alignment and size
+    information for the child. The flow builder function is also passed
+    the information collected during the rule matching process, since
+    this is useful for some layouts. For some rules, extra information
+    is needed for each child element to make the determination of
+    positioning.
 
- - An *extras generator*, which is a function of type `TransformExtras
-   a`, that creates the extra information needed by the flow builder.
+  - An _extras generator_, which is a function of type `TransformExtras
+    a`, that creates the extra information needed by the flow builder.
 
 For example, there is a specialisation called
 `indexedColumnTransform`, which generates a column layout and passes
@@ -127,6 +127,7 @@ A number of special case rules are defined. Two examples are given
 here, but the rest can be seen in the modules with names of the form
 `Canvas.Tool.Responsify.Rules.Foo`.
 
+
 ## Singleton
 
 The simplest case is the situation where a parent element has a single
@@ -142,6 +143,7 @@ However, additional informatiojn is collected during the matching
 process to determine the gravity of the child element within the
 parent, and this information is later used during the transformation
 process to decide on how to align and pad the child within the parent.
+
 
 ## Gapped row
 
@@ -168,34 +170,34 @@ information is memoised and is used later in the transform step.
 
 If none of the special cases apply, but the layout is identifiable as
 a row or column, then an appropriate fallback rule is applied. These
-rules (should) follow these general principles (*this is still being
+rules (should) follow these general principles (_this is still being
 worked on, so these principles should be viewed as aspirational for
-the moment*):
+the moment_):
 
-0. Applying responsify should not change the size, position or spacing
-   of user-drawn elements, unless the positions of the elements are
-   close to alignment (side or centre) in the parent element and
-   applying responsive settings would only move the elements a small
-   distance.
+1.  Applying responsify should not change the size, position or spacing
+    of user-drawn elements, unless the positions of the elements are
+    close to alignment (side or centre) in the parent element and
+    applying responsive settings would only move the elements a small
+    distance.
 
-1. Fallback row or column layouts should ensure that elements remain
-   the same size as they were drawn with the correct spacing.
+2.  Fallback row or column layouts should ensure that elements remain
+    the same size as they were drawn with the correct spacing.
 
-2. If it is possible to position an element using alignment, padding
-   should not be applied. Also, David says: "There should almost
-   always be alignment settings instead of padding, positioning things
-   with padding results in the element not being responsive and
-   difficult to position."
+3.  If it is possible to position an element using alignment, padding
+    should not be applied. Also, David says: "There should almost
+    always be alignment settings instead of padding, positioning things
+    with padding results in the element not being responsive and
+    difficult to position."
 
-3. Dimensions should shrink to the size they are drawn, except in
-   cases where there would be empty space the element could take up,
-   in which case they should fill.
+4.  Dimensions should shrink to the size they are drawn, except in
+    cases where there would be empty space the element could take up,
+    in which case they should fill.
 
-   David: If the element is going to fill it shouldn’t be bigger then
-   what it is drawn as. I’m thinking when you have have a row of three
-   things the last one is should probably be fill as when the user
-   expands the screen they can see the last element is reacting to
-   what they are doing.
+    David: If the element is going to fill it shouldn’t be bigger then
+    what it is drawn as. I’m thinking when you have have a row of three
+    things the last one is should probably be fill as when the user
+    expands the screen they can see the last element is reacting to
+    what they are doing.
 
 
 # Possible approaches for clustering
@@ -203,22 +205,22 @@ the moment*):
 The most general way I've been thinking of clustering goes something
 like this:
 
- - If the layout is identified as a row or column but doesn't match
-   any of the predefined layout cases, then try *along axis slicing*,
-   which means trying to find ways of cutting up the child elements
-   into groups with equal spacing. Those groups can then be injected
-   into clusters.
+  - If the layout is identified as a row or column but doesn't match
+    any of the predefined layout cases, then try _along axis slicing_,
+    which means trying to find ways of cutting up the child elements
+    into groups with equal spacing. Those groups can then be injected
+    into clusters.
 
- - If the layout isn't detected as a row or column (for example,
-   imagine a layout with a row of buttons at the top, and a big
-   drawing area below), then try *orthogonal slicing*, which means
-   trying to partition the children to one side or another of a
-   horizontal or vertical line across the parent. If the children on
-   one side of the slicing line can be recognised as a row or column
-   then cluster them, apply responsify to them and start over from the
-   top (to capture cases where there's a column of rows or similar).
-   If there's no good slicing (with "good" being defined as "try for a
-   bit then give up"), say that there's no recognisable layout.
+  - If the layout isn't detected as a row or column (for example,
+    imagine a layout with a row of buttons at the top, and a big
+    drawing area below), then try _orthogonal slicing_, which means
+    trying to partition the children to one side or another of a
+    horizontal or vertical line across the parent. If the children on
+    one side of the slicing line can be recognised as a row or column
+    then cluster them, apply responsify to them and start over from the
+    top (to capture cases where there's a column of rows or similar).
+    If there's no good slicing (with "good" being defined as "try for a
+    bit then give up"), say that there's no recognisable layout.
 
 I think that approach will capture most of the cases where you have
 something like a navbar, a sidebar, normal form layouts, and so on.

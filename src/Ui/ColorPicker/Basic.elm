@@ -19,7 +19,7 @@ import Color.Extra
 import Element
 import Element.Background
 import Element.Border
-import Html exposing (div, Html)
+import Html exposing (Html, div)
 import Html.Attributes as Attrs
 import Html.Events
 import Json.Decode as Decode exposing (Decoder)
@@ -29,7 +29,6 @@ import Svg.Events as SvgEvents
 import Ui.Dropdown
 import Ui.Input
 import Ui.Style
-
 
 
 {-| The model stores the hue because dark/light colours are otherwise indistinguihsable.

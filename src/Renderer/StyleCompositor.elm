@@ -58,7 +58,7 @@ batch =
 render { shadows, other, imageCrop, background, typoStyles } =
     case shadows of
         [] ->
-                other
+            other
                 ++ background
                 ++ typoStyles
                 ++ (case imageCrop of

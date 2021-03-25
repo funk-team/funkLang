@@ -1,6 +1,6 @@
 export const makeBasicComponent = name => {
-    if (typeof name !== "string") {
-        return [false, name + " must be a string"];
+    if (typeof name !== 'string') {
+        return [false, name + ' must be a string']
     }
     return [
         true,
@@ -21,6 +21,6 @@ export const SimpleCounter = {
 };
 
 define(${name}, SimpleCounter);
-    `
-    ];
-};
+    `,
+    ]
+}

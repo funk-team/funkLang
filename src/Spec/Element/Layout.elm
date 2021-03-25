@@ -29,7 +29,6 @@ flowToLabel f =
 flows =
     [ Column
     , Row
-
     , WrappedRow -- TODO: replace with GRID
     ]
 

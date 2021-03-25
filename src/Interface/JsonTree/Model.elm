@@ -6,8 +6,6 @@ import Json.Encode as Encode
 import Set.Any as Set exposing (AnySet)
 
 
-
-
 {-| The state of the JSON tree view. Note that this is just the runtime state needed to
 implement things like expand/collapse--it is _not_ the tree data itself.
 
@@ -71,7 +69,6 @@ type alias KeyPath =
 type KeyPathComponent
     = ObjectAccessor String
     | IndexAccessor Int
-
 
 
 encodeTree : TaggedValue -> Encode.Value

@@ -1,31 +1,31 @@
 #!/usr/bin/env node
 
-import Elm from "../elm-stuff/cli.js";
-import readline from "readline";
-import Process from "process";
-import * as Server from "./dev.mjs";
+import Elm from '../elm-stuff/cli.js'
+import readline from 'readline'
+import Process from 'process'
+import * as Server from './dev.mjs'
 // import * as Components from "./components.mjs";
-run();
+run()
 
 function run(opts) {
     const program = Elm.Elm.Cli.init({
-        flags: { argv: process.argv, versionMessage: "1.2.3" }
-    });
+        flags: { argv: process.argv, versionMessage: '1.2.3' },
+    })
 
     // program.ports.print.subscribe(message => {
     //     console.log(message);
     // });
     program.ports.printAndExitFailure.subscribe(message => {
-        console.log(message);
-        process.exit(1);
-    });
+        console.log(message)
+        process.exit(1)
+    })
     program.ports.printAndExitSuccess.subscribe(message => {
-        console.log(message);
-        process.exit(0);
-    });
+        console.log(message)
+        process.exit(0)
+    })
     program.ports.dev.subscribe(() => {
-        Server.run();
-    });
+        Server.run()
+    })
     // program.ports.generate.subscribe(componentName => {
     //     console.log("generating", componentName);
     //     generate.componentCreate(componentName);
@@ -35,15 +35,15 @@ function run(opts) {
         const rl = readline.createInterface({
             input: process.stdin,
             output: process.stdout,
-            terminal: false
-        });
+            terminal: false,
+        })
 
-        rl.on("line", function(line) {
-            program.ports.onStdinLine.send(line);
-        });
+        rl.on('line', function (line) {
+            program.ports.onStdinLine.send(line)
+        })
 
-        rl.on("close", function(line) {
-            program.ports.onStdinClosed.send(null);
-        });
+        rl.on('close', function (line) {
+            program.ports.onStdinClosed.send(null)
+        })
     }
 }

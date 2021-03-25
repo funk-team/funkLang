@@ -1,8 +1,9 @@
 module SupportSection.Components exposing (..)
 
-import Ui.Component
 import Element
 import Ui.Boxicons
+import Ui.Component
+
 
 slack =
     buttonWithIcon Ui.Boxicons.bxlSlack "Slack" "https://funklang.slack.com/join/shared_invite/zt-kpufugyf-iaOO9lc1XWcGf_mD6YnNVw#/"
@@ -11,8 +12,10 @@ slack =
 twitter =
     buttonWithIcon Ui.Boxicons.bxlTwitter "Twitter" "https://twitter.com/FunkLng/"
 
+
 gitHubDiscissions =
     buttonWithIcon Ui.Boxicons.bxGit "GitHub Discission" "https://github.com/funk-team/funkLang/discussions/"
+
 
 gitHubRepo =
     buttonWithIcon Ui.Boxicons.bxGit "GitHub" "https://github.com/funk-team/funkLang/"

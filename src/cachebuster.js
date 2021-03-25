@@ -1,17 +1,17 @@
 async function ensureReload() {
-    const cacheName = "workbox-precache-v2-https://alpha.funklang.com/";
+    const cacheName = 'workbox-precache-v2-https://alpha.funklang.com/'
 
-    const registrations = await navigator.serviceWorker.getRegistrations();
+    const registrations = await navigator.serviceWorker.getRegistrations()
 
     for (let registration of registrations) {
-        registration.unregister();
+        registration.unregister()
     }
 
-    const hasCache = await caches.has(cacheName);
+    const hasCache = await caches.has(cacheName)
     if (hasCache) {
-        await caches.delete(cacheName);
-        window.location.reload();
+        await caches.delete(cacheName)
+        window.location.reload()
     }
 }
 
-ensureReload();
+ensureReload()

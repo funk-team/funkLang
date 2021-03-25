@@ -9,40 +9,40 @@
  * <funk-contenteditable text="Lorem ipsum"><span contenteditable="true"></span><span style="opacity: 0.5;">Lorem ipsum</span></funk-contenteditable>
  */
 
-import "./ContentEditable.css";
+import './ContentEditable.css'
 
 class ContentEditable extends HTMLElement {
     static get observedAttributes() {
-        return ["text"];
+        return ['text']
     }
 
     connectedCallback() {
-        const text = this.getAttribute("text");
+        const text = this.getAttribute('text')
         if (text) {
-            this.childrenAsArray[0].innerText = text;
+            this.childrenAsArray[0].innerText = text
         }
-        this.childrenAsArray[1].addEventListener("click", () => {
-            this.childrenAsArray[0].focus();
-        });
+        this.childrenAsArray[1].addEventListener('click', () => {
+            this.childrenAsArray[0].focus()
+        })
 
         // prevent styling
-        this.childrenAsArray[0].addEventListener("keydown", ev => {
+        this.childrenAsArray[0].addEventListener('keydown', ev => {
             if (ev.metaKey) {
-                const stylingHotkeys = ["i", "b", "u"];
+                const stylingHotkeys = ['i', 'b', 'u']
                 if (stylingHotkeys.indexOf(ev.key) > -1) {
-                    ev.preventDefault();
+                    ev.preventDefault()
                 }
             }
-        });
+        })
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
         // do not update if the contenteditable is currently focused and used to author text
         if (document.activeElement == this.childrenAsArray[0]) {
-            return;
+            return
         } else if (this.childrenAsArray[0]) {
-            this.childrenAsArray[0].innerText = newValue;
+            this.childrenAsArray[0].innerText = newValue
         }
     }
 }
-customElements.define("funk-contenteditable", ContentEditable);
+customElements.define('funk-contenteditable', ContentEditable)

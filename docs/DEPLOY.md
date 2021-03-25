@@ -1,7 +1,5 @@
-
 1. [Hosting](#1-hosting-with-funk)
-5. [Status](#5-cli-status)
-
+2. [Status](#5-cli-status)
 
 ## 1. Hosting with funk
 
@@ -13,11 +11,10 @@ At the moment funk renders it's entire runtime when you deploy to our test sub d
 
 We don't expect the complied funk code to be human editable, the funk language will be the way developer interact with funk when not using the visual editor.
 
-
 ## 5. Deploy status
 
 Issues related to the deploying with funk are tagged with Deploy, view them [here](https://github.com/funk-team/funkLang/labels/Deploy)
 
-
 <!-- IMAGES -->
+
 [funk-code-screenshot]: images/cli/funk-cli.png

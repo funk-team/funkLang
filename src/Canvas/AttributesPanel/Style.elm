@@ -620,9 +620,13 @@ viewTypoOptions googleFonts designSystem element styles =
                           else
                             Element.Font.regular
                         ]
-                        (Element.text <| case element.outerGeometry of
-                            Spec.Element.Model.ScreenGeometry _ -> "Screen Typography"
-                            _ -> "Typography"
+                        (Element.text <|
+                            case element.outerGeometry of
+                                Spec.Element.Model.ScreenGeometry _ ->
+                                    "Screen Typography"
+
+                                _ ->
+                                    "Typography"
                         )
 
                     --:: shadowPickerDropDown --@TODO improve dropdown so that it doesn't overflow out of the screen

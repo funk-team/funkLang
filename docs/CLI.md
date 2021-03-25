@@ -1,13 +1,11 @@
-
 1. [funk CLI](#1-funk-cli)
-5. [Status](#5-cli-status)
-
+2. [Status](#5-cli-status)
 
 ## 1. funk CLI
 
 The funk CLI will be used to directly connect a developers text editor to the funk visual web editor. funk outputs the funk specification which at the moment is a JSON file. We want to improve on this and output something which is more akin to a language for hybrid visual code workflows. This way a developer will be able to write code as they do now and work in a more collaborative way with non-developers. We use our own language to ensure anything written in funk will always work with both visual and code workflows.
 
-![funk-CLI][funk-CLI]
+![funk-CLI][funk-cli]
 
 In addition to just syncing the funk specification you will also be able to write custom-web components in your text editor and directly insert them into the funk editor with visual hooks to style and connect data to them. This way we can ensure you will always be able to build what you want with funk, just like you do with React, WordPress or VueJs. An advantage of using web components is they work across frameworks and are typically more performant than frameworks specific components.
 
@@ -125,11 +123,10 @@ full-text-search:
         movies: @dataSources/imdb
 ```
 
-
 ## 2. CLI status
 
 Issues related to the funk CLI are tagged with CLI, view them here [here](https://github.com/funk-team/funkLang/labels/CLI)
 
-
 <!-- IMAGES -->
-[funk-CLI]: images/cli/funk-cli.png
+
+[funk-cli]: images/cli/funk-cli.png

@@ -7,8 +7,6 @@ import Svg
 import Svg.Events as SvgEvents
 
 
-
-
 type alias MouseInfo =
     { x : Int
     , y : Int
@@ -46,8 +44,6 @@ positionAttrs { onMouseDown, onMouseUp, onClick, onMouseMove } =
         |> List.map Element.htmlAttribute
 
 
-
-
 pointCursor =
     Html.Attributes.style "cursor" "pointer"
         |> Element.htmlAttribute
@@ -61,7 +57,6 @@ grabbingCursor =
 addElementCursor =
     Html.Attributes.style "cursor" "copy"
         |> Element.htmlAttribute
-
 
 
 decodeMouseInfo : Decoder MouseInfo

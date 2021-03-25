@@ -19,7 +19,6 @@ import Json.Encode as Encode
 import Ui.ColorPicker.Basic
 
 
-
 type alias PickerState =
     Ui.ColorPicker.Basic.State
 
@@ -54,7 +53,6 @@ type alias Model =
     }
 
 
-
 getSelectedColor : Selection -> Model -> Maybe Color.Color
 getSelectedColor ref model =
     Maybe.map .value <| getSelectedSwatch ref model
@@ -84,6 +82,7 @@ getSelectionList model =
     , TextSwatchSelected
     ]
         ++ otherSelections
+
 
 
 -- [generator-generated-start] -- DO NOT MODIFY or remove this line

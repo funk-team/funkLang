@@ -21,7 +21,7 @@ module SvgParser exposing
 import Combine exposing (..)
 import Combine.Char exposing (anyChar)
 import List.Extra
-import Svg exposing (Attribute, node, Svg, text)
+import Svg exposing (Attribute, Svg, node, text)
 import VirtualDom exposing (attribute)
 
 
@@ -256,7 +256,10 @@ xmlDeclarationParser =
             manyTill anyChar (string "?>")
         )
 
-normalizeQuotes = String.replace "'" "\""
+
+normalizeQuotes =
+    String.replace "'" "\""
+
 
 {-| Parses `String` to `SvgNode`. Normally you will use `parse` instead of this.
 
@@ -265,9 +268,6 @@ normalizeQuotes = String.replace "'" "\""
 
     parseToNodes "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"-2 -1.5 24 24\" width=\"24\" height=\"24\" preserveAspectRatio=\"xMinYMin\" class=\"jam jam-circle-f\"><path d='M10 20.565c-5.523 0-10-4.477-10-10s4.477-10 10-10 10 4.477 10 10-4.477 10-10 10z' /></svg>"
     --> Ok [SvgElement { attributes = [("xmlns","http://www.w3.org/2000/svg"),("viewBox","-2 -1.5 24 24"),("width","24"),("height","24"),("preserveAspectRatio","xMinYMin"),("class","jam jam-circle-f")], children = [SvgElement { attributes = [("d","M10 20.565c-5.523 0-10-4.477-10-10s4.477-10 10-10 10 4.477 10 10-4.477 10-10 10z")], children = [], name = "path" }], name = "svg" }]
-
-
-
 
 -}
 parseToNodes : String -> Result String (List SvgNode)

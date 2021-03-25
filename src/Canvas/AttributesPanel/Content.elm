@@ -36,9 +36,9 @@ import Spec.Element
 import Spec.Element.Id
 import Spec.Element.Model
 import Spec.Mutation
-import Ui.Tabs
 import Ui.Input
 import Ui.Style
+import Ui.Tabs
 
 
 {-| The attributes panel can emit one of two events
