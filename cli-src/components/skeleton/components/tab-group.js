@@ -1,17 +1,17 @@
-import { children, html, dispatch } from "hybrids";
-import TabItem from "./tab-item";
+import { children, html, dispatch } from 'hybrids'
+import TabItem from './tab-item'
 
 // Function factory takes tab name and returns callback
 // which can be added as event listener
 function activate(name) {
     return host => {
         // Set next active element by it's name
-        host.activeItem = name;
+        host.activeItem = name
 
         // After change custom event is dispatched
         // for the user of tab-group element
-        dispatch(host, "change");
-    };
+        dispatch(host, 'change')
+    }
 }
 
 export default {
@@ -24,7 +24,7 @@ export default {
         set: ({ items }, name) =>
             items
                 .filter(item => (item.active = item.name === name))
-                .map(({ name }) => name)[0]
+                .map(({ name }) => name)[0],
     },
     render: ({ items }) => html`
         <style>
@@ -44,5 +44,5 @@ export default {
         </nav>
 
         <slot></slot>
-    `
-};
+    `,
+}

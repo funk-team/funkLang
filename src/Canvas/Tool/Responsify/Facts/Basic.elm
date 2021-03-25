@@ -99,7 +99,7 @@ firstLastSimilarWidth =
                     List.take 1 sortedChildren
                         ++ List.drop (nchildren - 1) sortedChildren
             in
-                allSimilarWith Rectangle.similarWidth firstLast
+            allSimilarWith Rectangle.similarWidth firstLast
 
 
 {-| Fact: child rectangles do not overlap in the x-direction.

@@ -170,7 +170,6 @@ paddingDescription mode =
 
 {-|
 
-
     deriveEachPadding
         (PaddingEach {top = Just 5, bottom = Nothing, left = Just 10, right = Nothing})
     --> {top = 5, bottom = 0, left = 10, right = 0}

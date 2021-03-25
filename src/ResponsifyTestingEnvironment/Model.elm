@@ -25,4 +25,3 @@ init =
         Nothing
         RemoteData.NotAsked
         DisplayOutput
-

@@ -5,16 +5,16 @@ const getElementById = new Proxy(
     {},
     {
         has(_, id) {
-            return true;
+            return true
         },
         get(_, id) {
-            return document.getElementById(id);
-        }
+            return document.getElementById(id)
+        },
     }
-);
+)
 
-const dom = { getElementById };
+const dom = { getElementById }
 
-export default dom;
+export default dom
 
-window.dom = dom;
+window.dom = dom

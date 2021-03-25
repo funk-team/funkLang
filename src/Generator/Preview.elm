@@ -14,11 +14,11 @@ import Generator
 import Http
 import Json.Encode as Encode
 import List.Extra
-import Spec.Element.Id
 import Model
 import Model.Model
 import Pretty
 import Route
+import Spec.Element.Id
 import Ui.Style
 import Url
 
@@ -45,7 +45,7 @@ view ( url, navKey ) screenId userModel =
 
         codePreview =
             userModel.itemsOnCanvas
-                |> List.Extra.find (\{shared} -> shared.id == screenId)
+                |> List.Extra.find (\{ shared } -> shared.id == screenId)
                 |> Maybe.map screenToString
                 |> Maybe.withDefault "Screen not found so I could not generate the code."
                 |> Element.text
@@ -55,7 +55,7 @@ view ( url, navKey ) screenId userModel =
         screen =
             case maybeScreenCode of
                 Nothing ->
-                    Element.text ("No screen code generated")
+                    Element.text "No screen code generated"
 
                 Just rendered ->
                     Element.el
@@ -159,7 +159,6 @@ goToScreen ( url, navKey ) index =
             toScreenPreviewPath url index
     in
     Browser.Navigation.replaceUrl navKey urlStr
-
 
 
 toScreenPreviewPath url index =

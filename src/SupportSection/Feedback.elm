@@ -6,11 +6,12 @@ import Element.Border
 import Element.Font
 import Element.Input
 import RemoteData
+import SupportSection.Components
 import SupportSection.Model exposing (..)
 import SupportSection.Msg exposing (..)
-import SupportSection.Components
 import Ui.Component
 import Ui.Style
+
 
 submitButton model =
     case model.request of
@@ -109,8 +110,8 @@ viewModal model =
                 ]
                 [ viewForm "Feedback" model
                 , buttonRow
-                , Element.paragraph [] [Element.text "...or chat with us using the LIVE CHAT BUTTON in the bottom left. You can also reach out to us using the following social channels..."]
-                , Element.wrappedRow [Element.spacingXY 15 10] [SupportSection.Components.slack, SupportSection.Components.twitter, SupportSection.Components.reddit, SupportSection.Components.gitHubDiscissions]
+                , Element.paragraph [] [ Element.text "...or chat with us using the LIVE CHAT BUTTON in the bottom left. You can also reach out to us using the following social channels..." ]
+                , Element.wrappedRow [ Element.spacingXY 15 10 ] [ SupportSection.Components.slack, SupportSection.Components.twitter, SupportSection.Components.reddit, SupportSection.Components.gitHubDiscissions ]
                 ]
 
         wrappedModal =

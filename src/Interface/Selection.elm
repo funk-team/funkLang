@@ -26,7 +26,10 @@ type alias Selection =
 type alias Node =
     Interface.JsonTree.Model.Node
 
-empty = Dict.Any.empty Interface.JsonTree.Model.keyPathToString
+
+empty =
+    Dict.Any.empty Interface.JsonTree.Model.keyPathToString
+
 
 getRefinementOptions :
     Interface.JsonTree.Model.TaggedValue

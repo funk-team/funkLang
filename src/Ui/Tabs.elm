@@ -4,8 +4,8 @@ module Ui.Tabs exposing (tabs, tabsWithActiveState, tabsWithUnderline)
 -}
 
 import Element
-import Element.Border
 import Element.Background
+import Element.Border
 import Element.Font
 import Element.Input
 import Ui.Style exposing (edges)
@@ -87,7 +87,6 @@ tabWithActiveState t label isSelected isActive =
         { label = content
         , onPress = Just t
         }
-
 
 
 {-| Render tabs with an underline
@@ -186,5 +185,3 @@ tab t label selected =
         { label = content
         , onPress = Just t
         }
-
-

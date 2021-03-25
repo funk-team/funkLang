@@ -5,8 +5,6 @@ import Json.Encode as Encode
 import Url
 
 
-
-
 type alias Protocol =
     Url.Protocol
 
@@ -43,7 +41,6 @@ type alias ParsedUrl =
 type Entry
     = AsInInput String
     | Parameterized String String
-
 
 
 parseUrl : String -> Maybe ParsedUrl

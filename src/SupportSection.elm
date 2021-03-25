@@ -9,10 +9,10 @@ import Json.Decode as Decode
 import Json.Encode as Encode
 import RemoteData
 import RemoteData.Http
+import SupportSection.Components
 import SupportSection.Feedback
 import SupportSection.Model exposing (..)
 import SupportSection.Msg exposing (..)
-import SupportSection.Components
 import SupportSection.Releases
 import Ui.Boxicons
 import Ui.Component
@@ -48,8 +48,6 @@ sendToServer { logRocketUrl, email } message =
 
 
 port gotSessionInfo : (SessionInfo -> msg) -> Sub msg
-
-
 
 
 genericButton action text =
@@ -96,6 +94,7 @@ viewModalDocs model =
                         [ Element.text "Video tutorials, live streams, blog posts and offical documentation written by the funk team!" ]
                     , Element.wrappedRow [ Element.spacing 20, Element.centerX, Element.paddingEach { top = 30, bottom = 10, left = 0, right = 0 } ]
                         [ Element.el [ Element.centerX ] <| docs
+
                         -- , Element.el [ Element.centerX ] <| youTube
                         -- , Element.el [ Element.centerX ] <| blogPosts
                         ]
@@ -106,7 +105,7 @@ viewModalDocs model =
                         , Element.width (Element.px 400)
                         ]
                         [ Element.text "Coming soon -> video guides, blog posts and live building sessions, join our slack group for updates, or follow us on Twitter!" ]
-                    , Element.row [Element.centerX, Element.spacingXY 10 0] [SupportSection.Components.slack, SupportSection.Components.twitter]
+                    , Element.row [ Element.centerX, Element.spacingXY 10 0 ] [ SupportSection.Components.slack, SupportSection.Components.twitter ]
                     ]
                 , closeButtonRight CloseModalButtonClicked
                 ]
@@ -263,7 +262,7 @@ viewModalChangelog model =
                         ]
                         (List.map (\( title, date, changes ) -> mapTextWithSide title date changes) SupportSection.Releases.all)
                     ]
-                , Element.row [Element.width Element.fill] [Element.el [] (SupportSection.Components.gitHubRepo), Element.el [Element.alignRight] (closeButtonRight CloseModalButtonClicked)]
+                , Element.row [ Element.width Element.fill ] [ Element.el [] SupportSection.Components.gitHubRepo, Element.el [ Element.alignRight ] (closeButtonRight CloseModalButtonClicked) ]
                 ]
 
         wrappedModal =
@@ -283,7 +282,6 @@ viewModalChangelog model =
             _ ->
                 Element.none
         )
-
 
 
 viewModalCommunity : Model -> Element.Attribute Msg

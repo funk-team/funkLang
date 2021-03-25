@@ -2,8 +2,6 @@ module Canvas.Tool.Responsify.Rules exposing (Match, MatchResult(..), Rule, Tran
 
 import Canvas.Tool.Responsify.Info exposing (Info)
 import Canvas.Tool.Responsify.Types exposing (Drawn)
-
-
 import Spec.Element.Model exposing (EitherElement)
 import Spec.Model exposing (WithSpec)
 

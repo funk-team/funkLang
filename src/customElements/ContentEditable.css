@@ -2,10 +2,10 @@
 [contenteditable] + span {
     display: none;
 }
-[contenteditable="true"] {
+[contenteditable='true'] {
     pointer-events: all; /* make sure the span is clickable */
 }
-[contenteditable="true"]:empty + span {
+[contenteditable='true']:empty + span {
     pointer-events: all; /* make sure the span is clickable */
 }
 [contenteditable]:empty + span {

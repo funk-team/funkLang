@@ -16,7 +16,7 @@ funk-media-picker {
     flex-direction: column;
 }
 funk-media-picker * {
-    pointer-events: none
+    pointer-events: none;
 }
 
 funk-media-picker:hover,

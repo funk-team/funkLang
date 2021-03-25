@@ -283,7 +283,6 @@ dimName dim =
 
 
 
-
 -- The current information we have about the layout situation as
 -- derived during the rule evaluation process. This information is
 -- maintained as we evaluate rules to avoid repeatedly recalculating

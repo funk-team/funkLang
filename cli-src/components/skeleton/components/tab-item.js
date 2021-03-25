@@ -1,14 +1,8 @@
-import { html } from "hybrids";
+import { html } from 'hybrids'
 
 export default {
-    name: "",
+    name: '',
     active: false,
     // Renders children (<slot/>) if active is set to true
-    render: ({ active }) =>
-        html`
-            ${active &&
-                html`
-                    <slot></slot>
-                `}
-        `
-};
+    render: ({ active }) => html` ${active && html` <slot></slot> `} `,
+}
