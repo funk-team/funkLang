@@ -28,6 +28,7 @@ import Json.Decode as Decode
 import Json.Encode as Encode
 import List.Extra
 import Model.Model exposing (..)
+import Model.Product
 import ModelEditor.Model
 import Preview.Model
 import Projects
@@ -77,7 +78,7 @@ latest model =
         project =
             model.project
                 |> RemoteData.toMaybe
-                |> Maybe.withDefault defaultUndoableUserModel
+                |> Maybe.withDefault (defaultUndoableUserModel model.mode)
     in
     project
         |> .pending
@@ -92,23 +93,32 @@ initModel :
     Flags
     -> Url.Url
     -> Browser.Navigation.Key
-    -> Maybe SavedState
     -> Model
-initModel flags url key savedState =
+initModel flags url key =
     let
+        mode =
+            case flags.mode of
+                "enterprise" ->
+                    Model.Product.Enterprise
+
+                "core" ->
+                    Model.Product.Core
+
+                _ ->
+                    Model.Product.Core
+
+        authentication =
+            case mode of
+                Model.Product.Enterprise ->
+                    Authentication.Undetermined
+
+                Model.Product.Core ->
+                    Authentication.OpenCoreUser
+
         internals : WithInternals {}
         internals =
             { seed = Random.initialSeed flags.seed
-            , mode =
-                case flags.mode of
-                    "enterprise" ->
-                        Model.Model.Enterprise
-
-                    "core" ->
-                        Model.Model.Core
-
-                    _ ->
-                        Model.Model.Core
+            , mode = mode
             , dom = flags.dom
             , responsifyTests = ResponsifyTestingEnvironment.Model.init
             , clipboard = Clipboard.Model.init flags.storage
@@ -119,19 +129,13 @@ initModel flags url key savedState =
             , url = url
             , pressedKeys = []
             , fs = []
-            , authentication = Authentication.Undetermined
+            , authentication = authentication
             , cliConnection = FileSystem.CliConnection.init
             , now = Time.millisToPosix flags.now
             , googleFonts = Google.Fonts.initFonts
             }
     in
-    mapPending initRuntimeModel <|
-        case savedState of
-            Just loaded ->
-                withInternals loaded internals
-
-            Nothing ->
-                withInternals defaultSavedState internals
+    withInternals { project = RemoteData.NotAsked } internals
 
 
 initRuntimeModel : UserModel -> UserModel
@@ -152,19 +156,13 @@ initRuntimeModel =
         }
 
 
-defaultSavedState : SavedState
-defaultSavedState =
-    { project = RemoteData.NotAsked
-    }
-
-
 injectUpdatedSpec : SavedState -> Model -> Model
 injectUpdatedSpec savedState oldState =
     let
         project =
             savedState.project
                 |> RemoteData.toMaybe
-                |> Maybe.withDefault defaultUndoableUserModel
+                |> Maybe.withDefault (defaultUndoableUserModel oldState.mode)
 
         l =
             latest oldState
@@ -211,9 +209,9 @@ withInternals { project } { mode, socialSection, projects, dom, clipboard, cliCo
     }
 
 
-defaultUndoableUserModel : UndoableUserModel
-defaultUndoableUserModel =
-    { timeline = UndoList.fresh (initUserModel freshSpec)
+defaultUndoableUserModel : Model.Product.Mode -> UndoableUserModel
+defaultUndoableUserModel mode =
+    { timeline = UndoList.fresh (initUserModel (freshSpec mode))
     , pending = Nothing
     }
 
@@ -248,8 +246,8 @@ encodeUserModel { modelEditor, codeEditor, itemsOnCanvas, apiExplorer, actions, 
         }
 
 
-freshSpec : Spec.Model.Spec
-freshSpec =
+freshSpec : Model.Product.Mode -> Spec.Model.Spec
+freshSpec mode =
     { itemsOnCanvas = defaultScreens
     , modelEditor = ModelEditor.Model.init
     , codeEditor = CodeEditor.Model.init
@@ -257,7 +255,7 @@ freshSpec =
     , elementStyles = Spec.Element.Id.emptyDict
     , dataConnections = Spec.Element.Id.emptyDict
     , actions = Spec.Element.Id.emptyDict
-    , designSystem = DesignSystem.init () |> Tuple.first
+    , designSystem = DesignSystem.init mode |> Tuple.first
     , deployEditor = DeployEditor.init () |> Tuple.first
     }
 

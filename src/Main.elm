@@ -55,7 +55,7 @@ init flags url key =
                 ]
 
         projectsCmd =
-            case Route.parse url of
+            case Route.parse model.mode url of
                 Route.Home ->
                     Projects.init model.authentication |> Cmd.map Msg.ProjectsMsg
 
@@ -64,10 +64,12 @@ init flags url key =
 
                 _ ->
                     Cmd.none
+
+        -- required for core-only mode - checkout right after initialization
+        ( newModel, newCmd ) =
+            checkout model
     in
-    ( model
-    , cmds
-    )
+    ( newModel, Cmd.batch [ cmds, newCmd ] )
 
 
 update : Msg.Msg -> Model.Model.Model -> ( Model.Model.Model, Cmd Msg.Msg )
@@ -136,7 +138,7 @@ checkoutHook msg ( model, cmd ) =
         ( newModel, newCmd ) =
             case msg of
                 Msg.EditorMsg (Canvas.Msg.UrlChanged url) ->
-                    case Route.parse url of
+                    case Route.parse model.mode url of
                         Route.Project _ _ ->
                             checkout model
 
@@ -165,7 +167,7 @@ checkout : Model.Model.Model -> ( Model.Model.Model, Cmd Msg.Msg )
 checkout model =
     case model.project of
         RemoteData.NotAsked ->
-            case Route.getProjectData model.url of
+            case Route.getProjectData model.mode model.url of
                 Just projectMeta ->
                     ( { model | project = RemoteData.Loading }, Persistence.checkout projectMeta )
 
@@ -207,7 +209,7 @@ view : Model.Model.Model -> Browser.Document Msg.Msg
 view model =
     let
         doc =
-            case Route.parse model.url of
+            case Route.parse model.mode model.url of
                 Route.ResponsifyTestingEnvironment ->
                     { body =
                         ResponsifyTestingEnvironment.view model
@@ -222,10 +224,7 @@ view model =
                     , body =
                         Element.column [ Element.width Element.fill, Element.height Element.fill ]
                             [ Header.view model
-                            , Projects.view
-                                model.now
-                                model.authentication
-                                model.projects
+                            , Projects.view model
                                 |> Element.map Msg.ProjectsMsg
                             ]
                             |> Element.layout [ Element.width Element.fill, Element.height Element.fill ]
@@ -238,7 +237,7 @@ view model =
                             "/preview/" ++ project.projectId ++ "/" ++ project.projectName
                     in
                     Preview.view
-                        (\slug -> Route.makeUrl project (Route.Preview slug))
+                        (\slug -> Route.makeUrl model.mode project (Route.Preview slug))
                         elementId
                         (RemoteData.map (always (Model.latest model)) model.project)
                         |> (\{ body, title } ->
@@ -277,6 +276,9 @@ view model =
                     viewWaiting
 
                 Authentication.LoggedIn userData ->
+                    doc
+
+                Authentication.OpenCoreUser ->
                     doc
     in
     regularAuthFlow
@@ -340,13 +342,14 @@ viewLogin =
     { body = [ body ], title = title }
 
 
+subscriptions : Model.Model.Model -> Sub Msg.Msg
 subscriptions model =
     let
         authSubs =
             Authentication.authStateChanged handleAuthStateChange
 
         routeSubs =
-            case Route.parse model.url of
+            case Route.parse model.mode model.url of
                 Route.Home ->
                     [ Projects.subscriptions
                         |> Sub.map Msg.ProjectsMsg

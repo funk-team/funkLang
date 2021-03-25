@@ -16,6 +16,7 @@ import FileSystem.Model
 import Google.Fonts
 import Json.Decode as Decode
 import Keyboard
+import Model.Product
 import Preview.Model
 import Projects.Model
 import Random
@@ -30,11 +31,6 @@ import SupportSection.Model
 import Time
 import UndoList
 import Url
-
-
-type Mode
-    = Enterprise
-    | Core
 
 
 type alias Flags =
@@ -57,7 +53,7 @@ type alias Model =
 type alias WithInternals model =
     { model
         | seed : Random.Seed
-        , mode : Mode
+        , mode : Model.Product.Mode
         , dom : Dom.Dom
         , url : Url.Url
         , key : Browser.Navigation.Key

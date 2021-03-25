@@ -12,6 +12,7 @@ import Element.Events.Extra
 import Element.Input
 import Help
 import Interface.Selection
+import Model
 import Model.Model
 import Persistence
 import Route
@@ -20,14 +21,17 @@ import Ui.Help
 import Ui.Style
 
 
-view : Persistence.ProjectMeta -> Model.Model.UserModel -> CodeEditor.Model.TransformationKey -> CodeEditor.Model.Transformation -> Element.Element CodeEditor.Msg.Msg
-view projectMeta userModel transformationKey transformation =
+view : Persistence.ProjectMeta -> Model.Model.Model -> CodeEditor.Model.TransformationKey -> CodeEditor.Model.Transformation -> Element.Element CodeEditor.Msg.Msg
+view projectMeta model transformationKey transformation =
     let
+        userModel =
+            Model.latest model
+
         apiSources =
             -- display onboarding if no api calls are available
             case userModel.apiExplorer |> ApiExplorer.Model.listApiSpecs of
                 [] ->
-                    [ onboarding projectMeta ]
+                    [ onboarding model.mode projectMeta ]
 
                 specs ->
                     specs
@@ -40,7 +44,7 @@ view projectMeta userModel transformationKey transformation =
         apiSources
 
 
-onboarding projectMeta =
+onboarding mode projectMeta =
     Element.column [ Element.spacing 10 ]
         [ Element.paragraph
             [ Element.width (Element.fill |> Element.maximum 600)
@@ -50,7 +54,7 @@ onboarding projectMeta =
         , Element.link
             Ui.Component.buttonStyle
             { label = Element.text "Go to API editor"
-            , url = Route.makeUrl projectMeta (Route.Editor Route.Api)
+            , url = Route.makeUrl mode projectMeta (Route.Editor Route.Api)
             }
         ]
 

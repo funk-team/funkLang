@@ -8,6 +8,7 @@ import DeployEditor.Msg
 import Element
 import Json.Decode as Decode
 import Json.Encode as Encode
+import Model.Product
 import Ui.BigTabs
 import Url
 
@@ -44,8 +45,8 @@ encodeModel a =
 -- [generator-end]
 
 
-update : DeployEditor.Msg.Msg -> Url.Url -> Model -> ( Model, Cmd DeployEditor.Msg.Msg )
-update msg url model =
+update : DeployEditor.Msg.Msg -> Model.Product.Mode -> Url.Url -> Model -> ( Model, Cmd DeployEditor.Msg.Msg )
+update msg mode url model =
     case msg of
         DeployEditor.Msg.SwitchMenu selectedMenu ->
             { model | menu = selectedMenu }
@@ -56,6 +57,7 @@ update msg url model =
                 ( mdl, cmd ) =
                     DeployEditor.Deploy.update
                         msg_
+                        mode
                         url
                         model.deploy
             in
@@ -93,18 +95,21 @@ init flags =
     )
 
 
-view : Model -> Element.Element DeployEditor.Msg.Msg
-view model =
+view : Model.Product.Mode -> Model -> Element.Element DeployEditor.Msg.Msg
+view mode model =
     let
         content =
             case model.menu of
                 DeployEditor.Menus.Deploy ->
-                    DeployEditor.Deploy.view model.deploy
+                    DeployEditor.Deploy.view mode model.deploy
                         |> Element.map DeployEditor.Msg.GotDeployEditorMsg
 
                 DeployEditor.Menus.Domain ->
                     DeployEditor.Domain.view
                         |> Element.map DeployEditor.Msg.GotDomainEditorMsg
+
+                DeployEditor.Menus.Download ->
+                    Element.none
 
         options =
             DeployEditor.Menus.menus
@@ -118,8 +123,16 @@ view model =
                                 DeployEditor.Menus.Domain ->
                                     Just "coming soon"
 
+                                DeployEditor.Menus.Download ->
+                                    Just "coming soon"
+
                                 DeployEditor.Menus.Deploy ->
-                                    Nothing
+                                    case mode of
+                                        Model.Product.Core ->
+                                            Just "disabled"
+
+                                        Model.Product.Enterprise ->
+                                            Nothing
                         }
                     )
 

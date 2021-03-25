@@ -7,6 +7,7 @@ import Json.Encode as Encode
 type Menu
     = Deploy
     | Domain
+    | Download
 
 
 toString menu =
@@ -17,6 +18,9 @@ toString menu =
         Domain ->
             "Domain"
 
+        Download ->
+            "Download"
+
 
 
 -- if you want to change menu's order, change here:
@@ -25,6 +29,7 @@ toString menu =
 menus =
     [ Deploy
     , Domain
+    , Download
     ]
 
 

@@ -6,6 +6,7 @@ import Html
 import Http
 import Model
 import Model.Model
+import Model.Product
 import Preview
 import Preview.Msg
 import RemoteData
@@ -134,7 +135,9 @@ update msg model =
                 ( userModel, cmd, scrollTo ) =
                     case
                         RemoteData.map
-                            (Preview.update previewMsg model.url model.scrollTo)
+                            -- the core vs enterprise is not relevant in runtime
+                            -- because it is only used for hot code injection and will not influence the routing on production
+                            (Preview.update previewMsg Model.Product.Core model.url model.scrollTo)
                             model.userModel
                     of
                         RemoteData.Success return ->

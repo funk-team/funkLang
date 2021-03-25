@@ -8,6 +8,8 @@ import Element.Border
 import Element.Font
 import Element.Input
 import List.Extra
+import Model.Model
+import Model.Product
 import Projects.Api
 import Projects.Model
 import Projects.Msg
@@ -35,6 +37,9 @@ init auth =
         Authentication.Anonymous ->
             Cmd.none
 
+        Authentication.OpenCoreUser ->
+            Cmd.none
+
         Authentication.Undetermined ->
             Cmd.none
 
@@ -51,6 +56,9 @@ initModel =
 update : Projects.Msg.Msg -> Projects.Model.Model -> Authentication.State -> ( ( Projects.Model.Model, Authentication.State ), Cmd Projects.Msg.Msg )
 update msg model auth =
     case auth of
+        Authentication.OpenCoreUser ->
+            ( ( model, auth ), Cmd.none )
+
         Authentication.Undetermined ->
             ( ( model, auth ), Cmd.none )
 
@@ -256,9 +264,12 @@ edges =
     }
 
 
-view : Time.Posix -> Authentication.State -> Projects.Model.Model -> Element.Element Projects.Msg.Msg
-view now authState model =
-    case authState of
+view : Model.Model.Model -> Element.Element Projects.Msg.Msg
+view { now, authentication, mode, projects } =
+    case authentication of
+        Authentication.OpenCoreUser ->
+            Element.none
+
         Authentication.Anonymous ->
             Element.none
 
@@ -278,7 +289,7 @@ view now authState model =
                         Element.spacing 0
                 ]
                 [ tabs
-                , mainBody now userInfo model
+                , mainBody now userInfo mode projects
                 ]
 
 
@@ -307,8 +318,8 @@ tabs =
         )
 
 
-mainBody : Time.Posix -> Authentication.UserInfo -> Projects.Model.Model -> Element.Element Projects.Msg.Msg
-mainBody now userInfo model =
+mainBody : Time.Posix -> Authentication.UserInfo -> Model.Product.Mode -> Projects.Model.Model -> Element.Element Projects.Msg.Msg
+mainBody now userInfo mode model =
     let
         button =
             Element.Input.button
@@ -339,7 +350,7 @@ mainBody now userInfo model =
                 , Element.height <| identity <| identity <| Element.fill
                 ]
                 [ newProjectButton
-                , viewProjects now userInfo model
+                , viewProjects now userInfo mode model
                 ]
     in
     Element.row
@@ -352,8 +363,8 @@ mainBody now userInfo model =
         ]
 
 
-viewProjects : Time.Posix -> Authentication.UserInfo -> Projects.Model.Model -> Element.Element Projects.Msg.Msg
-viewProjects now userInfo { projects, deletePending } =
+viewProjects : Time.Posix -> Authentication.UserInfo -> Model.Product.Mode -> Projects.Model.Model -> Element.Element Projects.Msg.Msg
+viewProjects now userInfo mode { projects, deletePending } =
     let
         viewProject : Projects.Model.Project -> Element.Element Projects.Msg.Msg
         viewProject p =
@@ -406,7 +417,7 @@ viewProjects now userInfo { projects, deletePending } =
                         cardTopStyles
                         { label =
                             viewCardIcon Ui.Boxicons.bxRightArrowAlt
-                        , url = Route.makeUrl { projectId = p.id, projectName = p.name } (Route.Editor Route.Canvas)
+                        , url = Route.makeUrl mode { projectId = p.id, projectName = p.name } (Route.Editor Route.Canvas)
                         }
 
                 deleteButton =

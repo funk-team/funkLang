@@ -23,9 +23,9 @@ import Route
 import Spec.Element
 import Spec.Element.Model
 import Spec.Mutation
-import Ui.Tabs
 import Ui.Help
 import Ui.Style
+import Ui.Tabs
 
 
 {-| Render the sidebar that allows you to modify the values related to an element
@@ -188,7 +188,7 @@ renderElementPanel model ( selectionItem, element ) =
                         element
 
                 Canvas.AttributesPanel.Tabs.Content ->
-                    case Route.getProjectData model.url of
+                    case Route.getProjectData model.mode model.url of
                         Nothing ->
                             Element.none
 

@@ -36,6 +36,7 @@ import Json.Decode as Decode
 import List.Extra
 import Model
 import Model.Model
+import Model.Product
 import Persistence
 import Preview.Msg
 import Rectangle
@@ -668,8 +669,8 @@ compileApiCallData ({ modelToCallMap } as apiCallSpec) userModel =
                     Err "Not all params found"
 
 
-update : Preview.Msg.Msg -> Url.Url -> ScrollTo.State -> Model.Model.UserModel -> Return
-update msg url scrollTo userModel =
+update : Preview.Msg.Msg -> Model.Product.Mode -> Url.Url -> ScrollTo.State -> Model.Model.UserModel -> Return
+update msg mode url scrollTo userModel =
     case msg of
         Preview.Msg.DispatchApiCall apiCallSpec ->
             case compileApiCallData apiCallSpec userModel of
@@ -726,7 +727,7 @@ update msg url scrollTo userModel =
             Return userModel Cmd.none scrollTo
 
         Preview.Msg.SpecUpdated ( updateFor, spec ) ->
-            case Route.getProjectData url of
+            case Route.getProjectData mode url of
                 Nothing ->
                     Return userModel Cmd.none scrollTo
 

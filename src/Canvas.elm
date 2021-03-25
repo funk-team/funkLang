@@ -88,13 +88,6 @@ import Url
 port windowBlurred : (() -> msg) -> Sub msg
 
 
-initModel : Model.Model.Flags -> Url.Url -> Browser.Navigation.Key -> Model.Model.Model
-initModel flags url key =
-    -- Persistence.loadModel Model.decodeSavedState flags.savedSpec
-    Model.initModel flags url key Nothing
-        |> setSeed flags
-
-
 setSeed flags m =
     { m | seed = Random.initialSeed flags.seed }
 
@@ -111,7 +104,8 @@ positionCameraCmd model =
 init flags url key =
     let
         model =
-            initModel flags url key
+            Model.initModel flags url key
+                |> setSeed flags
 
         userModel =
             Model.latest model
@@ -123,7 +117,7 @@ init flags url key =
                 ]
 
         designSystemCmd =
-            DesignSystem.init ()
+            DesignSystem.init model.mode
                 |> Tuple.second
                 |> Cmd.map (Canvas.Msg.DesignSystemMsg >> Canvas.Msg.EditorMsg)
     in
@@ -191,7 +185,7 @@ persistenceHook shouldSave ( model, cmd ) =
         True ->
             let
                 ( newModel, saveCmd ) =
-                    case ( Route.getProjectData model.url, model.project ) of
+                    case ( Route.getProjectData model.mode model.url, model.project ) of
                         ( Just projectMeta, RemoteData.Success p ) ->
                             let
                                 saveCmd_ =
@@ -279,7 +273,7 @@ rootUpdate msg model =
             )
 
         Canvas.Msg.RepoInitialized Nothing ->
-            init_ { model | project = RemoteData.Success Model.defaultUndoableUserModel }
+            init_ { model | project = RemoteData.Success (Model.defaultUndoableUserModel model.mode) }
 
         Canvas.Msg.RepoInitialized (Just encodedSpec) ->
             case Persistence.loadModel Spec.Model.decodeSpec encodedSpec of
@@ -393,7 +387,7 @@ rootUpdate msg model =
         Canvas.Msg.PreviewMsg previewMsg ->
             let
                 previewUpdate =
-                    Preview.update previewMsg model.url model.scrollTo
+                    Preview.update previewMsg model.mode model.url model.scrollTo
 
                 { cmd, scrollTo } =
                     Model.latest model
@@ -409,7 +403,7 @@ rootUpdate msg model =
         Canvas.Msg.LinkClicked urlRequest ->
             case urlRequest of
                 Browser.Internal url ->
-                    case Route.parse url of
+                    case Route.parse model.mode url of
                         Route.Project _ (Route.Preview _) ->
                             ( model
                             , Runtime.handleInternalUrl
@@ -548,7 +542,7 @@ makeReturn msg model =
             Canvas.Msg.DesignSystemMsg msg_ ->
                 let
                     ( designSystem, cmd ) =
-                        DesignSystem.update msg_ userModel.designSystem
+                        DesignSystem.update model.mode msg_ userModel.designSystem
                 in
                 Return
                     { userModel | designSystem = designSystem }
@@ -563,6 +557,7 @@ makeReturn msg model =
                     ( deployEditor, cmd ) =
                         DeployEditor.update
                             msg_
+                            model.mode
                             model.url
                             userModel.deployEditor
                 in

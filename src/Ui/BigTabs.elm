@@ -42,7 +42,7 @@ viewTab option =
                                 [ Element.Font.size Ui.Style.baseFontSize
                                 , Element.alignBottom
                                 , Element.centerX
-                                , Element.moveDown 4
+                                , Element.moveDown 6
                                 , Element.Font.regular
                                 ]
                                 (Element.text text)
@@ -53,7 +53,12 @@ viewTab option =
             (if option.isSelected then
                 [ Element.Font.color (Element.rgb255 0 0 0)
                 , Element.Border.widthEach
-                    { bottom = 6
+                    { bottom =
+                        if option.sideNote == Nothing then
+                            6
+
+                        else
+                            0
                     , left = 0
                     , right = 0
                     , top = 0
