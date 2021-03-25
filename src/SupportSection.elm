@@ -12,6 +12,7 @@ import RemoteData.Http
 import SupportSection.Feedback
 import SupportSection.Model exposing (..)
 import SupportSection.Msg exposing (..)
+import SupportSection.Components
 import SupportSection.Releases
 import Ui.Boxicons
 import Ui.Component
@@ -49,15 +50,6 @@ sendToServer { logRocketUrl, email } message =
 port gotSessionInfo : (SessionInfo -> msg) -> Sub msg
 
 
-buttonWithIcon icon text action =
-    Element.newTabLink Ui.Component.buttonStyle
-        { url = action
-        , label =
-            Element.row []
-                [ Ui.Component.icon icon |> Element.el [ Element.centerY, Element.moveUp 1 ]
-                , Element.el [ Element.paddingEach { top = 0, bottom = 0, left = 10, right = 0 } ] (Element.text text)
-                ]
-        }
 
 
 genericButton action text =
@@ -74,13 +66,13 @@ viewModalDocs model =
         -- buttonRow =
         --     Element.row [ Element.width Element.fill ] [ Element.el [ Element.alignRight ] (genericButton CloseModalButtonClicked "Close") ]
         youTube =
-            buttonWithIcon Ui.Boxicons.bxlYoutube "YouTube" "https://www.youtube.com/channel/UCHVIria50ZFSNk9M40BfNeQ/featured/"
+            SupportSection.Components.buttonWithIcon Ui.Boxicons.bxlYoutube "YouTube" "https://www.youtube.com/channel/UCHVIria50ZFSNk9M40BfNeQ/featured/"
 
         docs =
-            buttonWithIcon Ui.Boxicons.bxsBookOpen "Offical Guide" "https://www.notion.so/scalab/funkLang-beta-guide-cc5f28f3b43142798f9134d2afed7742/"
+            SupportSection.Components.buttonWithIcon Ui.Boxicons.bxsBookOpen "Offical Guide" "https://github.com/funk-team/funkLang#project-status"
 
         blogPosts =
-            buttonWithIcon Ui.Boxicons.bxlMediumSquare "Blog posts" "https://medium.com/@funklang/"
+            SupportSection.Components.buttonWithIcon Ui.Boxicons.bxlMediumSquare "Blog posts" "https://medium.com/@funklang/"
 
         modal =
             Element.column
@@ -104,17 +96,17 @@ viewModalDocs model =
                         [ Element.text "Video tutorials, live streams, blog posts and offical documentation written by the funk team!" ]
                     , Element.wrappedRow [ Element.spacing 20, Element.centerX, Element.paddingEach { top = 30, bottom = 10, left = 0, right = 0 } ]
                         [ Element.el [ Element.centerX ] <| docs
-                        , Element.el [ Element.centerX ] <| youTube
-                        , Element.el [ Element.centerX ] <| blogPosts
+                        -- , Element.el [ Element.centerX ] <| youTube
+                        -- , Element.el [ Element.centerX ] <| blogPosts
                         ]
                     , Element.paragraph
                         [ Element.Font.center
-                        , Element.padding 20
                         , Element.Border.rounded 5
                         , Element.centerX
                         , Element.width (Element.px 400)
                         ]
-                        [ Element.text "Contact us if you want to suggest a guide or write one yourself!" ]
+                        [ Element.text "Coming soon -> video guides, blog posts and live building sessions, join our slack group for updates, or follow us on Twitter!" ]
+                    , Element.row [Element.centerX, Element.spacingXY 10 0] [SupportSection.Components.slack, SupportSection.Components.twitter]
                     ]
                 , closeButtonRight CloseModalButtonClicked
                 ]
@@ -201,19 +193,23 @@ viewModalRoadMap model =
                         , Element.scrollbarY
                         ]
                         [ mapText
-                            "February"
+                            "Coming soon.."
                             [ "➡ Multiselect"
                             , "➡ Components"
+                            , "➡ Breakpoints"
                             , "➡ Improved Responsify"
-                            , "➡ Code & API panel Improvments"
                             , "➡ More styling options (e.g. hover styles)"
                             ]
+                        , gitHubTrack
                         , suggest
                         , SupportSection.Feedback.submitButton model
                         ]
                     ]
                 , closeButtonRight CloseModalButtonClicked
                 ]
+
+        gitHubTrack =
+            SupportSection.Components.buttonWithIcon Ui.Boxicons.bxGit "Track Our Progress on GitHub" "https://github.com/funk-team/funkLang/issues/"
 
         wrappedModal =
             Element.el
@@ -267,7 +263,7 @@ viewModalChangelog model =
                         ]
                         (List.map (\( title, date, changes ) -> mapTextWithSide title date changes) SupportSection.Releases.all)
                     ]
-                , closeButtonRight CloseModalButtonClicked
+                , Element.row [Element.width Element.fill] [Element.el [] (SupportSection.Components.gitHubRepo), Element.el [Element.alignRight] (closeButtonRight CloseModalButtonClicked)]
                 ]
 
         wrappedModal =
@@ -289,23 +285,12 @@ viewModalChangelog model =
         )
 
 
-slack =
-    buttonWithIcon Ui.Boxicons.bxlSlack "Slack" "https://funklang.slack.com/join/shared_invite/zt-kpufugyf-iaOO9lc1XWcGf_mD6YnNVw#/"
-
-
-twitter =
-    buttonWithIcon Ui.Boxicons.bxlTwitter "Twitter" "https://twitter.com/FunkLng/"
-
-
-reddit =
-    buttonWithIcon Ui.Boxicons.bxlReddit "Reddit" "https://www.reddit.com/r/funkLang/"
-
 
 viewModalCommunity : Model -> Element.Attribute Msg
 viewModalCommunity model =
     let
         -- discord =
-        --     buttonWithIcon Ui.Boxicons.bxlDiscourse "Discourse" "https://discord.com/"
+        --     SupportSection.Components.buttonWithIcon Ui.Boxicons.bxlDiscourse "Discourse" "https://discord.com/"
         modal =
             Element.column
                 [ Element.width <| Element.px 700
@@ -327,9 +312,10 @@ viewModalCommunity model =
                         ]
                         [ Element.text "Connect with other funk users and get help directly from the funk team." ]
                     , Element.wrappedRow [ Element.spacing 20, Element.centerX, Element.paddingEach { top = 30, bottom = 10, left = 0, right = 0 } ]
-                        [ Element.el [ Element.centerX ] <| slack
-                        , Element.el [ Element.centerX ] <| twitter
-                        , Element.el [ Element.centerX ] <| reddit
+                        [ Element.el [ Element.centerX ] <| SupportSection.Components.slack
+                        , Element.el [ Element.centerX ] <| SupportSection.Components.twitter
+                        , Element.el [ Element.centerX ] <| SupportSection.Components.reddit
+                        , Element.el [ Element.centerX ] <| SupportSection.Components.gitHubDiscissions
 
                         -- , Element.el [ Element.centerX ] <| discord
                         ]
