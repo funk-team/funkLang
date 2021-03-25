@@ -7,6 +7,7 @@ type State
     = Undetermined
     | Anonymous
     | LoggedIn UserInfo
+    | OpenCoreUser
 
 
 type alias UserInfo =

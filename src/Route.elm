@@ -1,5 +1,13 @@
 module Route exposing (..)
 
+{-| The router has two modes
+
+  - single-project mode for the core functionality of funk
+  - multi-project mode for funk with project management
+
+-}
+
+import Model.Product
 import Persistence
 import Slug
 import Spec.Element.Id
@@ -88,20 +96,29 @@ encodeEditorMode mode =
             "files"
 
 
-makeUrl projectMeta projectMode =
+makeUrl productMode projectMeta projectMode =
+    let
+        metaPath =
+            case productMode of
+                Model.Product.Core ->
+                    []
+
+                Model.Product.Enterprise ->
+                    encodeProjectMeta projectMeta
+    in
     case projectMode of
         Editor Canvas ->
             -- canvas is the default route
-            Url.Builder.absolute (encodeProjectMeta projectMeta) []
+            Url.Builder.absolute metaPath []
 
         Editor editorMode ->
-            Url.Builder.absolute (encodeProjectMeta projectMeta ++ [ encodeEditorMode editorMode ]) []
+            Url.Builder.absolute (metaPath ++ [ encodeEditorMode editorMode ]) []
 
         Preview slug ->
-            Url.Builder.absolute (encodeProjectMeta projectMeta ++ [ "preview", Slug.toString slug ]) []
+            Url.Builder.absolute (metaPath ++ [ "preview", Slug.toString slug ]) []
 
         CodeGenPreview _ ->
-            Url.Builder.absolute (encodeProjectMeta projectMeta ++ [ "code-gen", "" ]) []
+            Url.Builder.absolute (metaPath ++ [ "code-gen", "" ]) []
 
 
 encodeProjectMeta : Persistence.ProjectMeta -> List String
@@ -149,6 +166,37 @@ routeParser =
         ]
 
 
+defaultProjectMeta : Persistence.ProjectMeta
+defaultProjectMeta =
+    { projectId = "default"
+    , projectName = "default project"
+    }
+
+
+singleProjectParser : Url.Parser.Parser (Route -> a) a
+singleProjectParser =
+    Url.Parser.oneOf
+        [ Url.Parser.string
+            |> Url.Parser.map
+                (\subPath ->
+                    matchEditorMode subPath
+                        |> Editor
+                        |> Project defaultProjectMeta
+                )
+        , (Url.Parser.string </> slugParser)
+            |> Url.Parser.map
+                (\subPath slug ->
+                    Project defaultProjectMeta <|
+                        case subPath of
+                            "preview" ->
+                                Preview slug
+
+                            _ ->
+                                Editor Canvas
+                )
+        ]
+
+
 slugParser =
     Url.Parser.custom "SLUG" Slug.parse
 
@@ -179,15 +227,21 @@ projectIdParser =
         )
 
 
-parse : Url.Url -> Route
-parse =
-    Url.Parser.parse routeParser
-        >> Maybe.withDefault Home
+parse : Model.Product.Mode -> Url.Url -> Route
+parse mode url =
+    case mode of
+        Model.Product.Core ->
+            Url.Parser.parse singleProjectParser url
+                |> Maybe.withDefault (Project defaultProjectMeta (Editor Canvas))
+
+        Model.Product.Enterprise ->
+            Url.Parser.parse routeParser url
+                |> Maybe.withDefault Home
 
 
-getProjectData : Url.Url -> Maybe Persistence.ProjectMeta
-getProjectData url =
-    case parse url of
+getProjectData : Model.Product.Mode -> Url.Url -> Maybe Persistence.ProjectMeta
+getProjectData mode url =
+    case parse mode url of
         Project p _ ->
             Just p
 

@@ -164,7 +164,7 @@ renderEditor editorMode project model =
         viewMode =
             case editorMode of
                 Route.Code ->
-                    CodeEditor.view project latest
+                    CodeEditor.view project model
                         |> Element.map (Canvas.Msg.CodeEditorMsg >> Canvas.Msg.EditorMsg)
 
                 Route.Canvas ->
@@ -175,7 +175,7 @@ renderEditor editorMode project model =
                         |> Element.map Canvas.Msg.FileSystemMsg
 
                 Route.Api ->
-                    case Route.getProjectData model.url of
+                    case Route.getProjectData model.mode model.url of
                         Nothing ->
                             Element.none
 
@@ -186,7 +186,7 @@ renderEditor editorMode project model =
                                 |> Element.map (Canvas.Msg.ApiExplorerMsg >> Canvas.Msg.EditorMsg)
 
                 Route.Model ->
-                    case Route.getProjectData model.url of
+                    case Route.getProjectData model.mode model.url of
                         Nothing ->
                             Element.none
 
@@ -204,6 +204,7 @@ renderEditor editorMode project model =
 
                 Route.Deploy ->
                     DeployEditor.view
+                        model.mode
                         latest.deployEditor
                         |> Element.map (Canvas.Msg.DeployEditorMsg >> Canvas.Msg.EditorMsg)
 
@@ -329,7 +330,7 @@ viewHeader projectMeta editorMode model =
                 attribs
                 { label = label
                 , url =
-                    Route.makeUrl projectMeta (Route.Editor mode)
+                    Route.makeUrl model.mode projectMeta (Route.Editor mode)
                 }
 
         modes =
@@ -903,7 +904,7 @@ viewScreen projectMeta model index ( slug, screen ) =
                 |> Element.above
 
         previewUrl =
-            Route.makeUrl projectMeta (Route.Preview slug)
+            Route.makeUrl model.mode projectMeta (Route.Preview slug)
 
         previewButton =
             Element.newTabLink

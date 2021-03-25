@@ -24,6 +24,7 @@ import GitHub.RawGitApi
 import Http exposing (Error(..))
 import IntDict
 import Json.Decode.Field as Field exposing (..)
+import Model.Product
 import RemoteData
 import Slug
 import SvgParser
@@ -53,8 +54,8 @@ getCorrespondingIcon (DesignSystem.IconBrowser.Model.ReferenceToIconInUserPicked
 
 {-| Init
 -}
-requestRepos : DesignSystem.IconBrowser.Model.Repos -> List (Cmd Msg)
-requestRepos githubRepos =
+requestRepos : Model.Product.Mode -> DesignSystem.IconBrowser.Model.Repos -> List (Cmd Msg)
+requestRepos mode githubRepos =
     githubRepos
         |> Dict.Any.toList
         |> List.map
@@ -64,13 +65,13 @@ requestRepos githubRepos =
                         Cmd.none
 
                     _ ->
-                        GitHub.Api.getRepo id
+                        GitHub.Api.getRepo mode id
                             |> Cmd.map (GotRepoData id)
             )
 
 
-init : ( DesignSystem.IconBrowser.Model.Model, Cmd Msg )
-init =
+init : Model.Product.Mode -> ( DesignSystem.IconBrowser.Model.Model, Cmd Msg )
+init mode =
     let
         githubRepos : Dict.Any.AnyDict String GitHub.Model.GitHubRepoId DesignSystem.IconBrowser.Model.RemoteRepoData
         githubRepos =
@@ -96,7 +97,7 @@ init =
             , addRepoInput = Nothing
             }
     in
-    withCmds (requestRepos githubRepos) model
+    withCmds (requestRepos mode githubRepos) model
 
 
 initColorPalette =
@@ -613,8 +614,8 @@ viewSearchTextInput toMsg content =
 ---- UPDATE ----
 
 
-update : Msg -> DesignSystem.IconBrowser.Model.Model -> ( DesignSystem.IconBrowser.Model.Model, Cmd Msg )
-update msg model =
+update : Msg -> Model.Product.Mode -> DesignSystem.IconBrowser.Model.Model -> ( DesignSystem.IconBrowser.Model.Model, Cmd Msg )
+update msg mode model =
     case msg of
         SelectRepo id ->
             { model
@@ -728,6 +729,7 @@ update msg model =
                                 , selectedRepo = Just repoId
                               }
                             , GitHub.Api.getRepo
+                                mode
                                 repoId
                                 |> Cmd.map (GotRepoData repoId)
                             )

@@ -15,6 +15,10 @@ import Ui.Style exposing (edges)
 view : Model.Model.Model -> Element.Element Msg.Msg
 view { authentication } =
     case authentication of
+        Authentication.OpenCoreUser ->
+            Element.el Ui.Style.headerStyles
+                (Element.el profileSectionStyles (Element.text "Funk Open Core"))
+
         Authentication.Anonymous ->
             Element.none
 
@@ -24,11 +28,7 @@ view { authentication } =
         Authentication.LoggedIn userInfo ->
             Element.el Ui.Style.headerStyles
                 (Element.row
-                    [ Element.alignRight
-                    , Element.paddingEach { edges | right = 10 }
-                    , Element.spacing 10
-                    , Element.centerY
-                    ]
+                    profileSectionStyles
                     [ Element.text userInfo.email
                     , case String.uncons userInfo.name of
                         Just ( first, _ ) ->
@@ -61,3 +61,11 @@ logoutButton =
         , label = Element.text "Log out"
         }
         |> Element.map Msg.EditorMsg
+
+
+profileSectionStyles =
+    [ Element.alignRight
+    , Element.paddingEach { edges | right = 10 }
+    , Element.spacing 10
+    , Element.centerY
+    ]

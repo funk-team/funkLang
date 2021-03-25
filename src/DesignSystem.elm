@@ -20,6 +20,7 @@ import Element
 import Google.Fonts
 import Json.Decode as Decode
 import Json.Encode as Encode
+import Model.Product
 import Ui.BigTabs
 
 
@@ -36,8 +37,8 @@ type alias Model =
     }
 
 
-update : DesignSystem.Msg.Msg -> Model -> ( Model, Cmd DesignSystem.Msg.Msg )
-update msg model =
+update : Model.Product.Mode -> DesignSystem.Msg.Msg -> Model -> ( Model, Cmd DesignSystem.Msg.Msg )
+update mode msg model =
     case msg of
         DesignSystem.Msg.GotTypoMsg ( msg_, swatchUpdate ) ->
             let
@@ -72,6 +73,7 @@ update msg model =
                 ( mdl, cmd ) =
                     DesignSystem.IconBrowser.update
                         msg_
+                        mode
                         model.iconBrowser
             in
             ( { model | iconBrowser = mdl }
@@ -97,7 +99,7 @@ update msg model =
                 applyCmd =
                     if selectedMenu == DesignSystem.Menus.Icons then
                         model.iconBrowser.githubRepos
-                            |> DesignSystem.IconBrowser.requestRepos
+                            |> DesignSystem.IconBrowser.requestRepos mode
                             |> Cmd.batch
                             |> Cmd.map DesignSystem.Msg.GotIconBrowserMsg
                             |> Cmd.Extra.withCmd
@@ -113,11 +115,11 @@ update msg model =
 ---- PROGRAM ----
 
 
-init : () -> ( Model, Cmd DesignSystem.Msg.Msg )
-init flags =
+init : Model.Product.Mode -> ( Model, Cmd DesignSystem.Msg.Msg )
+init mode =
     let
         ( iconBrowser, iconBrowserCmd ) =
-            DesignSystem.IconBrowser.init
+            DesignSystem.IconBrowser.init mode
 
         ( typoModel, typoCmd ) =
             DesignSystem.Typography.init

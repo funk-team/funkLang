@@ -58,12 +58,12 @@ edges =
     }
 
 
-view : Persistence.ProjectMeta -> Model.Model.UserModel -> Element.Element CodeEditor.Msg.Msg
-view projectMeta userModel =
+view : Persistence.ProjectMeta -> Model.Model.Model -> Element.Element CodeEditor.Msg.Msg
+view projectMeta model =
     Element.row
         [ Element.width Element.fill, Element.height Element.fill ]
-        [ viewSidebar userModel.codeEditor
-        , viewCurrentCodeEditor projectMeta userModel userModel.codeEditor
+        [ viewSidebar (Model.latest model).codeEditor
+        , viewCurrentCodeEditor projectMeta model
             |> Element.el
                 [ Element.width Element.fill
                 , Element.height Element.fill
@@ -346,9 +346,15 @@ help helpOpenExplicit =
         ]
 
 
-viewCurrentCodeEditor : Persistence.ProjectMeta -> Model.Model.UserModel -> CodeEditor.Model.Model -> Element.Element CodeEditor.Msg.Msg
-viewCurrentCodeEditor projectMeta userModel model =
+viewCurrentCodeEditor : Persistence.ProjectMeta -> Model.Model.Model -> Element.Element CodeEditor.Msg.Msg
+viewCurrentCodeEditor projectMeta mainModel =
     let
+        model =
+            userModel.codeEditor
+
+        userModel =
+            Model.latest mainModel
+
         selectOnLeftMsg =
             Element.column [ Element.padding 20, Element.spacing 20 ]
                 [ Element.text "Select one of the transformations on the left or create new transformation."
@@ -396,7 +402,7 @@ viewCurrentCodeEditor projectMeta userModel model =
                                     Nothing
 
                                  else
-                                    Just <| CodeEditor.Inputs.view projectMeta userModel selected transformation
+                                    Just <| CodeEditor.Inputs.view projectMeta mainModel selected transformation
                                 )
 
                         writeCodeStep =
