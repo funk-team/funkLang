@@ -42,12 +42,14 @@ css =
     background-size: cover;
 }
 
-.white-space-nowrap.white-space-nowrap.white-space-nowrap ,
-.white-space-nowrap.white-space-nowrap.white-space-nowrap .t {
-    white-space: pre
+/* Set the default style to wrap and respect user-defined whitespace */
+.funk-text .t.t.t {
+    white-space: pre-wrap
 }
 
-.funk-text .t.t.t {
+/* Override the default wrapping behavior with whitespace-respecting nowrap */
+.white-space-nowrap.white-space-nowrap.white-space-nowrap ,
+.white-space-nowrap.white-space-nowrap.white-space-nowrap .t.t.t {
     white-space: pre
 }
 
