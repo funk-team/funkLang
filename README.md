@@ -113,10 +113,13 @@ Here are some example sites we've built with funk, they were all built without t
 ***These are our initial examples, soon you will be able to build much more complex sites with funk***
 
 <div>
-  <a href="https://faqpage.builtwithfunk.com/"><img src="docs/images/funk-faq-page.png" alt="" width="250" style="margin-right: 20px" ></a>
+  <a href="https://pricecards.builtwithfunk.com/"><img src="docs/images/funk-price-card.png" alt="" width="250" style="margin-right: 20px" ></a>
+  <a href="https://real-world-app.builtwithfunk.com//"><img src="docs/images/funk-real-world.png" alt="" width="250" style="margin-right: 20px" ></a>
   <a href="https://sign-up.builtwithfunk.com/"><img src="docs/images/funk-login-page.png" alt="" width="250" style="margin-right: 20px" ></a>
   <a href="https://profilecard.builtwithfunk.com/"><img src="docs/images/funk-profile-card.png" alt="" width="250" style="margin-right: 20px" ></a>
   <a href="https://funklang.builtwithfunk.com/"><img src="docs/images/funk-home-page.png" alt="" width="250" style="margin-right: 20px" ></a>
+  <a href="https://faqpage.builtwithfunk.com/"><img src="docs/images/funk-faq-page.png" alt="" width="250" style="margin-right: 20px" ></a>
+
 </div>
 
 
