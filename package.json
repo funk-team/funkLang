@@ -26,7 +26,8 @@
         "tdd-js": "nodemon --watch '*' --watch 'cli-src/**/*' -e js,mjs  --exec 'npm run test-js'",
         "test": "npm run test-elm && npm run test-js",
         "test-all": "npm run test-elm && npm run test-js",
-        "test-elm": "elm-verify-examples && elm-app test",
+        "test-elm": "elm-verify-examples && elm-app test && npm run test-elm-review",
+        "test-elm-review": "elm-review",
         "test-js": "rm -rf tests/unit/assets/temp; node tests/unit.mjs | tap-diff; rm -rf assets/temp"
     },
     "dependencies": {
