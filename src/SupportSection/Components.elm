@@ -14,7 +14,7 @@ twitter =
 
 
 gitHubDiscissions =
-    buttonWithIcon Ui.Boxicons.bxGit "GitHub Discission" "https://github.com/funk-team/funkLang/discussions/"
+    buttonWithIcon Ui.Boxicons.bxGit "GitHub Discussion" "https://github.com/funk-team/funkLang/discussions/"
 
 
 gitHubRepo =

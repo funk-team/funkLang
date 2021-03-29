@@ -52,7 +52,7 @@ viewForm label model =
         viewMessageText =
             case model.request of
                 RemoteData.Success _ ->
-                    Element.text model.message |> Element.el [ Element.Font.italic ]
+                    Element.text "Sent!"
 
                 RemoteData.Loading ->
                     Element.text model.message |> Element.el [ Element.Font.italic ]
