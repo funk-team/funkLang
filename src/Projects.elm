@@ -22,7 +22,7 @@ import Ui.BigTabs
 import Ui.Boxicons
 import Ui.Component
 import Ui.Style
-
+import SupportSection.Components
 
 subscriptions =
     Sub.none
@@ -253,6 +253,7 @@ leftSidebar =
             ]
             (Element.text "Recent")
         , Element.el [ Element.centerX ] Projects.WelcomeModal.onBoardingButton
+        , Element.el [ Element.centerX ] SupportSection.Components.gitHubRepo
         ]
 
 

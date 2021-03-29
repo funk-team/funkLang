@@ -12,7 +12,7 @@ twitter =
     buttonWithIcon Ui.Boxicons.bxlTwitter "Twitter" "https://twitter.com/FunkLng/"
 
 gitHubDiscissions =
-    buttonWithIcon Ui.Boxicons.bxGit "GitHub Discission" "https://github.com/funk-team/funkLang/discussions/"
+    buttonWithIcon Ui.Boxicons.bxGit "GitHub Discussion" "https://github.com/funk-team/funkLang/discussions/"
 
 gitHubRepo =
     buttonWithIcon Ui.Boxicons.bxGit "GitHub" "https://github.com/funk-team/funkLang/"
