@@ -105,7 +105,7 @@ modalText screen =
     case screen of
         1 ->
             textRender
-                "funk has the // *bold* power // of a programming launage, the // *bold* simplicity // of a low-code tool and the // *bold* design freedom // of Figma, Sketch or Canva."
+                "funk has the // *bold* power // of a programming language, the // *bold* simplicity // of a low-code tool and the // *bold* design freedom // of Figma, Sketch or Canva."
 
         2 ->
             textRender
@@ -113,7 +113,7 @@ modalText screen =
 
         3 ->
             textRender
-                "Styling is both // *bold* quick // and // *bold* powerful // in funk. Create // *bold* design librarys // to use across your organisation and create // *bold* advanced animations // visually (coming soon)."
+                "Styling is both // *bold* quick // and // *bold* powerful // in funk. Create // *bold* design libraries // to use across your organisation and create // *bold* advanced animations // visually (coming soon)."
 
         4 ->
             textRender
