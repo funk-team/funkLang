@@ -28,6 +28,7 @@ init =
         RemoteData.NotAsked
         False
         AllClosed
+        ""
 
 
 sendToServer : SessionInfo -> String -> Cmd Msg
@@ -354,15 +355,18 @@ update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         SubmitButtonClicked ->
-            case validate model.message of
+            case validate model.message model.email of
                 Just message ->
                     ( { model | validation = Invalid message }, Cmd.none )
 
                 Nothing ->
-                    ( { model | validation = NotAsked, request = RemoteData.Loading }, sendToServer model.sessionInfo model.message )
+                    ( { model | validation = NotAsked, request = RemoteData.Loading }, sendToServer model.sessionInfo (model.message ++ " email: " ++ model.email) )
 
         MessageChanged message ->
             ( { model | message = message, request = RemoteData.NotAsked }, Cmd.none )
+
+        EmailChanged message ->
+            ( { model | email = message, request = RemoteData.NotAsked }, Cmd.none )
 
         GotSessionInfo sessionInfo ->
             ( { model | sessionInfo = sessionInfo }, Cmd.none )
@@ -408,14 +412,19 @@ update msg model =
             )
 
 
-validate : String -> Maybe String
-validate msg =
+validate : String -> String -> Maybe String
+validate msg email =
     case String.length msg > 10 of
         False ->
             Just "🙏 Please write at least ten letters."
 
         _ ->
-            Nothing
+          case String.contains "@" email of
+            True ->
+                Nothing
+
+            False ->
+                Just "Enter an email address so we can get back to you 🙏"
 
 
 feedbackButtonStyle =

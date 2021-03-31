@@ -61,9 +61,22 @@ viewForm label model =
                     messageArea label model.message
                         |> Element.map MessageChanged
 
+        viewEmailEnterBox =
+            case model.request of
+                RemoteData.Success _ ->
+                    Element.text model.email
+
+                RemoteData.Loading ->
+                    Element.text model.message |> Element.el [ Element.Font.italic ]
+
+                _ ->
+                    messageAreaSingleLine "Email" model.email
+                        |> Element.map EmailChanged
+
         form =
             Element.column [ Element.spacing 20, Element.width Element.fill ]
                 [ viewMessageText
+                , viewEmailEnterBox
                 , validationFeedback
                 , progress
                 ]
@@ -142,6 +155,18 @@ messageArea label msg =
         { placeholder = Nothing
         , label = Element.Input.labelAbove [ Element.Font.size 20 ] (Element.text label)
         , spellcheck = True
+        , onChange = identity
+        , text = msg
+        }
+
+messageAreaSingleLine : String -> String -> Element.Element String
+messageAreaSingleLine label msg =
+    Element.Input.text
+        [ Element.width Element.fill
+        , Element.height (Element.shrink)
+        ]
+        { placeholder = Nothing
+        , label = Element.Input.labelAbove [ Element.Font.size 20 ] (Element.text label)
         , onChange = identity
         , text = msg
         }
