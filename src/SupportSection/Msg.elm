@@ -10,5 +10,6 @@ type Msg
     | ToggleExpanded
     | SubmitButtonClicked
     | MessageChanged String
+    | EmailChanged String
     | GotSessionInfo SessionInfo
     | FeedbackResponse (RemoteData.WebData ())

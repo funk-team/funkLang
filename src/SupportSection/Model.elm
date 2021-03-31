@@ -10,6 +10,7 @@ type alias Model =
     , request : RemoteData.WebData ()
     , isExpanded : Bool
     , openModal : WhichModal
+    , email : String
     }
 
 
