@@ -125,7 +125,7 @@ As we developed funk we became more convinced visual development is the way forw
 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-**The best way to get started is to book an onboarding call with a core funkLang contributor [Jan](https://koalendar.com/events/meet-with-jan-wirth)**
+**The best way to get started is to book an onboarding call with a core funkLang contributor [Jan](https://koalendar.com/events/meet-with-yung-wirth)**
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b gh-123-my-feature` or `git checkout -b no-issue-refactor-something`)
