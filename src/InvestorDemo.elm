@@ -5,7 +5,6 @@ import Element.Background
 import Element.Border
 import Element.Font
 import Element.Input
-import Html exposing (text)
 import Html.Events
 import Json.Decode as Decode
 import Json.Encode as Encode

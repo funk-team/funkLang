@@ -4,7 +4,6 @@ module Canvas.AttributesPanel.Content.Model exposing (..)
 -- internals
 
 import ApiExplorer.Api
-import ApiExplorer.Api.Param
 import Canvas.AttributesPanel.Shared
 import Dict
 import Dynamic.Data
@@ -141,10 +140,6 @@ viewField currentConnection userModel field =
     let
         ( fieldKey, { associations, kind, name } ) =
             field
-
-        param =
-            Model.paramForField fieldKey userModel
-                |> Maybe.map ApiExplorer.Api.Param.simplify
 
         kind_ : Maybe Dynamic.Data.Kind
         kind_ =

@@ -94,9 +94,6 @@ renderPossibleInput :
     -> Element.Element CodeEditor.Msg.Msg
 renderPossibleInput userModel transformationKey transformation ( apiCallKey, apiCallSpec ) =
     let
-        variableName =
-            apiCallSpec.name |> Help.toJsVariableName
-
         selected =
             List.member apiCallKey transformation.arguments
 

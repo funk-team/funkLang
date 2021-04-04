@@ -324,12 +324,6 @@ getResultForOnSceneOnly camera from to =
 getResultForBetweenElementAndScene : Canvas.Camera.Model.Model -> OnSceneData -> OnElementData -> DrawResult
 getResultForBetweenElementAndScene camera sceneData elementData =
     let
-        elRect : Canvas.Events.AbsoluteRectangle
-        elRect =
-            elementData.point.context
-                |> Tuple.second
-                |> Canvas.Camera.Convert.absoluteRectangleFromSceneRectangle camera
-
         elPointFromScenePoint : Canvas.Events.ElementPoint
         elPointFromScenePoint =
             sceneData.point
@@ -472,9 +466,6 @@ resolveParentAmbiguities :
     -> ( OnElementData, Canvas.Events.ElementPoint )
 resolveParentAmbiguities camera from to =
     let
-        fromIsLarger =
-            True
-
         -- do later
         fromSceneRect : Canvas.Events.SceneRectangle
         fromSceneRect =

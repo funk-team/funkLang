@@ -46,7 +46,6 @@ import Canvas.Tool
 import Canvas.Tool.Model
 import Canvas.Tool.Responsify
 import Canvas.Tool.Responsify.Fixtures
-import Canvas.Tool.Transform
 import Canvas.Tool.Transform.Model
 import Clipboard
 import Clipboard.Msg
@@ -73,8 +72,6 @@ import RemoteData
 import Route
 import Runtime
 import Shortcut
-import Spec
-import Spec.Element
 import Spec.Element.Id
 import Spec.Model
 import Spec.Mutation
@@ -231,10 +228,6 @@ type alias Return =
     , seed : Random.Seed
     , cmd : Cmd Canvas.Msg.Msg
     }
-
-
-scrollingSpeed =
-    50
 
 
 rootUpdate :
@@ -474,9 +467,6 @@ update :
     -> ( Model.Model.Model, Cmd Canvas.Msg.Msg )
 update msg model =
     let
-        userModel =
-            Model.latest model
-
         return : Return
         return =
             makeReturn msg model

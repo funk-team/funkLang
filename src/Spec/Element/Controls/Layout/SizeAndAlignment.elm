@@ -11,8 +11,6 @@ import Interface.Scope
 import Model.Model
 import Rectangle
 import Renderer.Layout
-import Spec
-import Spec.Element
 import Spec.Element.Layout
 import Spec.Element.Layout.Length
 import Spec.Element.Model

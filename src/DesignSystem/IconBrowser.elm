@@ -23,7 +23,6 @@ import GitHub.Model
 import GitHub.RawGitApi
 import Http exposing (Error(..))
 import IntDict
-import Json.Decode.Field as Field exposing (..)
 import Model.Product
 import RemoteData
 import Slug
@@ -428,14 +427,6 @@ viewImportRepoButtonOrForm repos maybeInput =
 
 viewIconForUserPickedIconSet : Bool -> DesignSystem.IconBrowser.Model.LocallyCachedIcon -> Element ()
 viewIconForUserPickedIconSet setIsSelected icon =
-    let
-        attr =
-            [ Element.height (px 24)
-            , Element.width (px 24)
-            , Element.Border.rounded 3
-            , Element.padding 3
-            ]
-    in
     viewLocallyCachedIcon icon
         |> Element.el
             ([ Element.height (px 27)

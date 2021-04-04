@@ -1,7 +1,6 @@
 module Canvas.Msg exposing (..)
 
 import Action
-import ApiExplorer
 import ApiExplorer.Msg
 import Authentication
 import Browser
@@ -10,7 +9,6 @@ import Canvas.AttributesPanel.Tabs
 import Canvas.Camera
 import Canvas.Camera.Model
 import Canvas.Selection
-import Canvas.Tool
 import Canvas.Tool.Model
 import Canvas.Tool.Msg
 import Canvas.Tool.Responsify
@@ -18,7 +16,6 @@ import Canvas.Tool.Responsify.Model
 import Clipboard.Msg
 import CodeEditor.Msg
 import DeployEditor.Msg
-import DesignSystem
 import DesignSystem.Msg
 import FileSystem
 import Http
@@ -27,7 +24,6 @@ import Keyboard
 import ModelEditor.Msg
 import Preview.Msg
 import Spec.DataConnection
-import Spec.Element
 import Spec.Element.Id
 import Spec.Element.Model
 import Spec.Element.Style

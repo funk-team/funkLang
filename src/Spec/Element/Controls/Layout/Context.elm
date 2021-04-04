@@ -6,7 +6,6 @@ import Element.Border
 import Element.Font
 import Element.Input
 import Renderer.Layout
-import Spec.Element
 import Spec.Element.Layout
 import Spec.Element.Layout.Padding
 import Ui.Dropdown

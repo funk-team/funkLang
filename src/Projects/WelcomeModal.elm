@@ -172,10 +172,6 @@ onBoardingButton =
         }
 
 
-videoCaption body =
-    Element.paragraph [ Element.Font.center ] [ Element.text body ]
-
-
 textRender : String -> Element.Element msg
 textRender textToColor =
     let
@@ -213,9 +209,6 @@ viewImage imageNumber =
 
 viewVideo videoNumber =
     let
-        nopointerEvents =
-            [ Html.Attributes.style "pointer-events" "none" ]
-
         player =
             Element.html <|
                 Html.video

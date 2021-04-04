@@ -1,14 +1,11 @@
 module DesignSystem.IconBrowser.Model exposing (..)
 
 import Dict.Any
-import Element as El exposing (..)
 import GitHub.Model
-import Http exposing (Error(..))
 import IntDict
 import Json.Decode as Decode
-import Json.Decode.Field as Field exposing (..)
 import Json.Encode as Encode
-import RemoteData exposing (RemoteData(..))
+import RemoteData
 import SvgParser
 
 

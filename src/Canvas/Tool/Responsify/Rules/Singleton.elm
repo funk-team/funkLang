@@ -18,7 +18,7 @@ import Canvas.Tool.Responsify.Info exposing (Fact(..), Info, Param(..), getFact,
 import Canvas.Tool.Responsify.Rules exposing (Match, MatchResult(..), Rule)
 import Canvas.Tool.Responsify.Transforms exposing (SimpleFlowBuilder, defaultFlowConfig, singletonTransform)
 import Canvas.Tool.Responsify.Types exposing (Drawn)
-import Canvas.Tool.Responsify.Utils exposing (correctPadding, shrinkHeight, shrinkWidth)
+import Canvas.Tool.Responsify.Utils exposing (shrinkHeight, shrinkWidth)
 import Spec.Element.Layout as Layout exposing (Flow(..))
 import Spec.Element.Layout.Padding exposing (Padding, Padding_(..))
 import Spec.Element.Style.Edges exposing (EdgeDimensions)

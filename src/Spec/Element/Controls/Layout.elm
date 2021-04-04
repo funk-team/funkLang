@@ -9,7 +9,6 @@ import Element.Background
 import Element.Input
 import List.Extra
 import Model.Model
-import Spec.Element
 import Spec.Element.Controls.Layout.SizeAndAlignment
 import Spec.Element.Model
 import Ui.Style

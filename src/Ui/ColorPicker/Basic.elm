@@ -734,13 +734,6 @@ onClickSvg msgCreator =
     SvgEvents.on "click" (Decode.map msgCreator decodeMouseInfo)
 
 
-{-| Hack to prevent SVG click events bubble through to rest of app. SVG does not have an onWithOptions
--}
-bubblePreventer : Html.Attribute Msg
-bubblePreventer =
-    Html.Events.stopPropagationOn "click" <| Decode.succeed ( NoOp, True )
-
-
 
 -- MouseInfo`
 

@@ -6,7 +6,7 @@ module Canvas.Tool.Responsify.Facts.Gravity exposing
     )
 
 import Canvas.Tool.Responsify.Info exposing (Param(..), ParamCalc, memoSimpleParam)
-import Rectangle exposing (Point, Rectangle(..))
+import Rectangle exposing (Rectangle(..))
 
 
 

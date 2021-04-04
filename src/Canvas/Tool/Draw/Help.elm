@@ -1,7 +1,6 @@
 module Canvas.Tool.Draw.Help exposing (..)
 
 import Canvas.Events
-import Spec.Element
 import Spec.Element.Layout
 import Spec.Element.Model
 

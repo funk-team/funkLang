@@ -13,7 +13,6 @@ import Canvas.Tool.Responsify.Model
 import Element
 import Element.Background
 import Element.Border
-import Element.Events
 import Element.Events.Extra
 import Element.Font
 import File.Download as Download
@@ -29,8 +28,6 @@ import Renderer.InteractivityAttribs
 import Renderer.Layout
 import Renderer.StyleCompositor
 import Sha256 exposing (sha256)
-import Spec
-import Spec.Element
 import Spec.Element.Controls.Layout
 import Spec.Element.Controls.Layout.Context
 import Spec.Element.Id
@@ -532,24 +529,10 @@ update userModel { selection, camera, state, msg, seed } =
 renderChildPreview : Model.Model.UserModel -> Interface.Model.ScopeData -> Spec.Element.Layout.Flow -> Int -> Spec.Element.Model.FlowElement -> Element.Element msg
 renderChildPreview userModel scope flow index element =
     let
-        hints =
-            case flow of
-                Spec.Element.Layout.Column ->
-                    []
-
-                Spec.Element.Layout.Row ->
-                    []
-
-                Spec.Element.Layout.WrappedRow ->
-                    []
-
         -- the layout that the element currently has
         currentLayout =
             Renderer.Layout.renderShared
                 element.shared
-
-        style =
-            Spec.getStyle element.shared.id userModel
 
         renderedSize =
             Renderer.Layout.makeSizeAttribs userModel element.shared.id scope element.outerGeometry.size
@@ -596,12 +579,6 @@ renderChild element =
 
         attribs =
             borderHint ++ currentLayout.attribs
-
-        renderedChildren : List (Element.Element msg)
-        renderedChildren =
-            List.map
-                renderChild_
-                (Spec.Element.getChildren element)
     in
     currentLayout.el { outer = attribs, inner = [] } []
 
@@ -727,15 +704,6 @@ previewPrediction userModel scope element =
         derivedPadding =
             Renderer.Layout.formatPadding padding
 
-        spacingHint =
-            Element.el
-                [ Element.width Element.fill
-                , Element.height (Element.px (Maybe.withDefault 0 spacing))
-                , Element.Background.color Ui.Style.importantHighlightColor
-                , Element.inFront <| Element.el [] <| Element.text (String.fromInt <| Maybe.withDefault 0 spacing)
-                ]
-                Element.none
-
         -- add a google-chrome like hint that describes the padding
         paddingHint =
             Element.el
@@ -796,46 +764,6 @@ result in the layout the user is drawing.
 -}
 predictForElement : ElementPredictionParams -> Maybe Canvas.Tool.Draw.Help.ResultingData
 predictForElement { camera, from, to } =
-    let
-        sceneElementData =
-            from.sourceElement
-
-        newChildDimensions : Canvas.Events.AbsoluteRectangle
-        newChildDimensions =
-            Canvas.Camera.Convert.absoluteRectangleFromElementPoints
-                camera
-                from.point
-                to.point
-
-        params =
-            { newChildDimensions = newChildDimensions
-            , sceneElementData = sceneElementData
-            , absoluteElementContextRect = absoluteElementContextRect
-            , allSiblings = allSiblings
-            }
-
-        -- move each element to the top left corner and only keep height and width
-        -- because the new child is relative to 0|0 origin
-        normalizedSiblings : List Canvas.Events.AbsoluteRectangle
-        normalizedSiblings =
-            from.siblingsDimensions
-                |> List.map (Canvas.Camera.Convert.absoluteRectangleFromSceneRectangle camera)
-
-        absoluteElementContextRect : Canvas.Events.AbsoluteRectangle
-        absoluteElementContextRect =
-            Canvas.Camera.Convert.absoluteRectangleFromSceneRectangle
-                camera
-                (Tuple.second from.point.context)
-
-        allSiblings : List Canvas.Events.AbsoluteRectangle
-        allSiblings =
-            newChildDimensions
-                :: normalizedSiblings
-                |> List.sortBy
-                    (\(Canvas.Events.AbsoluteRectangle r) ->
-                        Rectangle.x1 r + Rectangle.y1 r
-                    )
-    in
     Nothing
 
 

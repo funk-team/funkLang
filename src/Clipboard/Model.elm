@@ -4,7 +4,6 @@ import Action
 import Json.Decode as Decode
 import Json.Encode as Encode
 import Spec.DataConnection
-import Spec.Element
 import Spec.Element.Id
 import Spec.Element.Model
 import Spec.Element.Style

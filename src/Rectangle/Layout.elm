@@ -97,9 +97,6 @@ detectFlow drawn =
                         (List.Extra.uniquePairs drawn)
 
                 -- sort by x position
-                collection =
-                    Collection (List.sortBy Rectangle.x1 drawn)
-
                 layout =
                     -- try fitting into row or column layouts
                     case ( canBeColumn, canBeRow, allSimilarHeight ) of
@@ -179,25 +176,6 @@ detectClustering drawn =
                 -- if the number of rects within the cluster is the same as the total number of rects on the
                 -- screen assume the responsify algo will pick them up...
                 -- TODO improve this hack
-                clusterLength =
-                    case List.Extra.last clustersRow of
-                        Just val ->
-                            List.length val
-
-                        Nothing ->
-                            0
-
-                cluster_ =
-                    if (List.length clustersRow <= 1) && (clusterLength /= List.length drawn) then
-                        clustersRow
-
-                    else
-                        []
-
-                clustersCol =
-                    List.map (Rectangle.similarCol drawn) drawn
-                        |> List.Unique.filterDuplicates
-                        |> List.filter isSingle
             in
             clustersRow
 

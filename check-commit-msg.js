@@ -27,6 +27,7 @@ const keywords = [
     'Refine',
     'Remove',
     'Rename',
+    'Run',
     'Simplify',
     'Try',
     'Update',

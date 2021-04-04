@@ -10,7 +10,6 @@ module Generator exposing
 import Canvas.Events
 import Color
 import DesignSystem
-import DesignSystem.Color
 import DesignSystem.Color.Model
 import DesignSystem.Color.Selection
 import DesignSystem.Shadow
@@ -31,11 +30,9 @@ import Elm.Writer
 import Http
 import Interface.Scope
 import Json.Encode as Encode
-import Model
 import Model.Model
 import Rectangle
 import Spec
-import Spec.Element
 import Spec.Element.Id
 import Spec.Element.Layout
 import Spec.Element.Layout.Padding
@@ -344,18 +341,6 @@ renderShadows ( colorModel, model ) =
 ---- FUNC CALLS RENDERERS ----
 
 
-renderedDesignSystemTypoAttributes : DesignSystem.Typography.Model -> Int -> List Elm.Syntax.Expression.Expression
-renderedDesignSystemTypoAttributes model selection =
-    case DesignSystem.Typography.selectedTypographyStyle selection model of
-        Just style ->
-            Elm.Syntax.Expression.Application
-                [ node <| Elm.Syntax.Expression.FunctionOrValue designSystemModule (typoFuncName selection style) ]
-                |> List.singleton
-
-        Nothing ->
-            []
-
-
 maybeRenderedDesignSystemColor : DesignSystem.Color.Model.Model -> DesignSystem.Color.Model.Selection -> Maybe Elm.Syntax.Expression.Expression
 maybeRenderedDesignSystemColor model selection =
     case DesignSystem.Color.Model.getSelectedSwatch selection model of
@@ -418,19 +403,6 @@ shadowFuncName index shadow =
         ++ String.fromInt index
         ++ "ShadowAttributes"
         |> String.Case.toCamelCaseLower
-
-
-renderEitherElement : Model.Model.UserModel -> Spec.Element.Model.EitherElement -> Elm.Syntax.Expression.Expression
-renderEitherElement userModel { shared, outerGeometry } =
-    case outerGeometry of
-        Spec.Element.Model.ScreenGeometry screenOuterGeomerty ->
-            renderScreen userModel { shared = shared, outerGeometry = screenOuterGeomerty }
-
-        Spec.Element.Model.AbsoluteElementGeometry absoluteOuterGeomerty ->
-            renderAbsoluteElement userModel { shared = shared, outerGeometry = absoluteOuterGeomerty }
-
-        Spec.Element.Model.FlowElementGeometry flowOuterGeomerty ->
-            renderFlowElement userModel { shared = shared, outerGeometry = flowOuterGeomerty }
 
 
 renderScreen : Model.Model.UserModel -> Spec.Element.Model.Screen -> Elm.Syntax.Expression.Expression
@@ -596,11 +568,6 @@ renderSizeAttributes userModel { width, height } =
     [ renderElementFunc "width" <| renderLeftPipe <| renderLength userModel width
     , renderElementFunc "height" <| renderLeftPipe <| renderLength userModel height
     ]
-
-
-todo msg =
-    Elm.Syntax.Expression.Application
-        [ node <| Elm.Syntax.Expression.FunctionOrValue [ "Debug" ] "todo", node <| Elm.Syntax.Expression.Literal msg ]
 
 
 renderLength : Spec.Model.WithSpec userModel -> Spec.Element.Layout.Length -> Elm.Syntax.Expression.Expression
@@ -793,12 +760,6 @@ renderOverridesAttributes designSystem thisStyle =
                 designSystem.shadows
                 thisStyle.shadow
 
-        elementText =
-            renderTypoAttributes
-                designSystem.colorEditor
-                designSystem.typoEditor
-                thisStyle.elementText
-
         borderRadiusRecordExpression : List Elm.Syntax.Expression.Expression
         borderRadiusRecordExpression =
             case thisStyle.roundedBorders of
@@ -853,19 +814,6 @@ renderOverridesAttributes designSystem thisStyle =
 
 
 ---- TYPO ----
-
-
-renderTypoAttributes : DesignSystem.Color.Model.Model -> DesignSystem.Typography.Model -> Spec.Element.Style.TypographySelection -> Attributes
-renderTypoAttributes colorModel typoEditor selection =
-    case selection of
-        Spec.Element.Style.CustomTypo styles ->
-            Attributes (renderTypoStyles styles) []
-
-        Spec.Element.Style.TypoFromDesignSystem id_ ->
-            Attributes [] (renderedDesignSystemTypoAttributes typoEditor id_)
-
-        Spec.Element.Style.NoTypo ->
-            Attributes [] []
 
 
 renderTypoStyles : DesignSystem.Typography.Typo -> List Elm.Syntax.Expression.Expression
@@ -1072,12 +1020,6 @@ renderedIdentity : Elm.Syntax.Expression.Expression
 renderedIdentity =
     Elm.Syntax.Expression.Application
         [ node <| Elm.Syntax.Expression.FunctionOrValue [] "identity" ]
-
-
-renderedElementNone : Elm.Syntax.Expression.Expression
-renderedElementNone =
-    Elm.Syntax.Expression.Application
-        [ node <| Elm.Syntax.Expression.FunctionOrValue [ "Element" ] "none" ]
 
 
 renderLeftPipe : Elm.Syntax.Expression.Expression -> Elm.Syntax.Expression.Expression

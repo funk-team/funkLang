@@ -25,9 +25,6 @@ There are two render functions which need to be updated to correctly get the pre
 
 -}
 
-import ApiExplorer
-import ApiExplorer.Request
-import ApiExplorer.Site
 import Canvas.Msg
 import DesignSystem.IconBrowser
 import DesignSystem.IconBrowser.Model
@@ -40,8 +37,6 @@ import Element.Border
 import Element.Input
 import Html
 import Html.Attributes
-import Html.Parser.Util
-import Interface
 import Interface.Data
 import Interface.Model
 import Interface.Scope
@@ -481,73 +476,6 @@ viewInterfaceDataList { scope, elmUiParams, attribsFromRendererForOuterElement, 
         apiListData.values
 
 
-viewList :
-    SpecificRenderParams msg
-    -> ApiExplorer.Site.ContentList
-    -> List (Element.Element msg)
-viewList { scope, elmUiParams, attribsFromRendererForOuterElement, wrapper } list =
-    case list of
-        ApiExplorer.Site.ImageList images ->
-            List.indexedMap
-                (\index image ->
-                    let
-                        { children, attribs } =
-                            elmUiParams.render (Just index) scope
-
-                        combinedAttribs =
-                            Renderer.Layout.addToOuter
-                                attribsFromRendererForOuterElement
-                                (mergeSharedAttribs attribs)
-
-                        { innerAttribs, wrap } =
-                            wrapper combinedAttribs
-                    in
-                    Element.image (innerAttribs.inner ++ innerAttribs.outer)
-                        { description = image.alt |> Maybe.withDefault "image"
-                        , src = image.src
-                        }
-                )
-                images
-
-        ApiExplorer.Site.RichTextList viewRichTexts ->
-            List.indexedMap
-                (\index txt ->
-                    let
-                        { children, attribs } =
-                            elmUiParams.render (Just index) scope
-
-                        combinedAttribs =
-                            Renderer.Layout.addToOuter
-                                attribsFromRendererForOuterElement
-                                (mergeSharedAttribs attribs)
-
-                        { innerAttribs, wrap } =
-                            wrapper combinedAttribs
-                    in
-                    Element.paragraph (innerAttribs |> Renderer.Layout.flattenAttribs)
-                        (Html.Parser.Util.toVirtualDom txt |> List.map Element.html)
-                )
-                viewRichTexts
-
-        ApiExplorer.Site.TextList texts ->
-            List.indexedMap
-                (\index txt ->
-                    let
-                        { children, attribs } =
-                            elmUiParams.render (Just index) scope
-
-                        combinedAttribs =
-                            Renderer.Layout.addToOuter attribsFromRendererForOuterElement (mergeSharedAttribs attribs)
-
-                        { innerAttribs, wrap } =
-                            wrapper combinedAttribs
-                    in
-                    Element.paragraph (innerAttribs |> Renderer.Layout.flattenAttribs)
-                        [ Element.text txt ]
-                )
-                texts
-
-
 viewWithChildren : SpecificRenderParams msg -> List (Element.Element msg)
 viewWithChildren { backgroundImage, scope, elmUiParams, attribsFromRendererForOuterElement, wrapper } =
     let
@@ -623,14 +551,6 @@ renderAndUpdateContextOnCanvas element userModel scope =
                                 let
                                     { attribs } =
                                         render Nothing scope
-
-                                    value =
-                                        case Dict.get modelField userModel.runtimeModel of
-                                            Just (Dynamic.Data.StringInstance str) ->
-                                                Just str
-
-                                            _ ->
-                                                Nothing
 
                                     typoPlaceholderStyles =
                                         case maybeStyle of
@@ -915,9 +835,6 @@ viewVideo element combinedAttribs maybeStyle { src, title } preventInteraction =
                            )
                     )
                     []
-
-        label =
-            Element.el [ Element.width Element.fill, Element.clipX ] (Element.text title)
     in
     Element.el (combinedAttribs ++ [ Element.spacing 10 ])
         player
@@ -942,9 +859,6 @@ viewAudio combinedAttribs { src, title } preventInteraction =
                         ++ nopointerEvents
                     )
                     []
-
-        label =
-            Element.el [ Element.width Element.fill, Element.clipX ] (Element.text title)
     in
     Element.column (combinedAttribs ++ [ Element.spacing 10 ])
         [ Element.el [ Element.width Element.fill ] player
@@ -989,13 +903,6 @@ viewIcon :
 viewIcon attribsInjectedByCanvasOrPreviewRenderer icon =
     DesignSystem.IconBrowser.viewLocallyCachedIcon icon
         |> Element.el attribsInjectedByCanvasOrPreviewRenderer
-
-
-viewRichText : List (Element.Attribute msg) -> ApiExplorer.Request.HtmlResponseData -> Element.Element msg
-viewRichText attribs html =
-    Html.Parser.Util.toVirtualDom html
-        |> List.map Element.html
-        |> Element.paragraph []
 
 
 viewTextInteractive :

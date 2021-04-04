@@ -19,11 +19,6 @@ type Node
     | Section String Bool
 
 
-type Hole
-    = Variable_ String
-    | Section_ String String
-
-
 {-| Render a template using a list of variables
 -}
 render : List Node -> String -> String

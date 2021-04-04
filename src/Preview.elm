@@ -226,12 +226,6 @@ viewScreen userModel baseUrl element =
         designSystem =
             userModel.designSystem
 
-        id =
-            element.shared.id
-
-        maybeStyles =
-            Spec.Element.Id.getFromDict id userModel.elementStyles
-
         -- render background from design settings
         styles =
             Spec.Element.Render.style
@@ -347,10 +341,6 @@ implementClick :
     }
     -> Renderer.Content.Wrapper Preview.Msg.Msg
 implementClick { baseUrl, clickSettings, userModel } =
-    let
-        noop attribs render =
-            render attribs
-    in
     case clickSettings of
         Action.Unspecified ->
             Renderer.Content.noWrapper

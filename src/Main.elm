@@ -232,10 +232,6 @@ view model =
                     }
 
                 Route.Project project (Route.Preview elementId) ->
-                    let
-                        baseUrl =
-                            "/preview/" ++ project.projectId ++ "/" ++ project.projectName
-                    in
                     Preview.view
                         (\slug -> Route.makeUrl model.mode project (Route.Preview slug))
                         elementId

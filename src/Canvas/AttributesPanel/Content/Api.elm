@@ -4,7 +4,6 @@ module Canvas.AttributesPanel.Content.Api exposing (view)
 -}
 
 import Canvas.AttributesPanel.Shared
-import Dict
 import Dict.Any
 import Element
 import Element.Background

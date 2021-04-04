@@ -16,7 +16,6 @@ import Rectangle
 import Set
 import Slug
 import Spec.DataConnection
-import Spec.Element
 import Spec.Element.Id
 import Spec.Element.Layout.Length
 import Spec.Element.Model

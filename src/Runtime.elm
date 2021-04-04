@@ -78,10 +78,6 @@ main =
         }
 
 
-baseUrl =
-    ""
-
-
 view : Model -> Browser.Document Runtime.Msg.Msg
 view model =
     case parse model.url of

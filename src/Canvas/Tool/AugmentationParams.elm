@@ -4,7 +4,6 @@ import Canvas.Camera.Model
 import Canvas.Selection
 import Interface.Model
 import Keyboard
-import Spec.Element
 import Spec.Element.Model
 
 

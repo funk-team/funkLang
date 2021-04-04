@@ -1,8 +1,6 @@
 module Cli exposing (main)
 
-import Cli.Option as Option
 import Cli.OptionsParser as OptionsParser
-import Cli.OptionsParser.BuilderState
 import Cli.Ports
 import Cli.Program as Program
 

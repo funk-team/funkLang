@@ -1,7 +1,6 @@
 module Model exposing (..)
 
 import Action
-import ApiExplorer
 import ApiExplorer.Api
 import ApiExplorer.Model
 import Authentication
@@ -21,7 +20,6 @@ import Dict.Any
 import Dict.Extra
 import FileSystem.CliConnection
 import Google.Fonts
-import Interface
 import Interface.JsonTree.Model
 import Interface.Selection
 import Json.Decode as Decode
@@ -37,7 +35,6 @@ import RemoteData
 import ResponsifyTestingEnvironment.Model
 import Route
 import ScrollTo
-import Spec.Element
 import Spec.Element.Id
 import Spec.Element.Model
 import Spec.Model

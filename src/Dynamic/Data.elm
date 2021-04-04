@@ -1,6 +1,5 @@
 module Dynamic.Data exposing (..)
 
-import Color
 import Color.Extra
 import Dict exposing (Dict)
 import Dict.Extra

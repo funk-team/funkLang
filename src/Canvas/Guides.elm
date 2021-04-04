@@ -17,7 +17,6 @@ module Canvas.Guides exposing
 {-| Detecting, Applying and Viewing Guides
 -}
 
-import Canvas.Camera
 import Canvas.Camera.Model
 import Canvas.Events
 import Dict
@@ -52,10 +51,6 @@ settings =
 findClosestBy : Canvas.Camera.Model.Model -> Guides -> Rectangle.Rectangle -> (Rectangle.Rectangle -> Float) -> Maybe ( Float, List Alignment )
 findClosestBy camera guides someRect metric =
     let
-        distanceToSnapPoint : ( Float, List Alignment ) -> Float
-        distanceToSnapPoint ( snapPoint, rect ) =
-            abs <| snapPoint - metric someRect
-
         -- is within threshold?
         doesSnap : ( Float, List Alignment ) -> Bool
         doesSnap ( snapPoint, _ ) =
@@ -73,10 +68,6 @@ findClosestBy camera guides someRect metric =
 findClosestLength : Canvas.Camera.Model.Model -> Guides -> Rectangle.Rectangle -> (Rectangle.Rectangle -> Float) -> SnapReason -> Maybe ( Float, List Alignment )
 findClosestLength camera guides someRect metric snapReason =
     let
-        distanceToSnapPoint : ( Float, List Alignment ) -> Float
-        distanceToSnapPoint ( snapLength, lengthAlignment ) =
-            abs <| snapLength - metric someRect
-
         -- is within threshold?
         doesSnap : ( Float, List Alignment ) -> Bool
         doesSnap ( snapLength, lengthAlignment ) =
@@ -438,9 +429,6 @@ viewReasons camera drawn reasons =
 viewSnappedHeight : Canvas.Camera.Model.Model -> Rectangle.Rectangle -> Element.Element msg
 viewSnappedHeight { zoom } rect_ =
     let
-        offsetFromEdge =
-            Rectangle.x2 rect_
-
         heightValue =
             String.fromInt (Rectangle.height rect_ |> round)
     in
@@ -474,9 +462,6 @@ viewSnappedWidth { zoom } rect_ =
     let
         offsetFromEdge =
             Rectangle.centerX rect_
-
-        heightValue =
-            String.fromInt (Rectangle.height rect_ |> round)
     in
     Element.el
         [ Element.moveDown (Rectangle.y2 rect_ - 10)

@@ -38,12 +38,6 @@ parseMethod method =
             Decode.fail <| "Method: '" ++ method ++ "' not recognized"
 
 
-parseCurl : String -> Maybe ApiExplorer.Model.CurlParseResult
-parseCurl input =
-    Result.toMaybe
-        (Decode.decodeString decodeCurl input)
-
-
 view : ApiExplorer.Model.ApiSpec -> Element.Element ApiExplorer.Msg.ApiSpecEdit
 view source =
     ApiExplorer.Help.viewSection

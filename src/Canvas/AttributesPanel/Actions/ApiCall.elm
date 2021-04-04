@@ -10,7 +10,6 @@ import Interface.JsonTree.Model
 import Interface.Selection
 import Model
 import Model.Model
-import ModelEditor
 import ModelEditor.Model
 import Ui.Dropdown
 

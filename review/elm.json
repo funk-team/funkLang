@@ -1,15 +1,13 @@
 {
     "type": "application",
-    "source-directories": [
-        "src"
-    ],
+    "source-directories": ["src"],
     "elm-version": "0.19.1",
     "dependencies": {
         "direct": {
             "elm/core": "1.0.5",
             "elm/project-metadata-utils": "1.0.1",
             "jfmengels/elm-review": "2.3.11",
-            "jfmengels/elm-review-unused": "1.1.7",
+            "jfmengels/elm-review-unused": "1.1.8",
             "stil4m/elm-syntax": "7.2.2"
         },
         "indirect": {

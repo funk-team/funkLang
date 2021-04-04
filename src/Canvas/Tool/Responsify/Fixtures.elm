@@ -30,7 +30,6 @@ import Canvas.Tool.Responsify.Types exposing (Drawn)
 import Generator
 import Http
 import Json.Encode as Encode
-import Model
 import Model.Model
 import Rectangle exposing (Rectangle(..))
 import Spec.Element.Id exposing (Id(..))
@@ -43,24 +42,6 @@ import Spec.Element.Model as SEM
 
 -- Helper to run checks on rule matchers against a set of example
 -- cases.
-
-
-matcherNames : List String
-matcherNames =
-    [ "gappedRow"
-    , "filledRow"
-    , "centredRow"
-    , "singleton1"
-    , "singleton2"
-    , "rowOf3"
-    , "centredColumn1"
-    , "centredColumn2"
-    , "sideAlignedColumn1"
-    , "sideAlignedColumn2"
-    , "columnOf2"
-    , "columnOf2Centred"
-    , "columnFromTop1"
-    ]
 
 
 matcherCheck : Match -> List ( Drawn, MatchResult ) -> Bool
@@ -225,15 +206,6 @@ filledRow =
 filledRowDiffLast : Drawn
 filledRowDiffLast =
     let
-        child : Int -> Rectangle
-        child x =
-            Rectangle
-                { x1 = toFloat (x + 1) * 50
-                , x2 = toFloat (x + 2) * 50
-                , y1 = 50
-                , y2 = 100
-                }
-
         children =
             [ Rectangle { x1 = 60, x2 = 90, y1 = 50, y2 = 100 }
             , Rectangle { x1 = 110, x2 = 140, y1 = 50, y2 = 100 }

@@ -2,10 +2,8 @@ module UserModel exposing (..)
 
 import Canvas.AttributesPanel.Content.Tabs
 import Canvas.AttributesPanel.Tabs
-import Canvas.Camera
 import Canvas.Camera.Model
 import Canvas.Selection
-import Canvas.Tool
 import Canvas.Tool.Model
 import Canvas.Tool.Responsify.Model
 import Preview.Model
