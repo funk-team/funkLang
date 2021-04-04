@@ -3,7 +3,7 @@ module Interface.JsonTree.Model exposing (..)
 import Dict exposing (Dict)
 import Json.Decode as Decode
 import Json.Encode as Encode
-import Set.Any as Set exposing (AnySet)
+import Set.Any exposing (AnySet)
 
 
 {-| The state of the JSON tree view. Note that this is just the runtime state needed to

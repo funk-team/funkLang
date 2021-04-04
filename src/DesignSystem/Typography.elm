@@ -335,11 +335,6 @@ typoToAttributes colorDesignSystem typo =
                 |> Maybe.withDefault defaultSize
                 |> Element.Font.size
 
-        lineHeight =
-            typo.lineHeight
-                |> Maybe.withDefault defaultLineHeight
-                |> (\lh -> [ Ui.Style.style "line-height" (String.fromInt lh ++ "px") ])
-
         wrap =
             case typo.shouldWrap of
                 True ->
@@ -428,9 +423,6 @@ viewSidebar model colorDesignSystem =
         rowValToSidebarRow : ( Int, Typo ) -> Element.Element Msg
         rowValToSidebarRow ( selection, typo ) =
             let
-                elementReference =
-                    selectionToString selection
-
                 mayebEditableName : Element.Element Msg
                 mayebEditableName =
                     case typo.isBuiltIn of
@@ -555,24 +547,6 @@ viewShadow model typo colorDesignSystem =
         typoShadow =
             typo.shadow
                 |> Maybe.withDefault newShadow
-
-        inputField lab update_ value_ =
-            Element.Input.text
-                [ Element.Border.widthEach
-                    { bottom = 3, left = 0, right = 0, top = 0 }
-                , Element.width (Element.px 40)
-                , Element.padding 6
-                , Element.alignRight
-                ]
-                { onChange = update_
-                , text = String.fromFloat value_
-                , placeholder =
-                    String.fromFloat value_
-                        |> Element.text
-                        |> Element.Input.placeholder []
-                        |> Just
-                , label = Element.Input.labelLeft [ Element.centerY ] <| Element.text lab
-                }
 
         colorInput =
             Ui.ColorPicker.Advanced.viewAdvanced typoShadow.color colorDesignSystem

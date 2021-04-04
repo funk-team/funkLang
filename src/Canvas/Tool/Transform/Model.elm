@@ -5,10 +5,8 @@ import Canvas.Selection
 import Compass
 import Json.Decode as Decode
 import Json.Encode as Encode
-import Spec.Element
 import Spec.Element.Id
 import Spec.Element.Model
-import Ui.Style
 
 
 

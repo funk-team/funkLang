@@ -1,6 +1,5 @@
 module DesignSystem.IconBrowser.Repo exposing (..)
 
-import Cmd.Extra exposing (..)
 import DesignSystem.IconBrowser.Model
 import DesignSystem.IconBrowser.Msg exposing (..)
 import Dict
@@ -14,8 +13,7 @@ import GitHub.Model
 import GitHub.RawGitApi
 import Html
 import Html.Attributes
-import Http exposing (Error(..))
-import Json.Decode.Field as Field exposing (..)
+import Http
 import List.Extra
 import Random
 import RemoteData
@@ -24,7 +22,6 @@ import Ui.Boxicons
 import Ui.Component
 import Ui.Help
 import Ui.Style
-import ZipList
 
 
 
@@ -49,9 +46,6 @@ viewSimpleButton attr symbol msg =
 viewCards : DesignSystem.IconBrowser.Model.Model -> Element DesignSystem.IconBrowser.Msg.Msg
 viewCards model =
     let
-        loadingCard =
-            Element.el [] (Element.text "loading")
-
         viewAddedSet ( id, repo ) =
             let
                 isSelected =

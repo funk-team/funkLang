@@ -11,7 +11,6 @@ import Json.Encode as Encode
 import ModelEditor.Model
 import Rectangle
 import Spec.DataConnection
-import Spec.Element
 import Spec.Element.Id
 import Spec.Element.Model
 import Spec.Element.Style

@@ -20,7 +20,7 @@ import Canvas.Tool.Responsify.Transforms exposing (FlowBuilder, TransformExtras,
 import Canvas.Tool.Responsify.Types exposing (Drawn)
 import Canvas.Tool.Responsify.Utils exposing (correctPadding, fillWidthFlipped, shrinkHeight)
 import Spec.Element.Layout as Layout
-import Spec.Element.Layout.Padding exposing (Padding, Padding_(..))
+import Spec.Element.Layout.Padding exposing (Padding)
 import Spec.Element.Style.Edges exposing (EdgeDimensions)
 
 

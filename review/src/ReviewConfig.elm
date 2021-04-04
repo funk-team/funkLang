@@ -28,3 +28,4 @@ config =
     --, NoUnused.Patterns.rule
     ]
         |> List.map (Rule.ignoreErrorsForFiles [ "src/Viewport.elm", "src/Ui/Boxicons", "src/Ui/EntypoIcons.elm" ])
+        |> List.map (Rule.ignoreErrorsForDirectories [ "tests/VerifyExamples" ])

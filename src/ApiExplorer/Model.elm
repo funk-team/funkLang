@@ -3,7 +3,6 @@ module ApiExplorer.Model exposing (..)
 import ApiExplorer.Api.UrlParser
 import ApiExplorer.Menus
 import Dict.Any
-import IntDict
 import IntDict.Typed
 import Interface.JsonTree.Model
 import Interface.Selection

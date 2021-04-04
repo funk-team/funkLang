@@ -10,17 +10,14 @@ import Canvas.Msg
 import Canvas.Selection
 import Element
 import Element.Border
-import Element.Events
 import Element.Events.Extra
 import Element.Font
-import Html
 import Html.Attributes
 import Html.Events
 import Json.Decode as Decode
 import Model
 import Model.Model
 import Route
-import Spec.Element
 import Spec.Element.Model
 import Spec.Mutation
 import Ui.Help
@@ -65,17 +62,6 @@ viewElementOptions :
     -> ( Canvas.Selection.SelectionItem, Spec.Element.Model.EitherElement )
     -> Element.Element Canvas.Msg.Msg
 viewElementOptions model ( selectionItem, element ) =
-    let
-        userModel =
-            Model.latest model
-
-        id =
-            element.shared.id
-
-        selected : Bool
-        selected =
-            Model.isSelected userModel element
-    in
     case element.outerGeometry of
         Spec.Element.Model.ScreenGeometry _ ->
             renderScreenPanel
@@ -157,9 +143,6 @@ renderElementPanel model ( selectionItem, element ) =
                 |> Element.map Canvas.Msg.AttributesPanelTabChanged
                 |> Element.el Canvas.AttributesPanel.Shared.sectionStyles
 
-        camera =
-            userModel.camera
-
         panelAttribs =
             Ui.Help.allPointerEvents
                 :: Element.Events.Extra.preventClickOnElementsBehind Canvas.Msg.NoOp
@@ -172,12 +155,6 @@ renderElementPanel model ( selectionItem, element ) =
 
         id =
             element.shared.id
-
-        imageStyles =
-            [ Element.width (Element.px 650)
-            , Element.Border.glow Ui.Style.grey 3
-            , Element.moveDown 10
-            ]
 
         content =
             case userModel.attributesPanelTab of

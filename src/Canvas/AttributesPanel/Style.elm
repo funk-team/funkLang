@@ -23,13 +23,11 @@ import Html.Attributes as Attrs
 import IntDict
 import Interface.Data
 import Interface.Scope
-import List.Extra
 import Model
 import Model.Model
 import Renderer.Help
 import Spec
 import Spec.Element
-import Spec.Element.Controls.Decoration
 import Spec.Element.Id
 import Spec.Element.Model
 import Spec.Element.Style
@@ -642,22 +640,6 @@ viewTypoOptions googleFonts designSystem element styles =
 
         typoPickerDropDown =
             let
-                maybeTypoSelectedId =
-                    case styles_ of
-                        Spec.Element.Style.TypoFromDesignSystem id_ ->
-                            Just id_
-
-                        _ ->
-                            Nothing
-
-                isSelected =
-                    case maybeTypoSelectedId of
-                        Just id_ ->
-                            \( someId, _ ) -> someId == id_
-
-                        Nothing ->
-                            always False
-
                 allTypos =
                     Dict.toList designSystem.typoEditor.typos
 
@@ -686,15 +668,6 @@ viewTypoOptions googleFonts designSystem element styles =
 
                 Spec.Element.Style.NoTypo ->
                     Element.none
-
-        nameWithDefault : Bool -> Maybe String
-        nameWithDefault defaultOrNot =
-            case defaultOrNot of
-                True ->
-                    Just "(Default) "
-
-                False ->
-                    Nothing
 
         typoPickerDropDownRow : Maybe Int -> ( Int, DesignSystem.Typography.Typo ) -> Ui.Dropdown.Row Canvas.Msg.Msg
         typoPickerDropDownRow maybeTypoSelectedId ( id_, typo ) =
@@ -767,18 +740,6 @@ viewTypoOptions googleFonts designSystem element styles =
 
         typoPickerDropDownRow_custom isSelected typo =
             let
-                unlinkButton =
-                    Element.el
-                        (EventsExtra.onClickStopPropagation
-                            (Spec.Mutation.SetTypoOnElement
-                                element.shared.id
-                                derivedCustomTypo
-                                styles.typoTab
-                            )
-                            :: linkIconAttr
-                        )
-                        (Ui.Component.icon Ui.Boxicons.bxUnlink)
-
                 linkButton =
                     let
                         typoIndex =
@@ -1019,27 +980,8 @@ viewShadowOptions designSystem id styles =
 
         shadowPickerDropDown =
             let
-                maybeShadowSelectedId =
-                    case styles.shadow of
-                        Spec.Element.Style.ShadowFromDesignSystem id_ ->
-                            Just id_
-
-                        _ ->
-                            Nothing
-
-                isSelected =
-                    case maybeShadowSelectedId of
-                        Just id_ ->
-                            \( someId, _ ) -> someId == id_
-
-                        Nothing ->
-                            always False
-
                 allShadows =
                     Dict.toList designSystem.shadows.shadows
-
-                selected =
-                    List.Extra.find isSelected allShadows
 
                 dropdown maybeShadowSelectedId_ shadow =
                     Ui.Dropdown.view
@@ -1065,15 +1007,6 @@ viewShadowOptions designSystem id styles =
 
                 Spec.Element.Style.NoShadow ->
                     Element.none
-
-        nameWithDefault : Bool -> Maybe String
-        nameWithDefault defaultOrNot =
-            case defaultOrNot of
-                True ->
-                    Just "(Default) "
-
-                False ->
-                    Nothing
 
         shadowPickerDropDownRow maybeShadowSelectedId ( id_, shadow ) =
             let
@@ -1147,17 +1080,6 @@ viewShadowOptions designSystem id styles =
 
         shadowPickerDropDownRow_custom isSelected shadow =
             let
-                unlinkButton =
-                    Element.el
-                        (EventsExtra.onClickStopPropagation
-                            (Spec.Mutation.SetShadowOnElement
-                                id
-                                derivedCustomShadow
-                            )
-                            :: linkIconAttr
-                        )
-                        (Ui.Component.icon Ui.Boxicons.bxUnlink)
-
                 linkButton =
                     let
                         shadowIndex =
@@ -1398,11 +1320,6 @@ viewPreview colorModel shadow =
             , Element.clip
             , Element.Background.color (Element.rgb 1 1 1)
             ]
-
-
-viewRoundedBorders : Maybe Int -> Element.Element (Maybe Int)
-viewRoundedBorders radius =
-    Spec.Element.Controls.Decoration.viewBorderRadiusSelector radius
 
 
 {-| View border width and color control

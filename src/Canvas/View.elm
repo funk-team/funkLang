@@ -33,11 +33,9 @@ import Element.Font
 import Element.Input
 import FileSystem
 import FileSystem.CliConnection
-import Generator
 import Google.Fonts.LinkTag
 import Html
 import Html.Attributes
-import Interface
 import Interface.Model
 import Interface.Scope
 import Model
@@ -106,10 +104,6 @@ view editorMode project model =
 renderEditor : Route.EditorMode -> Persistence.ProjectMeta -> Model.Model.Model -> Html.Html Canvas.Msg.RootMsg
 renderEditor editorMode project model =
     let
-        code =
-            Generator.renderCode Canvas.Msg.WriteStylesButtonClicked latest
-                |> Element.inFront
-
         latest =
             Model.latest model
 
@@ -272,9 +266,6 @@ viewHeader projectMeta editorMode model =
 
                 _ ->
                     Element.none
-
-        userModel =
-            Model.latest model
 
         buttonPadding =
             Element.paddingXY (Ui.Style.headerHeight // 2) 0
@@ -642,22 +633,11 @@ renderShared context element_ =
         userModel =
             Model.latest context.model
 
-        clickAction =
-            Maybe.andThen .onClick actions
-
         padding_ =
             Element.paddingEach (Renderer.Layout.formatPadding padding)
 
         { flow, padding, spacing } =
             element_.shared
-
-        shared =
-            element_.shared
-
-        actions =
-            Spec.Element.Id.getFromDict
-                element_.shared.id
-                userModel.actions
 
         id =
             Spec.Element.Id.toHtmlId element_.shared.id
@@ -1170,16 +1150,6 @@ viewEditor model content =
 
 sceneBackground =
     Element.Background.color (Element.rgba 0 0 0 0.1)
-
-
-markActiveScenario is =
-    if is then
-        [ Element.Background.color Ui.Style.highlightColorSolid
-        , Element.Font.color Ui.Style.white
-        ]
-
-    else
-        []
 
 
 

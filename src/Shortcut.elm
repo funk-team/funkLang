@@ -1,7 +1,6 @@
 module Shortcut exposing (..)
 
 import Canvas.Msg
-import Canvas.Tool.Draw
 import Canvas.Tool.Draw.Model
 import Canvas.Tool.Model
 import Canvas.Tool.Transform.Model

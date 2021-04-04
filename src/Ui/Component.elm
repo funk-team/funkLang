@@ -272,9 +272,6 @@ buttonExpandOnClick action labelText disabled =
 
                 False ->
                     Ui.Boxicons.bxChevronRight
-
-        styles =
-            []
     in
     Element.row
         [ Element.Events.Extra.onMouseDown <| Decode.succeed action

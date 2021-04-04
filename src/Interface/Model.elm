@@ -18,7 +18,6 @@ Unsolved problems
 -}
 
 import Dict.Any
-import Interface.JsonTree
 import Interface.JsonTree.Model
 import Interface.Selection
 import Json.Decode as Decode

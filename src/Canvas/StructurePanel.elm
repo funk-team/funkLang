@@ -18,7 +18,6 @@ import Html.Attributes
 import Html.Events
 import Json.Decode as Decode
 import Keyboard
-import List.Extra
 import Model
 import Model.Model
 import Spec
@@ -162,10 +161,6 @@ viewSelectedScreen userModel element =
         children =
             [ Element.column [ Element.spacing 40, Element.width Element.fill ] [ els ] ]
 
-        parent =
-            -- TODO Fix when incorrect parent is highlighted
-            getParent userModel userModel.expanded element
-
         panelStyles =
             [ Element.spacing 10
             , Ui.Help.allPointerEvents
@@ -189,12 +184,6 @@ viewSelectedScreen userModel element =
         (structurePanelHeader (Just "Screen Structure")
             ++ children
         )
-
-
-stopWheelPropagation =
-    Decode.succeed ( Canvas.Msg.NoOp, True )
-        |> Html.Events.stopPropagationOn "wheel"
-        |> Element.htmlAttribute
 
 
 {-| Find all IDs of parents whos children are selected
@@ -254,28 +243,6 @@ help model explicitExpanded el =
 
 help_ =
     help
-
-
-getParent :
-    Model.Model.UserModel
-    -> Canvas.Selection.ExpansionSet
-    -> Spec.Element.Model.Element a
-    -> Maybe Spec.Element.Id.Id
-getParent model explicitExpanded el =
-    let
-        children =
-            el
-                |> Spec.Element.getChildren
-
-        childrenResult =
-            List.map
-                (help model explicitExpanded)
-                children
-
-        parent =
-            List.concatMap Tuple.second childrenResult |> List.Extra.last
-    in
-    parent
 
 
 viewScreen :

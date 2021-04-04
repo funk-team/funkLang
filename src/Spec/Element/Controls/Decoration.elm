@@ -69,14 +69,8 @@ viewColorPicker color_ =
 
         Just color ->
             let
-                bg =
-                    Color.Extra.toElmUi (Tuple.first color)
-
                 picker =
                     Ui.ColorPicker.Advanced.view color
-
-                cssString =
-                    Element.text (Color.Extra.toCssString (color |> Tuple.first))
 
                 delete =
                     Element.Input.button

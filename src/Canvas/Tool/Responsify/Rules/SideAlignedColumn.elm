@@ -10,7 +10,7 @@
 
 module Canvas.Tool.Responsify.Rules.SideAlignedColumn exposing (sideAlignedColumn, sideAlignedColumnMatch)
 
-import Canvas.Tool.Responsify.Facts.Alignment as Alignment exposing (allHorizCentreAligned, allHorizSideAligned, firstAlignedTop, lastAlignedBottom)
+import Canvas.Tool.Responsify.Facts.Alignment exposing (allHorizCentreAligned, allHorizSideAligned, firstAlignedTop, lastAlignedBottom)
 import Canvas.Tool.Responsify.Facts.Basic exposing (allSimilarHeight)
 import Canvas.Tool.Responsify.Facts.Layouts exposing (isAColumn)
 import Canvas.Tool.Responsify.Facts.Spacing exposing (distinctStartEndGroups)
@@ -20,7 +20,7 @@ import Canvas.Tool.Responsify.Types exposing (Drawn)
 import Canvas.Tool.Responsify.Utils exposing (comparison, correctPadding, fillHeight, fillWidthFlipped)
 import Rectangle
 import Spec.Element.Layout as Layout
-import Spec.Element.Layout.Padding exposing (Padding, Padding_(..))
+import Spec.Element.Layout.Padding exposing (Padding)
 import Spec.Element.Style.Edges exposing (EdgeDimensions)
 
 

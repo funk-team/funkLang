@@ -1,6 +1,5 @@
 module ModelEditor exposing (controlsForWithDefault, controlsForWithoutDefault, update, view)
 
-import ApiExplorer.Api
 import ApiExplorer.Api.Param
 import Canvas.AttributesPanel.Content
 import Canvas.AttributesPanel.Content.Tabs
@@ -259,11 +258,6 @@ viewSelectedField projectMeta userModel ( key, field ) =
                                                     |> ModelEditor.Model.Typed
                                     )
                             )
-
-        deleteButton =
-            Element.Input.button
-                Ui.Component.buttonStyle
-                { onPress = Just (ModelEditor.Msg.RemoveField key), label = Element.text "Remove field" }
 
         commentField =
             let
@@ -532,10 +526,6 @@ update msg model =
             )
 
 
-styleFieldSpecific =
-    [ Element.spacing 20 ]
-
-
 {-| Provide visual controls that allow the user to edit a union type when there is no default value defined yet
 -}
 controlsForWithoutDefault : Element.Element ( Dynamic.Data.Kind, Maybe Dynamic.Data.Instance ) -> { kind : Dynamic.Data.Kind, readOnly : Bool } -> Element.Element ( Dynamic.Data.Kind, Maybe Dynamic.Data.Instance )
@@ -662,17 +652,3 @@ typePicker locked kind =
                      else
                         []
                     )
-
-
-viewKind : Maybe Dynamic.Data.Kind -> Dynamic.Data.Kind -> Element.Element Dynamic.Data.Kind
-viewKind active kind =
-    Element.Input.button
-        (if Just kind == active then
-            [ Element.Font.bold ]
-
-         else
-            []
-        )
-        { onPress = Just kind
-        , label = Dynamic.Data.humanReadableKind kind |> Element.text
-        }

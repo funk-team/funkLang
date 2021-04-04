@@ -19,7 +19,7 @@ module Canvas.Tool.Responsify.Facts.Alignment exposing
 import Canvas.Tool.Responsify.Info exposing (Fact(..), FactCalc, memoSimpleFact)
 import Canvas.Tool.Responsify.Utils exposing (comparison)
 import List.Extra exposing (maximumBy, minimumBy)
-import Rectangle exposing (Point, Rectangle(..))
+import Rectangle exposing (Rectangle(..))
 
 
 

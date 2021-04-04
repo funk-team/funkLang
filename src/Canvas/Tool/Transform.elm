@@ -9,7 +9,6 @@ module Canvas.Tool.Transform exposing (..)
 -}
 
 import BoundingClientRectangle
-import Canvas.Camera
 import Canvas.Camera.Convert
 import Canvas.Camera.Model
 import Canvas.Events
@@ -1185,9 +1184,6 @@ makeElementMutation pressedKeys userModel point camera mouseDownData =
                 parent =
                     mouseDownData.parentElement
 
-                parentShared =
-                    parent.shared
-
                 sourceSelectedId =
                     Canvas.Selection.getTargetId mouseDownData.selectionItem
             in
@@ -1335,16 +1331,6 @@ makeScreenMutation pressedKeys userModel point camera mouseDownData =
         transformPoint =
             normalizeTargetPoint camera point
 
-        transformedRect =
-            transformRect
-                { startLocation = mouseDownData.handleLocation
-                , currentLocation = transformPoint
-                , rect = transformTarget
-                , constrainToOneAxis =
-                    shouldConstrainToAxis
-                        pressedKeys
-                }
-
         absSiblings =
             mouseDownData.siblingsDimensions
                 |> List.map (Tuple.mapSecond (Canvas.Camera.Convert.absoluteRectangleFromSceneRectangle camera))
@@ -1438,11 +1424,6 @@ makeScreenMutation pressedKeys userModel point camera mouseDownData =
                 targetChildren =
                     Spec.Element.getChildren targetData.element
                         |> List.filterMap flowToAbsolute_
-
-                newParentMutation =
-                    Spec.Mutation.CompleteTransform
-                        targetData.selectionItem
-                        resultingNewParent
 
                 targetScope =
                     Interface.Scope.populateForElement

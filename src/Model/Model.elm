@@ -4,7 +4,6 @@ import Authentication
 import Browser.Navigation
 import Canvas.AttributesPanel.Content.Tabs
 import Canvas.AttributesPanel.Tabs
-import Canvas.Camera
 import Canvas.Camera.Model
 import Canvas.Selection
 import Canvas.Tool.Model
@@ -23,10 +22,8 @@ import Random
 import RemoteData
 import ResponsifyTestingEnvironment.Model
 import ScrollTo
-import Spec.Element
 import Spec.Element.Id
 import Spec.Model
-import SupportSection
 import SupportSection.Model
 import Time
 import UndoList

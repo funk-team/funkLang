@@ -1,7 +1,6 @@
 module Dynamic.Model exposing (decode, encode, extractValues, init)
 
 import Dict exposing (Dict)
-import Dynamic.Data
 import Dynamic.Data.Coders
 import Dynamic.Data.Types
 import Dynamic.Types exposing (Model)

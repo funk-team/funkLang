@@ -14,7 +14,6 @@ import Generator
 import Http
 import Json.Encode as Encode
 import List.Extra
-import Model
 import Model.Model
 import Pretty
 import Route

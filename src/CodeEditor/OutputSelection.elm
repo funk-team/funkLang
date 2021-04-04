@@ -1,6 +1,5 @@
 module CodeEditor.OutputSelection exposing (view)
 
-import ApiExplorer
 import ApiExplorer.Api
 import CodeEditor.Model
 import CodeEditor.Msg

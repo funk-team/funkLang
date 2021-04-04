@@ -56,9 +56,6 @@ viewOption params option =
                 else
                     Ui.Style.white
 
-        borderColor =
-            Element.Border.color Ui.Style.grey
-
         textColor =
             Element.Font.color <|
                 if not isSelected then

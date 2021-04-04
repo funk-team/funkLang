@@ -5,7 +5,6 @@ import Json.Decode as Decode
 import Json.Encode as Encode
 import Projects.Model
 import Projects.Msg
-import RemoteData
 import RemoteData.Http
 
 
@@ -59,9 +58,6 @@ list userId =
         "/api_server/project/list"
         Projects.Msg.ProjectsReceived
         (Decode.list Projects.Model.decodeProject)
-
-
-port listProjects : () -> Cmd msg
 
 
 port gotProjectsList : (Decode.Value -> msg) -> Sub msg

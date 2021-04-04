@@ -23,7 +23,6 @@ import Element.Border
 import Element.Events
 import Element.Font
 import Html
-import Html.Attributes
 import Ui.Boxicons
 import Ui.Component as Component
 import Ui.EntypoIcons
@@ -177,87 +176,6 @@ view attribs { label, contents } =
 type alias State =
     { isOpen : Bool
     }
-
-
-statefulView : State -> List (Element.Attribute msg) -> DropdownParams msg -> Element.Element msg
-statefulView { isOpen } attribs { label, contents } =
-    let
-        layoutedDropdown =
-            Element.layoutWith
-                { options = [ Element.noStaticStyleSheet ] }
-                [ contentsPanel
-                , Ui.Style.interFont
-                , Element.width Element.fill
-                , Ui.Style.style "font-size" "inherit"
-                ]
-                button
-
-        button =
-            let
-                icon =
-                    Element.el
-                        (if List.isEmpty attribs then
-                            [ Element.Font.color Ui.Style.grey
-                            , Element.alignRight
-                            , Element.scale 0.7
-                            , Element.width (Element.px 18)
-                            ]
-
-                         else
-                            [ Element.alignRight
-                            , Element.scale 0.7
-                            , Element.width (Element.px 18)
-                            ]
-                        )
-                    <|
-                        Component.icon Ui.EntypoIcons.chevronThinDown
-            in
-            Element.row
-                ([ Ui.Style.class "funk-dropdown-button"
-                 , Element.paddingEach { top = 3, left = 10, bottom = 3, right = 3 }
-                 , Element.width Element.fill
-                 , Element.spacing 2
-                 ]
-                    |> List.append
-                        (if List.isEmpty attribs then
-                            defaultDropdownButtonStyle
-
-                         else
-                            attribs
-                        )
-                )
-                [ Element.text label
-                , icon
-                ]
-
-        defaultDropdownButtonStyle =
-            [ Element.Border.rounded 3
-            , Element.Border.width 1
-            , Element.Border.color Ui.Style.transparent
-            , Element.Font.size 12
-            , Element.mouseOver [ Element.Border.color Ui.Style.grey ]
-            ]
-
-        contentsPanel =
-            Element.column
-                [ Element.Background.color Ui.Style.black
-                , Element.Font.color Ui.Style.white
-                , Element.width <| Element.minimum 200 <| Element.shrink
-                , Element.paddingXY 0 5
-                , Ui.Style.class "funk-dropdown-contents"
-                , Element.height (Element.shrink |> Element.maximum 600)
-                , Element.scrollbarX
-                ]
-                (contents |> List.map (\(Row row) -> row))
-                |> Element.below
-    in
-    Html.node
-        "funk-stateful-dropdown"
-        [ Html.Attributes.classList [ ( "open", isOpen ) ] ]
-        [ layoutedDropdown
-        ]
-        |> Element.html
-        |> Element.el [ Element.width Element.fill ]
 
 
 type Row msg

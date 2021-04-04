@@ -87,20 +87,6 @@ viewForm label model =
 viewModal : Model -> Element.Attribute Msg
 viewModal model =
     let
-        wrappedForm =
-            Element.column
-                [ Element.width <| Element.px 600
-                , Element.centerX
-                , Element.padding 50
-                , Element.Border.rounded 5
-                , Element.Background.color Ui.Style.white
-                , Element.moveDown 50
-                , Element.spacing 30
-                ]
-                [ viewForm "Feedback" model
-                , buttonRow
-                ]
-
         buttonRow =
             Element.row
                 [ Element.width Element.fill ]

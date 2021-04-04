@@ -651,13 +651,6 @@ slider gradientState designSystemColors =
                 tupleListMapFirst =
                     List.map << tupleMapFirst
 
-                superposed tupA tupB =
-                    let
-                        ( a, b ) =
-                            ( Tuple.first tupA, Tuple.first tupB )
-                    in
-                    abs (b - a) > colorPreviewSize
-
                 toPxPos pos =
                     let
                         unpPos =
@@ -940,14 +933,6 @@ angleInput type_ =
 
                         InvAngle str ->
                             str
-
-                isValidAngle =
-                    case angle of
-                        Angle _ ->
-                            True
-
-                        InvAngle _ ->
-                            False
             in
             Element.Input.text
                 [ Element.Border.widthEach

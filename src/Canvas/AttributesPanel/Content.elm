@@ -22,7 +22,6 @@ import Canvas.AttributesPanel.Content.Tabs
 import Canvas.AttributesPanel.Shared
 import Canvas.Msg
 import Canvas.Selection
-import DesignSystem.IconBrowser
 import DesignSystem.IconBrowser.Model
 import Element
 import Element.Font
@@ -32,7 +31,6 @@ import Interface.Scope
 import Model.Model
 import Persistence
 import Spec.DataConnection
-import Spec.Element
 import Spec.Element.Id
 import Spec.Element.Model
 import Spec.Mutation
@@ -311,23 +309,6 @@ maybeStaticDataConnection maybeDataConnection =
                     _ ->
                         Nothing
             )
-
-
-{-| Check if it's a dataconnection that is pointing to the model
--}
-maybeModelDataConnection :
-    Maybe Spec.DataConnection.DataConnection
-    -> Maybe Spec.DataConnection.ModelTarget
-maybeModelDataConnection =
-    Maybe.andThen
-        (\dataConnection ->
-            case dataConnection of
-                Spec.DataConnection.FromModel src ->
-                    Just src
-
-                _ ->
-                    Nothing
-        )
 
 
 maybeApiDataConnection :

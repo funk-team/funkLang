@@ -1,7 +1,6 @@
 module Canvas.Tool.Cut exposing (..)
 
 import BoundingClientRectangle
-import Canvas.Camera
 import Canvas.Camera.Model
 import Canvas.Events
 import Canvas.Guides
@@ -20,7 +19,6 @@ import Json.Encode as Encode
 import Random
 import Rectangle
 import Spec
-import Spec.Element
 import Spec.Element.Id
 import Spec.Element.Layout
 import Spec.Element.Layout.Length

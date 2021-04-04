@@ -33,7 +33,6 @@ import Spec.Element.Layout as Layout exposing (Flow(..))
 import Spec.Element.Layout.Padding exposing (Padding)
 import Spec.Element.Model exposing (AbsoluteElement, Children(..), FlowElement, SizeAndAlignment)
 import Spec.Element.Style.Edges exposing (EdgeDimensions)
-import Spec.Model exposing (WithSpec)
 
 
 

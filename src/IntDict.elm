@@ -76,12 +76,3 @@ nextId =
 
 makeKey =
     Random.step (Random.int 0 1000)
-
-
-addNewRandom : a -> Random.Seed -> Dict.Dict Int a -> ( Dict.Dict Int a, Random.Seed )
-addNewRandom el seed dict =
-    let
-        ( id, newSeed ) =
-            makeKey seed
-    in
-    ( Dict.insert id el dict, newSeed )

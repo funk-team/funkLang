@@ -484,9 +484,6 @@ clip model =
 
                         Just absEl ->
                             let
-                                id =
-                                    Canvas.Selection.getTargetId selectionItem
-
                                 actions =
                                     ids
                                         |> List.filterMap (\id_ -> Spec.Element.Id.getFromDict id_ userModel.actions |> Maybe.map (Tuple.pair id_))

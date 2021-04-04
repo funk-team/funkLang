@@ -3,7 +3,6 @@ module Canvas.Tool.Model exposing (..)
 import Canvas.Selection
 import Canvas.Tool.Cut
 import Canvas.Tool.Debug
-import Canvas.Tool.Draw
 import Canvas.Tool.Draw.Model
 import Canvas.Tool.Msg
 import Canvas.Tool.Transform.Model
@@ -11,7 +10,6 @@ import Element
 import Json.Decode as Decode
 import Json.Encode as Encode
 import Random
-import Spec.Element
 import Spec.Element.Model
 import Spec.Mutation
 

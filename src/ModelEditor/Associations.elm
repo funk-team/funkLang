@@ -398,12 +398,6 @@ viewMatchers association isActiveMatcher constructors matchers =
                                 constructorName
             }
 
-        updateMatchers ( constructorId, matcher ) =
-            Dict.insert constructorId matcher matchers
-
-        bakeRow =
-            List.map (Element.map Signal)
-
         bakeConnectOrDelete =
             identity
 
@@ -612,14 +606,6 @@ getNamedFields model =
         |> List.indexedMap
             (\index ( key, field ) ->
                 let
-                    withDefault givenName =
-                        case String.trim givenName of
-                            "" ->
-                                indexToFood index ++ " (unnamed)"
-
-                            _ ->
-                                givenName
-
                     displayName =
                         field.name
                 in

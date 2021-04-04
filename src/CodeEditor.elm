@@ -16,7 +16,6 @@ import Element.Background
 import Element.Border
 import Element.Font
 import Element.Input
-import IntDict
 import IntDict.Typed
 import Json.Decode as Decode
 import Json.Encode as Encode
@@ -32,9 +31,6 @@ import Ui.Style
 
 init =
     always Cmd.none
-
-
-port registerImports : List String -> Cmd msg
 
 
 port runCode : ExecutionInstructions -> Cmd msg
@@ -250,13 +246,6 @@ runTransformation userModel transformationKey transformation =
         , values = compiled.parameterValues
         , code = transformation.code
         }
-
-
-type alias CompiledFunction =
-    { head : String
-    , execution : String
-    , body : String
-    }
 
 
 defaultCode =

@@ -91,33 +91,6 @@ type Msg
 
 view : Model.Model.Model -> Element.Element Msg
 view model =
-    let
-        filesList =
-            Element.column
-                [ Element.spacing 5, Ui.Style.monoFont ]
-                (List.map viewFile model.fs)
-
-        viewFile ( name, importedModule ) =
-            let
-                viewName =
-                    Element.text name
-
-                viewTag =
-                    importedModule
-                        |> Maybe.map viewComponent
-                        |> Maybe.withDefault Element.none
-            in
-            Element.row [ Element.spacing 10 ]
-                [ viewTag
-                , viewName
-                ]
-
-        files =
-            Element.column [ Element.spacing 10 ]
-                [ Element.el [ Element.Font.bold ] (Element.text "Files")
-                , filesList
-                ]
-    in
     Element.column
         [ Element.width Element.fill ]
         [ tabs

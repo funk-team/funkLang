@@ -64,14 +64,8 @@ viewModalDocs model =
     let
         -- buttonRow =
         --     Element.row [ Element.width Element.fill ] [ Element.el [ Element.alignRight ] (genericButton CloseModalButtonClicked "Close") ]
-        youTube =
-            SupportSection.Components.buttonWithIcon Ui.Boxicons.bxlYoutube "YouTube" "https://www.youtube.com/channel/UCHVIria50ZFSNk9M40BfNeQ/featured/"
-
         docs =
             SupportSection.Components.buttonWithIcon Ui.Boxicons.bxsBookOpen "Offical Guide" "https://github.com/funk-team/funkLang#project-status"
-
-        blogPosts =
-            SupportSection.Components.buttonWithIcon Ui.Boxicons.bxlMediumSquare "Blog posts" "https://medium.com/@funklang/"
 
         modal =
             Element.column

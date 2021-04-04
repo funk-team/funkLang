@@ -14,7 +14,7 @@ import Canvas.Tool.Responsify.Types exposing (Drawn)
 import Canvas.Tool.Responsify.Utils exposing (comparison, correctPadding, fillWidthFlipped, shrinkHeight)
 import Rectangle
 import Spec.Element.Layout as Layout
-import Spec.Element.Layout.Padding exposing (Padding, Padding_(..))
+import Spec.Element.Layout.Padding exposing (Padding)
 import Spec.Element.Style.Edges exposing (EdgeDimensions)
 
 

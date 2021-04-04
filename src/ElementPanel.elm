@@ -9,7 +9,6 @@ import Element.Background
 import Element.Border
 import Element.Font
 import Element.Input
-import Model
 import ModelEditor
 import ModelEditor.Model
 import Spec.Element
@@ -47,10 +46,6 @@ view elementId el userModel isOpen =
         -- , label
         , renderActions userModel elementId
         ]
-
-
-closeButton =
-    Element.link [] { url = "/", label = Element.text "close" }
 
 
 renderActions : Model.Model.UserModel -> Spec.Element.Id.Id -> Element.Element Canvas.Msg.Msg

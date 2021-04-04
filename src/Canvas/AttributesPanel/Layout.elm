@@ -7,19 +7,15 @@ import Canvas.AttributesPanel.Shared
 import Canvas.Events
 import Canvas.Msg
 import Canvas.Selection
-import Canvas.Tool
 import Canvas.Tool.AugmentationParams
 import Canvas.Tool.Responsify
 import Element
 import Element.Font
-import Html
-import Html.Parser
 import Interface.Scope
 import Model
 import Model.Model
 import Rectangle
 import Spec.Element
-import Spec.Element.Controls.Layout
 import Spec.Element.Controls.Layout.Context
 import Spec.Element.Controls.Layout.SizeAndAlignment
 import Spec.Element.Model
@@ -177,24 +173,3 @@ view rootModel ( selectionItem, element ) =
 
 edges =
     { bottom = 0, left = 0, right = 0, top = 0 }
-
-
-{-| This is a hotfix: If we set the code without parsing, it will trigger some kind of re-render for the code editor element, causing it to break
-Another idea would be to defer removal or sth. Nevertheless: to be investiaged
--}
-setCodeIfItParses id code =
-    case Html.Parser.run code of
-        Ok _ ->
-            Canvas.Msg.SetLabel id code
-
-        Err _ ->
-            Canvas.Msg.NoOp
-
-
-editor value =
-    let
-        rendered =
-            Html.text "Coming soon"
-    in
-    Element.row [ Element.spacing 10 ]
-        [ rendered |> Element.html ]

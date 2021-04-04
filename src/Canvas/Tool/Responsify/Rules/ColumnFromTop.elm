@@ -18,7 +18,7 @@ import Canvas.Tool.Responsify.Rules exposing (Match, MatchResult(..), Rule)
 import Canvas.Tool.Responsify.Transforms exposing (SimpleFlowBuilder, defaultFlowConfig, genericColumnXAlign, simpleColumnTransformWith)
 import Canvas.Tool.Responsify.Types exposing (Drawn)
 import Canvas.Tool.Responsify.Utils exposing (correctPadding, fillWidthFlipped, shrinkHeight)
-import Spec.Element.Layout.Padding exposing (Padding, Padding_(..))
+import Spec.Element.Layout.Padding exposing (Padding)
 import Spec.Element.Style.Edges exposing (EdgeDimensions)
 
 

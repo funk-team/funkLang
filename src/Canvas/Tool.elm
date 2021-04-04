@@ -29,7 +29,6 @@ import Element.Font
 import Element.Input
 import Model.Model
 import Random
-import Spec.Element
 import Spec.Element.Id
 import Spec.Element.Model
 import Ui.Boxicons
