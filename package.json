@@ -11,6 +11,7 @@
     },
     "scripts": {
         "branch-naming-check": "branch-naming-check '^(gh-([1-9][0-9]*-)+|no-issue-)[a-z][a-z0-9-]+$'",
+        "build": "elm-app build",
         "build-cli": "elm-app make cli-src/Cli.elm --output=elm-stuff/cli.js",
         "build-runtime": "elm-app make src/Runtime.elm --output=public/_runtime.html",
         "code-quality-checks": "npm test && npm run impfix && git add . && pretty-quick --staged --ignore-path=prettierignore && git add .",
