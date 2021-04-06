@@ -78,7 +78,7 @@
     "devDependencies": {
         "@babel/core": "^7.11.6",
         "@babel/register": "^7.11.5",
-        "@innocells/branch-naming-check": "github:FranzSkuffka/branch-naming-check#171d0929b4ba5bae030e4449deab9798e8bccc6a",
+        "@funk-team/branch-naming-check": "^1.0.0",
         "file-api": "^0.10.4",
         "filereader": "^0.10.3",
         "socket.io-client": "^2.3.0",

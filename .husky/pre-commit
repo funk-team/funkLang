@@ -1,4 +1,4 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
-
-npm run code-quality-checks && npm run branch-naming-check
+npm run branch-naming-check
+npm run code-quality-checks
