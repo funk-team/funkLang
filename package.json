@@ -71,7 +71,7 @@
         "url": "git+https://github.com/FranzSkuffka/funk.git"
     },
     "author": "",
-    "license": "MIT",
+    "license": "GPL-3.0-only",
     "bugs": {
         "url": "https://github.com/FranzSkuffka/funk/issues"
     },
