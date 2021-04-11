@@ -170,7 +170,6 @@ viewCurrentApiSpecEditor projectMeta model =
                     , "➡ Assign URL parameters by clicking on parts of the URL"
                     , "➡ Mock data as a real APIs by uploading a JSON file"
                     , "➡ Parse cURL commands directly into funk "
-                    , "➡ STATUS: WIP, UX update coming late February"
                     ]
                     |> Element.map (always ApiExplorer.Msg.ShowOrHideHelpPanel)
                 ]
