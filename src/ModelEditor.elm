@@ -170,7 +170,6 @@ view projectMeta userModel =
                             , "➡ POST form data to an API when a user clicks submit"
                             , "➡ Connect the state to your design using the Model tab in the Canvas sidebar"
                             , "➡ Component conditional rendering coming in March"
-                            , "➡ STATUS: WIP, UX update coming late February"
                             ]
                         ]
                         |> Element.map (always ModelEditor.Msg.ShowOrHideHelpPanel)

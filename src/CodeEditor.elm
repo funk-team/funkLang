@@ -329,7 +329,6 @@ help helpOpenExplicit =
             , "➡ Load optimized npm packages from www.skypack.dev"
             , "➡ Feed transformed data into UI components"
             , "➡ Write transformations in your text editor using the funck CLI"
-            , "➡ STATUS: WIP, UX update coming late February"
             ]
             |> Element.map (always CodeEditor.Msg.ShowOrHideHelpPanel)
         ]
