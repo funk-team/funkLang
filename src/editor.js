@@ -19,11 +19,18 @@ import * as DomMonkeyPatches from './domMonkeyPatches.js'
 import './customElements'
 import dom from './dom'
 import CodeEditor from './CodeEditor.js'
+import CustomElementEditor from './CodeEditor/CustomElements.elm'
 
 // INIT
 
 // generate a random seed for the elm app
 const seed = crypto.getRandomValues(new Uint32Array(1))[0]
+
+export const startCustomElementEditor = () => {
+    console.log(CustomElementEditor)
+    CustomElementEditor.Elm.CodeEditor.CustomElements.init({node : document.body})
+    CodeEditor.initialize()
+}
 
 /**
  * Funk requires the pseudo server to be installed in order to serve files from the in-browser filesystem

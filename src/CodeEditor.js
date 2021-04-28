@@ -66,7 +66,7 @@ const initialize = () => {
                     super()
                     this._linterFormatDiv = document.createElement('div')
                     this._ready = false
-                    this._value = ''
+                    this._value = this.value || ''
                     this._tabSize = 4
                     this._readOnly = false
                     this._mode = 'htmlmixed'

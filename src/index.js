@@ -1,4 +1,4 @@
 import * as Editor from './editor.js'
 console.log(Editor)
-Editor.installAndInit()
+Editor.startCustomElementEditor()
 // import "./runtime.js";
