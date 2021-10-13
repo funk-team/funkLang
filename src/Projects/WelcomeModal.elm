@@ -121,7 +121,7 @@ modalText screen =
 
         5 ->
             textRender
-                "If you do want need to write code, funk works with // *bold* open web standards//. A developer can connect to funk directly using our // *bold*  CLI // to add custom-elements directly in funk. Push the funk spec to GitHub and build like any SPA"
+                "If you do want or need to write code, funk works with // *bold* open web standards//. A developer can connect to funk directly using our // *bold*  CLI // to add custom-elements directly in funk. Push the funk spec to GitHub and build like any SPA"
 
         _ ->
             textRender
