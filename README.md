@@ -1,3 +1,4 @@
+::warning:: FunkLang has been mothballed as of now, we are considering continuing developing Q4 2022. We turned off hosting. If you want to play with the project `git clone` and `npm start` it.
 <!--
 *** I'm using markdown "reference style" links for readability.
 *** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
@@ -20,9 +21,9 @@
     <img src="docs/images/funkLogo.png" alt="funkLogo" width="300"
   </a>
   <p align="center">
-    <a href="https://editor.funklang.com">
+<!--     <a href="https://editor.funklang.com">
       👉 Use the funkLang visual editor  👈
-    </a>
+    </a> -->
   </p>
   <p align="center">
     Visual FrontEnd Framework - Design, Develop‍ and Deploy complex web applications using both code and visual workflows
