@@ -142,13 +142,21 @@ This project runs on node. We develop funk using node version 15.
 git clone git@github.com:funk-team/funkLang.git
 cd funkLang
 npm install
+```
 
-# run development environment
+### run development environment
 npm start
 
-# run unit tests
+### test-driven-development
+Start test-driven unit testing environment:
+```sh
 npm run tdd-elm
+```
 
+Start test-driven e2e testing environment:
+Th
+```sh
+npm run tdd-e2e
 ```
 
 ## 5. License
